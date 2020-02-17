@@ -1,0 +1,28 @@
+{
+  "npmScope": "ngnine",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "nineng": {
+      "tags": []
+    },
+    "nineng-e2e": {
+      "tags": [],
+      "implicitDependencies": ["nineng"]
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
+  }
+}
