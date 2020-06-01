@@ -1,0 +1,24 @@
+<form [formGroup]="angGroup">
+
+    <div>
+        <mat-form-field>
+          <input matInput placeholder="Category name" formControlName="name">
+        </mat-form-field>
+      </div>
+  <div formArrayName="patterns">
+    <mat-form-field class="pattern" *ngFor="let pattern of patterns.controls; let i=index">
+        <span class="material-icons icons" (click)="delete(i)">
+            cancel
+            </span>
+        <input matInput placeholder="Pattern {{i}}" [formControlName]="i">
+      </mat-form-field>
+  </div>
+ 
+</form>
+
+<div class="actions">
+    <button mat-raised-button color="primary" (click)="addCategory()">유형추가</button>
+    <!-- <button mat-raised-button color="primary" >삭제</button> -->
+    <button mat-raised-button color="primary" (click)="addPattern()">추가</button>
+    <button mat-raised-button color="primary">갱신</button>
+</div>

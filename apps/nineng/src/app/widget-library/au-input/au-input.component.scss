@@ -1,0 +1,59 @@
+// COLORS
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+$color-white: #fff;
+$color-black: #000;
+
+:host {
+  border: 1px solid $color-grey-dark-2;
+  padding-bottom: 5px;
+  padding-top: 2px;
+  background: $color-white;
+  display: inline-block;
+  margin-left: 5px;
+  width: 200px;
+}
+
+:host(.input-focus) {
+  outline: none;
+  border: 1px solid $color-primary-light;
+  -webkit-box-shadow: 0px 0px 5px $color-primary-light;
+  box-shadow: 0px 0px 5px $color-primary-light;
+}
+
+:host-context(.au-fa-input-red-theme) {
+  border: 1px solid red;
+}
+ 
+
+fa-icon {
+  margin-left: 1px;
+
+}
+
+.icon {
+  width: 20px;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 2px;
+  border: none;
+  font-size:1rem;
+}
+
+:host ::ng-deep input {
+  height: 25px;
+  border: none;
+  outline: none;
+  margin: 1px 13px;
+  box-sizing: border-box;
+}

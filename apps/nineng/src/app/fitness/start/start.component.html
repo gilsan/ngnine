@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6">
+        <h1 class="text-center">운동할 준비 되셨나요?</h1>
+        <br />
+        <div class="image-container row">
+            <img src="../../../assets/fitness/images/start.png" class="img-fluid col-sm" />
+        </div>
+        <br />
+        <div id="start" class="row">
+            <a routerLink="/fitness/workout" class="btn btn-primary btn-sm btn-block" role="button" aria-pressed="true">
+                <span>시작</span>
+                <span class="ion-md-play"></span>
+            </a>
+        </div>
+        <br />
+        <div id="build" class="row">
+            <a routerLink="/fitness/builder" class="btn btn-primary btn-lg btn-block" role="button" aria-presed="true">
+                <span>맞춤운동만들기</span>
+                <span class="ion-md-add"></span>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+        <h2>운동목록</h2>
+        <div class="input-group mb-1" style="width: 200px;">
+            <input type="text" class="form-control" #search placeholder="검색" aria-describedby="basic-addon2">
+        </div>
+        <!--  -----------------------------------------------------------------------------  -->
+
+        <!-- <span  *ngFor="let workout of workoutList; let i=index"></span> -->
+        
+        <div *ngFor="let workout of workoutList; let i=index" class="exercise-title " (click)="onSelect(i)">
+            <div class="exercise title title__list">
+                <div>{{workout.title}}</div>
+                <div class="title__list-sub">
+                    <span>                   
+                        <i class="far fa-clock"></i>  - {{duration(workout)}}
+                    </span>
+                    <span>
+                        <i class="fas fa-list"></i> - {{count(workout)}}
+                    </span>
+
+                </div>
+            </div>
+        </div>
+        <!--  ----------------------------------------------------------------------------- -->
+    </div>
+</div>

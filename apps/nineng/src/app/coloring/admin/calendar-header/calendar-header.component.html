@@ -1,0 +1,144 @@
+<div class="calendar-header">
+    <app-calendar-head [(view)]="view" [(viewDate)]="viewDate">
+    </app-calendar-head>
+</div>
+<!-- <div class="alert alert-info">
+    Click on a day on the view.
+    <strong *ngIf="clickedDate">You clicked on this day: {{ clickedDate | date:'EEEE' }}</strong>
+</div> -->
+<div>
+
+    <!--
+    <div class="table-responsive">
+        <form [formGroup]="calForm" (ngSubmit)="coloringFormValue()">
+            <button type="submit" class="btn btn-primary add-botton" [disabled]="!calForm.valid">추가</button>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>제 목</th>
+                        <th>음원첨부</th>
+                        <th>시작일</th>
+                        <th>종료일</th>
+                        <th>삭 제</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" formControlName="title" placeholder="음원제목">
+                        </td>
+                        <td>
+                            <input type="file" formControlName="fileName" (change)="handleFiles($event)" />
+                        </td>
+                        <td>
+                            <input class="form-control timeInput" type="text" mwlFlatpickr [altInput]="true" [convertModelValue]="true" [enableTime]="false" dateFormat="Y-m-d" altFormat="Y-n-j" locale="ko" formControlName="startDay" placeholder="날자선택" />
+                        </td>
+                        <td>
+                            <input class="form-control timeInput" type="text" mwlFlatpickr [altInput]="true" [convertModelValue]="true" [enableTime]="false" dateFormat="Y-m-d" altFormat="Y-n-j" locale="ko" formControlName="endDay" placeholder="날자선택" />
+                        </td>
+                        <td>
+                            <button class="btn btn-danger">삭제</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </form>
+    </div>
+</div>
+<hr /><br />
+-->
+    <div>
+        <mwl-calendar-month-view [viewDate]="viewDate" [events]="events" [refresh]="refresh" (dayClicked)="dayClicked($event.day)" [cellTemplate]="customCellTemplate">
+        </mwl-calendar-month-view>
+    </div>
+
+    <ng-template #modalContent let-close="close">
+        <div class="modal-header">
+            <h5 class="modal-title">날자별 등록</h5>
+            <button type="button" class="close" (click)="close('none')">
+                 <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="calForm">
+                <!-- Grid row -->
+                <div class="form-row align-items-center">
+                    <!-- Grid column -->
+                    <div class="col-auto main-col"> 날짜:</div>
+                    <div class="col-auto">
+                        <div class="form-group">
+
+                            <div class="col-auto">
+                                <div class="input-group">
+
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button">
+                                           <i class="fas fa-calendar"></i>
+                                        </button>
+                                    </div>
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="startDay" ngbDatepicker #e="ngbDatepicker">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+                    <div class="col-auto  main-col"> ~ </div>
+                    <!-- Grid column -->
+                    <div class="col-auto">
+                        <div class="form-group">
+                            <div class="input-group">
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                    <i class="fas fa-calendar"></i>
+                                </button>
+                                </div>
+                                <input class="form-control" name="dp" formControlName="endDay" ngbDatepicker #d="ngbDatepicker">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid column -->
+                <div class="form-row align-items-center">
+                    <!-- Grid column -->
+                    <div class="col-auto main-col"> 음원:</div>
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <select class="form-control" style="width: 90%;" formControlName="title">
+                               <option selected>선택</option>
+                                <option *ngFor="let coloring of (coloringList$ | async)"
+                                 value="{{coloring.title}}-{{coloring.fileName}}">{{coloring.title}}</option>
+                        </select>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" *ngIf="isShow" [disabled]="calForm.invalid" (click)="close('ADD')">
+              확인
+            </button>
+            <button type="button" class="btn btn-success" *ngIf="!isShow" (click)="close('UPDATE')">
+              수정
+            </button>
+            <button type="button" class="btn btn-danger" (click)="close('DELETE')">
+              삭제
+            </button>
+        </div>
+    </ng-template>
+
+    <ng-template #customCellTemplate let-day="day">
+        <div class="cal-cell-top">
+            <!-- <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">수정</span> -->
+            <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+        </div>
+        <small style="margin: 5px;background-color:mediumaquamarine;" *ngIf="myCheck(day)">
+              {{ showTitle(day.events[0].title) }}
+        </small>
+
+    </ng-template>

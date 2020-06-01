@@ -1,0 +1,17 @@
+:host {
+    height: 100vh;
+}
+
+.tabs {
+   // margin-top: 2rem;
+    display:flex;
+    justify-content: center;
+    &-width {
+        width: 90vw;
+    }
+}
+
+.mat-tab-label-content {
+ font-size: 2rem !important;
+}
+ 

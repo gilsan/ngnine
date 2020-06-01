@@ -1,0 +1,102 @@
+@import '../../scss/col-size';
+
+.event {
+    &__main {
+        &--image {
+           object-fit: cover;
+           max-height: 482px;
+           width:100%;
+        }
+    }
+}
+
+.align-center {
+    text-align: center;
+    & .leadin {
+        margin-top: 42px;
+        margin-bottom: 22px;
+        & .page-title {
+            margin-bottom: 32px;
+            & .richText {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.b-col {
+    flex-grow: 1;
+}
+
+.b-row {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.page-title {
+   margin: 0 0 32px 0;
+   padding: 0;
+}
+
+
+@media screen and (min-width: 768px) {
+    .b-container {
+        padding-left: 32px;
+        padding-right: 32px;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    .b-text_display-b4 {
+        font-size: 48px;
+    }
+}
+
+.description {
+    line-height: 1.63;
+    max-width: 615px;
+    margin: auto;
+}
+.b-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.b-col {
+    flex-grow: 1;
+    margin-bottom: 40px;
+}
+
+.social-bar {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.list-inline {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    
+}
+.social {
+   margin: 0 1rem;
+   font-size: 1rem;
+   .fa-facebook {
+     color: blue;
+     &:hover {
+         padding: 0.5rem;
+         background-color:greenyellow;
+         color:white;
+     }
+   }
+   .fa-instagram {
+       color: red;
+       &:hover {
+           padding: 0.5rem;
+           background-color: greenyellow;
+           color: white;
+       }
+   }
+}
+
+
+

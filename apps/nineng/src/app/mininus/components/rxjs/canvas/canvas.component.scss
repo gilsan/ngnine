@@ -1,0 +1,25 @@
+
+
+.board {
+    width: 80vw;
+    top: 50%;
+    
+    transform: translate(15%, 50%);
+    position: relative;
+}
+
+canvas {
+     border: 1px solid black; 
+     background-color: #fff;
+    }
+
+button {
+    position: absolute;
+    left: 630px;
+    top: 120px;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+}    
+
+    

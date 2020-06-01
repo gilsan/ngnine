@@ -1,0 +1,135 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 pull-left">
+            <div class="form-group form-inline">
+                <!--    -->
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="s.toggle()" type="button">
+                           <i class="fas fa-calendar"></i>
+                        </button>
+                    </div>
+                    <input class="minimal" placeholder="년-월-일" name="dp" ngbDatepicker #s="ngbDatepicker" size="10">
+                </div>
+                <div class="col-sm-1"> ~
+                </div>
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button">
+                           <i class="fas fa-calendar"></i>
+                        </button>
+                    </div>
+                    <input class="minimal" size="10" placeholder="년-월-일" name="dp" ngbDatepicker #e="ngbDatepicker">
+                </div>
+                <div class="col-sm-1">
+                    <select name="search_opt" class="form-control selectpicker">
+                      <option value="caller">발신번호</option>
+                      <option value="callee">착신번호</option>
+                    </select>
+                </div>
+                <!--   -->
+                <div class="col-sm-1"></div>
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <input class="minimal" size="10" #searchMent type="text" placeholder="번호입력.." />
+                        <div class=" input-group-btn">
+                            <button type="button" class="btn btn-outline-secondary" (click)="mentSearch(searchMent.value)"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- <div class="col-sm-3" style="border:1px solid yellow;">
+            <div class="input-group">
+                <div class="input-group-append">
+                    <input class="minimal" size="10" #searchMent type="text" placeholder="번호입력.." />
+                    <div class=" input-group-btn">
+                        <button type="button" class="btn btn-outline-secondary" (click)="mentSearch(searchMent.value)"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="col-sm-2">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" (click)="reset()">
+                  <i class="fas fa-sync"></i>새로고침
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col" class="index">#</th>
+            <th scope="col" class="filename">녹취일지</th>
+            <th scope="col" class="title">발신번호</th>
+            <th scope="col" class="title">착신번호</th>
+
+            <th scope="col" class="item head_modi">듣기</th>
+            <th scope="col" class="item head_delete">내려받기</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let record of (recordingList$ | async) as records">
+            <th scope="row" class="index">{{record.id}}</th>
+            <td class="filename ">{{record.rec_date}}</td>
+            <td class="title">{{record.caller}}</td>
+            <td class="title">{{record.callee}}</td>
+
+            <td>
+                <div class="modi" (click)="listenMusic(record)">듣기<i class="fas fa-headphones"></i>
+                </div>
+            </td>
+            <td>
+                <div class="download" (click)="recordingDelete( )">내려받기<i class="fas fa-download"></i></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" (click)="getNext()" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+</div>
+
+<ng-template #modalListen let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">음원듣기</h5>
+        <button type="button" class="close" (click)="close('none')">
+     <span aria-hidden="true">&times;</span>
+</button>
+    </div>
+    <div class="modal-body">
+
+        <div class="box box-primary">
+
+            <div class="box-body">
+                <div class="form-group reg-group">
+                    <label for="inputText1 " class="col-sm-3 control-label">음원파일</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control input-sm" [value]="musicName">
+                    </div>
+                </div>
+                <div class="form-group reg-group">
+                    <label for="inputText1 " class="col-sm-3 control-label">듣기</label>
+                    <div class="col-sm-9">
+                        <mat-basic-audio-player [audioUrl]="msbapAudioUrl" [title]="msbapTitle" [displayTitle]="msbapDisplayTitle"></mat-basic-audio-player>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" style="display:flex; justify-content: space-around;">
+        <button type="button" class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소 </button>
+    </div>
+
+</ng-template>

@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="exercises">
+        <app-left-nav-main></app-left-nav-main>
+    </div>
+    <div class="col-sm-10 builder-content  contents">
+        <h2 class="text-center">운 동</h2>
+        <div *ngFor="let exercise of ( exerciseList$ | async) as execs" class="exercise-title " (click)="onSelect(exercise)">
+            <div class="exercise title title__list">{{exercise.title}}</div>
+        </div>
+    </div>
+
+</div>

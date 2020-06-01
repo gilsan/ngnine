@@ -1,0 +1,287 @@
+ 
+
+// GRID
+$grid-width: 100%; //114rem;
+$gutter-vertical: 1rem;
+$gutter-horizontal: 6rem;
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.row {
+    max-width: $grid-width;
+   // margin: 0 auto;
+     margin: 0  2rem;
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
+    
+    @include clearfix;
+
+    [class^="col-"] {
+        float: left;
+
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+        
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+
+    .col-2-of-3 {
+        width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+    }
+
+    .col-1-of-4 {
+        width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    }
+
+    .col-2-of-4 {
+        width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4 {
+        width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+    }
+
+}
+
+ 
+
+.myModal {
+    width: 100%;
+    padding: 2rem 3rem;
+    background-color: #faf9f7;
+    
+}
+
+.modal-content {
+    border: 1px solid black;
+   // width: 80%;
+    padding: 1rem 0;
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+}
+
+.myBorder {
+    border: 1px solid black;
+    background-color: white;
+}
+
+.mark {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+ 
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.main-title {
+    font-size: 1.5rem;
+}
+
+.first-row {
+    display: flex;
+    justify-content: flex-start;    
+}
+
+.second__row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem 0;
+    & input {
+        border-style: none;
+    }
+}
+
+.bottom-margin {
+    margin-bottom: 2rem;
+}
+
+.book {
+    .success {
+        padding: 0.7rem 2rem;
+        background-color: blueviolet;
+        color: white;
+        border-radius: 5px;
+        border-style: none;
+    }  
+}
+
+.room--info {
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+
+}
+
+.room--header {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.room--info--extends {
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+.room--info--move {
+    position: absolute;   
+    top: 150px;
+    left: 0px;
+    z-index: 2;
+    width: 100%;
+}
+
+.contents {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.counter {
+    width: 45px;  
+    border-radius: 0px !important;
+    text-align: center;
+    height: 42px;
+  }  
+
+.up_count {
+    margin-bottom: 0px;  
+    margin-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  } 
+  .down_count {
+    margin-bottom: 00px;  
+    margin-right: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .list-items {
+    position: absolute;   
+    top: 150px;
+    left: 33%;
+    z-index: 2;
+    width: 100%;  
+  }
+
+  .items-panel {
+    background-color: white; 
+  }
+
+  .item-list {
+    width: 100%;
+    
+    border: 1px solid #ddd;
+    &:hover {
+        cursor: pointer;
+        
+    }
+}
+
+.item:hover {
+     cursor: pointer;
+     background-color: lightpink;
+}
+
+.room--header2 {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.styled-checkbox {
+    position:absoulte;
+    opacity: 0;
+    & + label[id="label"] {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+    }
+    // Box
+    & + label[id="label"]:before {
+        content: "";
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: text-top;
+        width: 20px;
+        height: 20px;
+        background: gray;
+    }
+
+    //box hover
+    &:hover + label[id="label"]:before {
+        background: #f35429;
+    }
+
+    // Box focus
+    &:focus + label[id="label"]:before {
+        box-shadow: 0 0 0 3px rgba(0,0,0,0.12);
+    }
+    // Box checked
+    &:checked + label[id="label"]:before {
+        background: #f35429;
+    }
+
+    // Disabled state label 
+    &:disabled + label[id="label"] {
+        color: #b8b8b8;
+        cursor: auto;
+    }
+
+    // Disabled box
+    &:disabled + label[id="label"]:before {
+        box-shadow: none;
+        background: gray;
+    }
+    // Checkmark, Could be replaced with an image
+    &:checked + label[id="label"]:after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 9px;
+        background: white;
+        width: 2px;
+        height: 2px;
+        box-shadow: 
+          2px 0 0 white,
+          4px 0 0 white,
+          4px -2px 0 white,
+          4px -4px 0 white,
+          4px -6px 0 white,
+          4px -8px 0 white;
+        transform: rotate(45deg);
+      }
+
+
+
+}
+
+ 
+
+ 
+
+
+
+ 

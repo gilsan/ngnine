@@ -1,0 +1,135 @@
+ @import '../../scss/col-size';
+ 
+ .event {
+     &__main {
+         &--image {
+            object-fit: cover;
+            max-height: 482px;
+            width:100%;
+         }
+     }
+ }
+
+ .page-title {
+     margin: 50px 0;
+     text-align: center;
+ }
+
+ 
+ .description {
+     line-height: 1.63;
+     max-width: 615px;
+     margin: auto;
+ }
+ 
+ .component {
+     margin-top: 50px;
+     display: block;
+ }
+
+ .rooms-space-count .psr-row.two-col {
+     margin: 0 auto;
+     max-width: 400px;
+     .psr-col {
+         margin: 0 auto;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+     }
+ }
+
+ .b-row {
+     display:flex;
+     justify-content: space-around;
+     align-items: center;
+     
+ }
+
+ .psr-col h4{
+     font-weight: bold;
+ }
+
+ .align-center {
+     margin: 20px 0;
+ }
+
+ .b-row {
+     display:flex;
+     position: relative;
+     justify-content: center; 
+     margin: 2rem 0;
+ }
+
+ .divider::before {
+    content:"";
+    border-top: 1px solid #ededed;
+    position: absolute;
+    top: 0;
+    right: 60%;
+    left: 0;
+}
+
+.divider::after {
+    content:"";
+    border-top: 1px solid #ededed;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 60%;
+}
+
+.b-col {
+    position: absolute;
+    top: -18px;
+    left: 40%;
+   
+}
+ 
+.b-title {
+    font-size: 48px;
+}
+
+@media screen and (min-width: 768px) {
+    .sectionheader {
+        display: flex;
+        justify-content: space-around;
+    }
+    .room-size {
+        flex: 0 0 calc(50% - 1rem);
+    }
+    .spaces-title {
+        padding: 1rem 0;
+        font-size: 22px;
+        &:hover {
+            cursor: pointer;
+        }
+
+    }
+    .l-header {
+        display:flex;
+        justify-content: space-between;
+    }
+}
+
+.img-size {
+    width: 90%;
+    height: 300px;
+}
+.img-sub-size {
+    width: 100%;
+    height: 300px;
+}
+
+.close-icon {
+    color: black;
+}
+
+.sub-description {
+    padding: 1rem 0.5rem;
+    line-height: 2;
+}
+
+ 
+
+
+

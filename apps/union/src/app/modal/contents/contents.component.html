@@ -1,0 +1,133 @@
+<section class="myModal">
+
+    <div class="modal-content">
+        <div class="mark" (click)="close()">
+            <span class="material-icons"> close </span> 
+        </div>
+    
+        <div class="row first-row bottom-margin">                 
+            <div class="col-2-of-3"> 
+                    <span class="main-title">1 King Bed City View Deluxe</span>
+            </div>         
+        </div> 
+        
+        <div class="row first-row bottom-margin">                 
+            <div class="col-1-of-3 myBorder"> 
+                <div class="second__row">
+                    <span class="material-icons icon">date_range</span> 
+                    <input type="date" class="check-in" value="today"> 
+                </div>                                         
+            </div>
+                
+             <div class="col-1-of-3 myBorder"> 
+                 <div  class="second__row">
+                    <span class="material-icons">date_range</span>  
+                    <input type="date" class="check-out"  value="today">   
+                 </div>                 
+               
+            </div>
+            <div  class="col-1-of-3 book">                             
+                <button  class="success">BOOK NOW</button>
+           </div>          
+        </div> 
+
+        <div class="row first-row bottom-margin">                 
+            <div class="col-1-of-3 myBorder">                      
+                <div class="room--header" (click)="toggle()">
+                    <span class="material-icons">perm_identity</span>
+                    <span class="room--number">1</span>
+                    <span class="room--rooms" *ngIf="person > 1">Rooms</span> 
+                    <span class="room--room" *ngIf="person <= 1">Room,</span>
+                    <span class="room--guest-num">1</span>
+                    <span class="room--guests" *ngIf="guest <= 1">Guest</span> 
+                    <span class="room--guest" *ngIf="guest > 1">Guests</span> 
+                    <span class="material-icons maticon" *ngIf="!isShow">arrow_drop_down</span>
+                    <span class="material-icons maticon" *ngIf="isShow">clear</span>
+                     
+                </div>                  
+            </div>
+                
+             <div class="col-1-of-3 myBorder">                  
+                     <span class="material-icons">date_range</span>  
+                     <input type="date" class="check-out"  value="today">                  
+            </div>                       
+        </div> 
+
+        <div class="row first-row bottom-margin">                 
+            <div class="col-1-of-3 myBorder">                      
+                    <span class="material-icons icon">date_range</span> 
+                    <input type="date" class="check-in" value="today">                     
+            </div>
+                
+             <div class="col-1-of-3 myBorder">                  
+                     <span class="material-icons">date_range</span>  
+                     <input type="date" class="check-out"  value="today">                  
+            </div>                       
+        </div> 
+
+    </div>
+
+</section>
+
+
+<!-- <section class="section-about">  
+    <div class="row layout">
+        <div class="col-1-of-2 myBorder">
+            <h3 class="heading-tertiary u-margin-bottom-small">You're going to fall in love with nature</h3>
+            <p class="paragraph">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur libero repellat quis consequatur
+                ducimus quam nisi exercitationem omnis earum qui.
+            </p>
+  
+            <h3 class="heading-tertiary u-margin-bottom-small">Live adventures like you never have before</h3>
+            <p class="paragraph">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores nulla deserunt voluptatum nam.
+            </p>
+  
+            <a href="#" class="btn-text">Learn more &rarr;</a>
+        </div>
+        <div class="col-1-of-2 myBorder">
+            <div class="composition">
+                <img src="../assets/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+                <img src="../assets/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+                <img src="../assets/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+            </div>
+        </div>
+    </div>
+  </section> -->
+
+ <!--
+<div class="myModal">
+    <div class="modal-content">       
+                
+        <div class="second-row">        
+           
+             <div class="date booking__date">                      
+                     <span class="material-icons icon">date_range</span> 
+                     <input type="date" class="check-in" value="today">                     
+             </div>
+                 
+              <div class="date booking__date">                  
+                      <span class="material-icons">date_range</span>  
+                      <input type="date" class="check-out"  value="today">                  
+             </div>
+             <div  class=" booking__title">
+                  <div class="title">               
+                          <label>BOOK NOW</label>                            
+                  </div>        
+            </div> 
+        </div>
+ 
+       
+        <div class="third-row">
+ 
+        </div>
+ 
+       
+        <div class="fourth-row">
+ 
+        </div> 
+ 
+    </div>
+ </div>
+   -->

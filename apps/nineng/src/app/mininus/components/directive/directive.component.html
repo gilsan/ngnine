@@ -1,0 +1,36 @@
+<div class="top-menu">
+
+    <img class="logo" 
+         src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+         <div ngnineSubmenu  (statusMouse)="statusMouse($event)" class="menupanel" #submenu="submenu">
+             <span>Directive</span>
+             <ng-template  #tpl>
+                 <ul class="submenu">
+                     <li class="submenu__item" (click)="item('사과')">사과</li>
+                     <li class="submenu__item" (click)="item('배')">배</li>
+                     <li class="submenu__item" (click)="item('귤')">귤</li>
+                     <li class="submenu__item" (click)="item('포도')">포도</li>
+                 </ul>
+             </ng-template>
+             <ng-container #embeddedView></ng-container>
+         </div>
+</div>
+
+<div class="courses" *ngIf="courses[0] as course">
+
+    <app-course-card  highlighted
+            (courseSelected)="onCourseSelected($event)"
+                 [course]="course">
+
+        <app-course-image [src]="course.iconUrl"></app-course-image>
+        <div class="course-description">
+            {{ course.longDescription }}
+        </div>
+    </app-course-card>
+</div>
+
+
+
+ 
+
+ 

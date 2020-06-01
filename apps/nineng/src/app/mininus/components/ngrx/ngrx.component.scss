@@ -1,0 +1,17 @@
+
+ .tabs {
+    margin-top: 2rem;
+    display:flex;
+    justify-content: center;
+    background-color: white;
+    &-width {
+        background-color: white;
+        width: 40vw;
+    }
+}
+
+h3 {
+    padding: 1rem 0;
+    font-weight: bold;
+    text-align: center;
+}

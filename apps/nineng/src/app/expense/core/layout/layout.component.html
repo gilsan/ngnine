@@ -1,0 +1,46 @@
+<div class="layout-content">
+    <mat-toolbar color="primary"  class="toolbar">
+        <!-- <span></span> -->
+        <!-- <period-selector></period-selector> -->
+        <div class="layout-menu">
+            <div class="menu">
+                <div class="progress-bar">
+                    <mat-progress-bar mode="indeterminate" *ngIf="loadingRoute"></mat-progress-bar>
+                </div>
+        
+                <!-- <button  menuItem 
+                    (selected)="changeSelected($event)"    
+                    [routerLink]="['/expenses','layout','dashboard']"               
+                   name="dashboard" class="panel">
+                    <mat-icon svgIcon="home"></mat-icon>
+                    <span class="title">대쉬보드</span>
+                </button> -->
+        
+                <button menuItem 
+                (selected)="changeSelected($event)"
+                [routerLink]="['/expenses','layout','expenses']"
+                 name="expenses"  class="panel">
+                    <mat-icon svgIcon="list"></mat-icon>
+                    <span>지출내역</span>
+                </button>
+        
+                <button menuItem  
+                (selected)="changeSelected($event)" 
+                [routerLink]="['/expenses','layout','settings']"
+                 name="settings"  class="panel">
+                    <mat-icon svgIcon="settings"></mat-icon>
+                    <span>설정</span>
+                </button>
+        
+            </div>
+        </div>
+        <div >
+            <button    name="gohome"  (click)="goBack()"
+              class="panel">
+                <mat-icon svgIcon="settings"></mat-icon>
+                <span>홈</span>
+            </button>                
+        </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</div>

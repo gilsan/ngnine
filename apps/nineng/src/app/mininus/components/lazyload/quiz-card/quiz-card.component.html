@@ -1,0 +1,19 @@
+<mat-card class="quiz-card">
+    <mat-card-header>
+        <div mat-card-avatar class="quiz-header-image"></div>
+        <mat-card-title>이 도시는 어느 도시입니까?</mat-card-title>
+        <mat-card-subtitle>아래 그림중 하나를 선택해 주세요.</mat-card-subtitle>
+    </mat-card-header>
+    <img [src]="'../../../assets/lazyload/' + question.image" alt="" class="image">
+    <mat-card-actions class="answer-section">
+        <button
+           [disabled]="answeredCorrectly !== undefined"
+           *ngFor="let selection of question.possibleSelections"
+           mat-stroked-button color="primary"
+           [ngClass]="{
+               'correct': answeredCorrectly && selection === question.correctAnswer,
+               'wrong':   answeredCorrectly === false && selection === question.correctAnswer
+           }"
+           (click)="answer(selection)" >{{selection}}</button>
+    </mat-card-actions>
+</mat-card>

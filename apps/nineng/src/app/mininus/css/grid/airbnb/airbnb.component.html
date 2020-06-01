@@ -1,0 +1,283 @@
+<div class="hero">
+    <header class="header">
+        <div class="logo">
+            <img src="../../../../../assets/minimus/airbnb/logo.png">
+        </div>
+        <nav class="main-nav">
+            <a href="mininus/components/airbnb">Become a Host</a>
+            <a href="mininus/components/airbnb">Help</a>
+            <a href="mininus/components/airbnb">Sign up</a>
+            <a href="mininus/components/airbnb">Log in</a>
+        </nav>
+    </header>
+
+    <div class="containers search-form-container">
+        <div class="search-form">
+            <h1>휴양림</h1>
+
+            <form action="#"  #searchform>
+                <div class="field">
+                    <label>장소</label>
+                    <input type="text" placeholder="City">
+                </div>
+                <div class="date">
+                    <label>입소일</label>
+                    <input type="date">
+                </div>
+                <div class="date">
+                    <label>퇴소일</label>
+                    <input type="date">
+                </div>
+                <div class="field">
+                    <label>손님</label>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
+                <div class="submit">
+                    <input type="submit" class="submitBtn" value="Search">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<ng-template #card  let-title="title" let-price="price" let-image="image" let-classType="type">
+    <div [ngClass]="classType">
+        <img [src]="image">
+        <div class="info">
+            <p class="title">{{title}}</p>
+            <p class="price">{{price}}</p>
+        </div>
+    </div><!--.card-->
+</ng-template>
+
+<main class="content container">
+    <section class="countries">
+        <h2>Recommended for you</h2>
+        <div class="cards-container">
+            <div *ngTemplateOutlet="card;
+                   context: {
+                       title: '호주', 
+                       price: '30,000원/1박 평균',
+                       image: '../../../../../assets/minimus/airbnb/recommended1.jpg',
+                       type: 'card'
+                      }">
+            </div>
+            <div *ngTemplateOutlet="card;
+                  context:{
+                      title:'프랑스',
+                      price:'40,000원/1박 평균',
+                      image: '../../../../../assets/minimus/airbnb/recommended2.jpg',
+                      type: 'card'
+                  }">    
+            </div>
+            <div *ngTemplateOutlet="card;
+                  context: {
+                      image: '../../../../../assets/minimus/airbnb/recommended3.jpg',
+                      title: '그리스',
+                      price: '50,000/1박 평균',
+                      type: 'card'
+                  }">
+            </div>
+            <div *ngTemplateOutlet="card;
+                 context: {
+                     image: '../../../../../assets/minimus/airbnb/recommended4.jpg',
+                     title: '영국',
+                     price: '40,000원/1박 평균',
+                     type: 'card'
+                 }">
+            </div>
+         
+            <div *ngTemplateOutlet="card;
+                   context: {
+                       image: '../../../../../assets/minimus/airbnb/recommended5.jpg',
+                       title: '바르셀로나',
+                       price: '35,000원/1박 평균',
+                       type: 'card'
+                   }">
+            </div>
+        </div><!--.cards-container-->
+    </section>
+
+    <ng-template #explore let-classType="type" let-image="image" 
+      let-category="category"
+      let-title="title" let-price="price">
+        <div class="card">
+            <img [src]="image">
+            <div [ngClass]="type">
+                <p class="category concert">{{category}}</p>
+                <p class="title">{{title}}</p>
+                <p class="price">{{price}}</p>
+            </div>
+        </div>
+    </ng-template>
+
+
+    <section class="explore">
+        <h2>Explore Los Angeles</h2>
+        <div class="cards-container">
+            <div *ngTemplateOutlet="explore;
+                 context: {
+                     type: 'card',
+                     category: '음악회',
+                     image: '../../../../../assets/minimus/airbnb/explore1.jpg',
+                     title: '전자음악축제',
+                     price: '20,000원/1인'
+                 }">
+            </div>
+            <div *ngTemplateOutlet="explore;
+                 context: {
+                     type: 'card',
+                     category: '음악회',
+                     image: '../../../../../assets/minimus/airbnb/explore2.jpg',
+                     title: 'LA Rock 음악축제',
+                     price: '30,000원/1인'
+                 }">
+            </div>
+            <div *ngTemplateOutlet="explore;
+                 context: {
+                     type: 'card',
+                     category: '음식축제',
+                     image: '../../../../../assets/minimus/airbnb/explore3.jpg',
+                     title: '멕시코 음식축제',
+                     price: '50,000원/1인'
+                 }">
+            </div>
+            <div *ngTemplateOutlet="explore;
+                 context: {
+                     type: 'card',
+                     category: '자전거동호회',
+                     image: '../../../../../assets/minimus/airbnb/explore4.jpg',
+                     title: '산악자전거',
+                     price: '20,000원/1인'
+                 }">
+            </div>
+        </div>
+    </section>
+
+    <section class="hosting">
+        <h2>Unique homes for your next trip</h2>
+        <div class="cards-container">
+            <div class="card">
+                <img src="../../../../../assets/minimus/airbnb/lodgement1.jpg">
+                <div class="info">
+                    <p class="category lodgement">Beautiful House on the Beach</p>
+                    <p class="title">Beatiful House 2 bedrooms</p>
+                    <p class="price">$3,200 per night</p>
+                </div>
+            </div><!--.card-->
+            <div class="card">
+                <img src="../../../../../assets/minimus/airbnb/lodgement2.jpg">
+                <div class="info">
+                    <p class="category lodgement">1 Room in Los Angeles</p>
+                    <p class="title">1 Room, downtown LA</p>
+                    <p class="price">$2,200 per night</p>
+                </div>
+            </div><!--.card-->
+            <div class="card">
+                <img src="../../../../../assets/minimus/airbnb/lodgement3.jpg">
+                <div class="info">
+                    <p class="category lodgement">Cottage in the Woods</p>
+                    <p class="title">Cottage for 6 Persons</p>
+                    <p class="price">$2,500 per night</p>
+                </div>
+            </div><!--.card-->
+        </div>
+    </section>
+
+
+    <section class="explore">
+        <h2>Top-rated experiences</h2>
+        <div class="cards-container">
+            <div class="card">
+                <img src="../../../../../assets/minimus/airbnb/newyork1.jpg">
+                <div class="info">
+                    <p class="category class">Cooking Class</p>
+                    <p class="title">Japanese Cuisine for Beginners</p>
+                    <p class="price">$300 per person</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../../../../assets/minimus/airbnb/newyork2.jpg">
+                <div class="info">
+                    <p class="category concert">concert</p>
+                    <p class="title">Festival EDM 2018</p>
+                    <p class="price">$1,200 per person</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../../../../assets/minimus/airbnb/newyork3.jpg">
+                <div class="info">
+                    <p class="category class">Cooking Class</p>
+                    <p class="title">Spanish Cuisine</p>
+                    <p class="price">$200 per person</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../../../../assets/minimus/airbnb/newyork4.jpg">
+                <div class="info">
+                    <p class="category outdoor-activity">Horse Ride</p>
+                    <p class="title">Horse Ride in the Mountain</p>
+                    <p class="price">$100 per person</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="footer" class="footer" [ngStyle]="showFooter()">
+    <div class="container">
+        <div class="nav-footer">
+            <h3>AirCSSGrid</h3>
+            <nav class="menu">
+                <a href="mininus/components/airbnb">Careers</a>
+                <a href="mininus/components/airbnb">Press</a>
+                <a href="mininus/components/airbnb">Policies</a>
+                <a href="mininus/components/airbnb">Help</a>
+            </nav>
+        </div>
+        <div class="nav-footer">
+            <h3>Discover</h3>
+            <nav class="menu">
+                <a href="mininus/components/airbnb">Trust & Safety</a>
+                <a href="mininus/components/airbnb">Travel Credit</a>
+                <a href="mininus/components/airbnb">Gift Cards</a>
+                <a href="mininus/components/airbnb">AirCSSGrid Citizen</a>
+                <a href="mininus/components/airbnb">Events <span class="new">New</span> </a>
+            </nav>
+        </div>
+        <div class="nav-footer">
+            <h3>Hosting</h3>
+            <nav class="menu">
+                <a href="mininus/components/airbnb">Why Host</a>
+                <a href="mininus/components/airbnb">Hospitality</a>
+                <a href="mininus/components/airbnb">Responsible Hosting</a>
+                <a href="mininus/components/airbnb">Community Center</a>
+            </nav>
+        </div>
+        <div class="nav-footer">
+            <nav class="social-nav">
+                <a href="http://facebook.com"><span><i class="fab fa-facebook-f"></i></span></a>
+                <a href="http://twitter.com"><span><i class="fab fa-twitter"></i></span></a>
+                <a href="http://instagram.com"><span><i class="fab fa-instagram"></i></span></a>
+            </nav>
+            <nav class="menu">
+                <a href="mininus/components/airbnb">Terms</a>
+                <a href="mininus/components/airbnb">Privacy</a>
+                <a href="mininus/components/airbnb">Site map</a>
+            </nav>
+        </div>
+    </div>
+    <ng-template [ngIf]="footer">
+        <div class="template" (click)="toggle()">
+            <span><i class="fas fa-times"></i>Close</span>
+        </div>
+    </ng-template>
+
+</footer>
+<ng-template [ngIf]="!footer">
+    <button (click)="toggle()" class="footerBtn">Terms, Privacy, Currency & more</button>
+</ng-template>
+

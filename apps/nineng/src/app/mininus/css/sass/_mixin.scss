@@ -1,0 +1,31 @@
+@import "./variables";
+
+
+@mixin button($background-color) {
+    background-color: $background-color;
+    padding: .5rem 1rem;
+    display: block;
+    text-align: center;
+    color: $white;
+    text-decoration: none;
+}
+
+@mixin bg-icon($image) {
+    text-align: center;
+    background-image: url(../../../../assets/minimus/udemy/#{$image}.png);
+    background-repeat:no-repeat;
+    background-position: left center;
+    background-size: 2rem;
+}
+
+@mixin bg-image($bgimage) {
+    background-image: url(../../../../assets/minimus/netflix/#{$bgimage});
+    background-repeat:no-repeat;
+    background-size: cover;
+ }
+
+@mixin desktop {
+   @media only screen and (min-width: #{$desktop}) {
+       @content;
+   }
+}

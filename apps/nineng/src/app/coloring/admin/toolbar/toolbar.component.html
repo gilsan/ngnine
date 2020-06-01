@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="mat-elevation-z15">
+    <button mat-icon-button matTooltip="Show/hide sid navigation bar" (click)="sidenav.toggle()">
+       <mat-icon class="mat-18">view_headline</mat-icon>
+    </button>
+    <span *ngIf="navigationService.selectedNavigationItem" class="selectedItem">{{navigationService.selectedNavigationItem.name}}</span>
+    <span class="fill-remaining-space"></span>
+        <div  style="padding-left: 70%;">
+           <app-theme-select ></app-theme-select>        
+           <app-toolbar-menu ></app-toolbar-menu>
+        </div>
+ </mat-toolbar>

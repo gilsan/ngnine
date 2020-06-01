@@ -16,7 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngnine/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@ngnine/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@ngnine/ng-alert-showcase": ["libs/ng-alert-showcase/src/index.ts"],
+      "@ngnine/ng-alert": ["libs/ng-alert/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ccc;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item {
+    background-color: #f1425d;
+    padding: 20px;
+    margin: 20px;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 25%;
+    &__sub {
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+// 개별 아이템
+.item1 {
+    align-self: strech;
+    flex: 0 0 20%;
+}
+
+.item2 {
+    flex: 0 0 60%;
+}
+
+.item3 {
+    flex: 0 0 20%;
+}
+
+.list {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: lightblue;
+    color: blue;
+    margin: 0 10px;
+}
+
+.containers {
+    background-color: #fff;
+    border: 1px solid black;
+    &__1 {
+        border: 1px solid red;
+    }
+    &__2 {
+        border: 1px solid blue;
+    }
+}
+
+.container1 {
+    border: 1px solid red;
+}
+
+.container2 {
+    border: 1px solid blue;
+}
+
+.panel {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightgreen;
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    color: black;
+    font-size: 1rem;
+    &__index {
+        width: 2rem;
+        height: 2rem;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__control {
+        width: 5rem;
+        display: flex;
+        justify-content: space-evenly;
+        &-up,
+        &-down {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}
+
+.main-panel {
+    width: 400px;
+    background-color: lightcyan;
+    &__name {
+        margin: 10px auto;
+        padding: 1rem;
+    }
+}
+
+.panel-content {}
+
+.subpanel {
+    width: 400px;
+    height: 120px;
+    border: 1px solid red;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightgreen;
+    &__header {
+        background-color: black;
+        margin-top: -16px;
+        margin-bottom: 10px;
+        height: 20px;
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+    &__body {
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+    }
+}
+
+.city-input {
+    width: 150px;
+}

@@ -1,0 +1,63 @@
+.listen {
+    font-size: 0.8rem;
+    color: white;
+    background-color: red;
+    border-radius: 5px 5px;
+    width: 60px;
+    padding: 2px 5px;
+    flex: 0 0 calc(50% - 10px);
+}
+
+.listen:hover {
+    cursor: pointer;
+}
+
+.modi {
+    font-size: 0.8rem;
+    color: white;
+    background-color: #093b5a;
+    border-radius: 5px 5px;
+    width: 60px;
+    padding: 2px 5px;
+}
+
+.modi:hover {
+    cursor: pointer;
+    background-color: #2e743a;
+    transform: scaleY(1.2);
+}
+
+.delete:hover {
+    cursor: pointer;
+    background-color: #25ac19;
+    transform: translateX(100px, 20px);
+    transition-duration: 2s;
+}
+
+.delete {
+    font-size: 0.8rem;
+    color: white;
+    background-color: #d34920;
+    border-radius: 5px 5px;
+    width: 60px;
+    padding: 2px 5px;
+}
+
+.reg-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.reg-group label {
+    text-align: right;
+}
+
+i {
+    margin-left: 5px;
+}
+
+.modibutton {
+    background-color: blue;
+    color: white;
+    border-style: none;
+}

@@ -1,0 +1,10 @@
+ 
+ <app-tablerow
+   [dataSource]="users"
+   [displayedColumns]="displayedColumns"
+   [referenceId]="'Identification number'"
+   [iconKeyReference]="'has_relatives'"
+   [renderTemplate]="'relative'"
+   (deleteUser)="deleteUser($event)"
+ ></app-tablerow>
+ 

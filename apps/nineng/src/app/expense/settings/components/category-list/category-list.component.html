@@ -1,0 +1,21 @@
+
+<mat-accordion>
+  <mat-expansion-panel  *ngFor="let category of categories$ | async">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{category.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>   
+       <app-formcategory  
+        [category]="category"
+        [editMode]= true
+        (categoryUpdated)="categoryUpdated($event)"
+        ></app-formcategory>
+  </mat-expansion-panel>
+</mat-accordion>
+
+ 
+
+ 
+
+

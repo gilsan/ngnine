@@ -1,0 +1,11 @@
+@import '../material-design/basecolor.scss';
+
+mat-sidenav {
+  width: 250px;
+  background-color: $color-Azure;
+}
+
+.content {
+  padding:5px;
+  height:90vh;
+}

@@ -1,0 +1,59 @@
+ 
+
+<div class="modal-content">
+  <div class="close">
+     <span class="material-icons close-icon">clear</span>
+  </div>
+  <div class="target">
+      <div class="b-mr6">
+          <div class="b-ml3">
+              <h3 class="b-text">Hotel</h3>
+          </div>
+      </div>
+      <div  class="b-row">
+          <div class="b-row-carousel">
+            <div class="mat-card-box">  
+               <mat-card  class="mat-card"> 
+                <ngb-carousel  class="mat-card">                               
+                    <ng-template ngbSlide *ngFor="let slide of hotelImages" 
+                     [id]="slide.id">                           
+                        <img [src]="slide.src" [alt]="slide.alt"
+                          [title]="slide.title"  style="width: 100%; height: 50vh" class="slide__img">                                
+                    </ng-template>                                                
+              </ngb-carousel>     
+               </mat-card> 
+         
+            </div>
+          </div>
+          <div class="b-row-info">
+               <div>
+                   <div>
+                       <p>
+                          A luxury stay in the heart of Seoul awaits you at Park Hyatt Seoul
+                       </p>
+                   </div>
+               </div>
+               <div class="book">
+                   <h2  class="booking">BOOK NOW !!</h2>
+               </div>
+               <div  class="icons">
+                  
+                    <div class="social-icons">
+                         <ul class="icons-list">
+                             <li>
+                                <i class="fab fa-facebook"></i>
+                             </li>
+                             <li>
+                                <i class="fab fa-twitter"></i>
+                             </li>
+                             <li>
+                                <i class="fab fa-instagram"></i>
+                             </li>
+                         </ul>                         
+                    </div>
+               </div>
+          </div>
+      </div>
+      
+  </div>
+</div>

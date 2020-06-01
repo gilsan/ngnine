@@ -1,0 +1,29 @@
+ <div>
+     <form [formGroup]="angGroup">
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Category name" formControlName="name">
+            </mat-form-field>
+            <input type="hidden" formControlName="idx">
+            <input type="hidden" formControlName="id"> 
+        </div>
+ 
+        <div formArrayName="counterpartyPatterns">
+
+            <mat-form-field class="patterns" *ngFor="let pattern of counterpartyPatterns.controls; let i=index"  appearance="outline">
+                <mat-icon matSuffix  class="icons" (click)="delete(i)">cancel</mat-icon>
+                <input matInput placeholder="pattern {{i}}" [formControlName]="i">
+            </mat-form-field>
+        </div>
+     </form>
+
+     <div class="actions">
+        <button mat-raised-button color="primary" *ngIf=!editMode (click)="addCategory()">저장</button>        
+        <button mat-raised-button color="primary" *ngIf=editMode
+         (click)="addPattern()">추가</button>
+        <button mat-raised-button color="primary"
+           [disabled]="angGroup.invalid" 
+           (click)="updatedCategory()" *ngIf=editMode>저장</button>
+    </div>
+
+ </div>

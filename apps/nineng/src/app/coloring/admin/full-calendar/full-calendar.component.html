@@ -1,0 +1,247 @@
+<div class="container">
+  <div class="row" style="margin-top:10px;">
+    <div class="col-md-4 pull-left">
+
+      <div class="form-group form-inline">
+        <!-- <input class="form-control ml-2" #searchMent type="text" placeholder="검색 제목입력.." />
+                <div class=" input-group-btn">
+                    <button type="button" class="btn btn-outline-secondary" (click)="mentSearch(searchMent.value)"><i class="fas fa-search"></i></button>
+                </div> -->
+      </div>
+
+    </div>
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-3">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" (click)="reset()">
+          <i class="fas fa-sync"></i>새로고침
+        </button>
+        <button type="button" class="btn btn-success" (click)="weekdayReg()">
+          <i class="fas fa-plus-circle"></i>등록
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div *ngIf="fileUpload.status==='progress'">
+  <div class="progress" style="height: 20px;margin-bottom:20px;">
+    <div class="progress-bar" role="progressbar" [style.width.%]="fileUpload.message" aria-valuenow="25"
+      aria-valuemin="0" aria-valuemax="100">{{fileUpload.message}}%</div>
+  </div>
+</div>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" class="index">#</th>
+      <th scope="col" class="filename">요일</th>
+      <th scope="col" class="title">제목</th>
+      <th scope="col" class="title">화일명</th>
+      <th scope="col" class="mentDate">등록일</th>
+      <th scope="col" class="item head_modi">수정</th>
+      <th scope="col" class="item head_delete">삭제</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let week of ( weekLists$ | async) as weeks">
+      <th scope="row" class="index">{{week.id}}</th>
+      <td class="filename ">{{week.weekday}}</td>
+      <td class="title">{{week.title}}</td>
+      <td class="title">{{week.fileName}}</td>
+      <td class="mentDate">{{week.regDate}}</td>
+
+      <td>
+        <div class="modi" (click)="weekUpdate(week)">수정<i class="far fa-edit"></i></div>
+      </td>
+      <td>
+        <div class="delete" (click)="weekDelete(week)">삭제<i class="far fa-calendar-times"></i></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" (click)="getNext()" [(page)]="page"
+    [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+</div>
+<!--   요일 등록화면   --------------------------------------------------------  -->
+<ng-template #modalContent let-close="close">
+  <div class="modal-header">
+    <h6 class="modal-title">컬러링 요일별 등록</h6>
+
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+      (click)="close('none')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="box box-primary">
+      <form [formGroup]="regForm">
+        <div class="box-body">
+          <div class="form-group reg-group">
+            <label for="inputText3" class="col-sm-3 control-label">근무요일</label>
+            <div class="col-sm-9 col-left">
+              <div class="form-group ml-4">
+                <label class="ml-5">
+                  <input type="radio" formControlName="weekday" value="1" class="minimal">월
+                </label>
+                <label class="ml-4">
+                  <input type="radio" formControlName="weekday" value="2" class="minimal">화
+                </label>
+                <label class="ml-4">
+                  <input type="radio" formControlName="weekday" value="3" class="minimal">수
+                </label>
+                <label class="ml-4">
+                  <input type="radio" formControlName="weekday" value="4" class="minimal">목
+                </label>
+                <label class="ml-4">
+                  <input type="radio" formControlName="weekday" value="5" class="minimal">금
+                </label>
+                <label class="ml-4">
+                  <input type="radio" formControlName="weekday" value="6" class="minimal">토
+                </label>
+                <label class="ml-4">
+                  <input type="radio" formControlName="weekday" value="0" class="minimal">일
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group reg-group ">
+            <label for="inputText2" class="col-sm-3 control-label">등록일</label>
+            <div class="col-sm-9">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                  <i class="fas fa-calendar"></i>
+                </button>
+                <input type="text" class="form-control input-sm" name="dp" formControlName="regdate" ngbDatepicker
+                  #d="ngbDatepicker" readonly>
+              </div>
+              <!-- <input type="text" class="form-control input-sm" formControlName="regdate" readonly> -->
+            </div>
+          </div>
+          <!-- <div class="form-group reg-group">
+            <label for="inputText2" class="col-sm-3 control-label">음원제목</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" name="regist_title" formControlName="title">
+            </div>
+          </div> -->
+          <div class="form-group reg-group">
+            <label for="inputText1" class="col-sm-3 control-label">음원파일</label>
+            <div class="col-sm-9">
+              <select name="departPhone" formControlName="registerFile" class="form-control  selectpicker">
+                <option [ngValue]="coloring" *ngFor="let coloring of (coloringLists$ | async) as colorings">
+                  [{{coloring.id}}]{{coloring.title}} -
+                  {{coloring.fileName}}</option>
+              </select>
+            </div>
+            <!-- <div class="col-sm-9">
+              <input type="file" class="form-control input-sm" name="ment_file" (change)="upload($event)">
+            </div> -->
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer " style="display:flex; justify-content: space-around;">
+    <button type="button " class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소
+    </button>
+    <button type="button " class="btn btn-success" (click)="close('REG')"><i class="fas fa-check"></i>등록 </button>
+  </div>
+
+</ng-template>
+<!--    등록화면 끝  =======================================================================           -->
+<!--   요일 수정화면   --------------------------------------------------------  -->
+<ng-template #modalUpdateContent let-close="close">
+  <div class="modal-header">
+    <h6 class="modal-title">컬러링 요일별 수정</h6>
+
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+      (click)="close('none')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="box box-primary">
+      <form [formGroup]="updateForm">
+        <div class="box-body">
+          <div class="form-group reg-group">
+            <label for="inputText3" class="col-sm-3 control-label">근무요일</label>
+            <div class="col-sm-9 col-left">
+              <div class="form-group ml-4">
+                <label class="ml-5">
+                  <input type="radio" value="1" class="minimal" [checked]="checkStatus(1)">월
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="2" class="minimal" [checked]="checkStatus(2)">화
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="3" class="minimal" [checked]="checkStatus(3)">수
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="4" class="minimal" [checked]="checkStatus(4)">목
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="5" class="minimal" [checked]="checkStatus(5)">금
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="6" class="minimal" [checked]="checkStatus(6)">토
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="0" class="minimal" [checked]="checkStatus(7)">일
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group reg-group ">
+            <label for="inputText2" class="col-sm-3 control-label">등록일</label>
+            <div class="col-sm-9">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                  <i class="fas fa-calendar"></i>
+                </button>
+                <input class="form-control" name="dp" formControlName="regDate" ngbDatepicker #d="ngbDatepicker"
+                  readonly>
+              </div>
+            </div>
+          </div>
+          <div class="form-group reg-group">
+            <label for="inputText2" class="col-sm-3 control-label">음원제목</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" name="regist_title" formControlName="dtitle">
+            </div>
+          </div>
+          <div class="form-group reg-group">
+            <label for="inputText1" class="col-sm-3 control-label">음원파일</label>
+            <div class="col-sm-9">
+              <select name="departPhone" class="form-control  selectpicker">
+                <option [ngValue]="coloring" *ngFor="let coloring of (coloringLists$ | async) as colorings">
+                  [{{coloring.id}}]{{coloring.dtitle}} -
+                  {{coloring.ment_name}}</option>
+              </select>
+            </div>
+            <!-- <div class="col-sm-9">
+                            <input type="file" class="form-control input-sm" name="ment_file" (change)="modiUpload($event)">
+                        </div> -->
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer " style="display:flex; justify-content: space-around;">
+    <button type="button " class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소
+    </button>
+    <button type="button " class="btn btn-success" (click)="close('CHG')" [disabled]="updateForm.invalid"><i
+        class="fas fa-check"></i>수정</button>
+  </div>
+
+</ng-template>
+
+<!-- 요일 수정화면 끝    ===========================================================================   -->

@@ -1,0 +1,211 @@
+<div class="container">
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-4 pull-left">
+
+            <div class="form-group form-inline">
+                <input class="form-control ml-2" #searchMent type="text" placeholder="검색 제목입력.." />
+                <div class=" input-group-btn">
+                    <button type="button" class="btn btn-outline-secondary" (click)="coloringSearch(searchMent.value)"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-3">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" (click)="reset()">
+                    <i class="fas fa-sync"></i>새로고침
+                </button>
+                <button type="button" class="btn btn-success" (click)="coloringReg()">
+                    <i class="fas fa-plus-circle"></i>등록
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div *ngIf="fileUpload.status==='progress'">
+    <div class="progress" style="height: 20px;margin-bottom:20px;">
+        <div class="progress-bar" role="progressbar" [style.width.%]="fileUpload.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{fileUpload.message}}%</div>
+    </div>
+</div>
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col" class="index">#</th>
+            <th scope="col" class="filename">파일명</th>
+            <th scope="col" class="title">제목</th>
+            <th scope="col" class="mentDate">등록일</th>
+            <th scope="col" class="item">듣기</th>
+            <th scope="col" class="item head_modi">수정</th>
+            <th scope="col" class="item head_delete">삭제</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ment of ( coloringLists$ | async) as ments; index as i">
+            <th scope="row" class="index">{{ i + 1 }}</th>
+            <td class="filename ">{{ment.fileName}}</td>
+            <td class="title">{{ ment.title }}</td>
+            <td class="mentDate">{{ ment.regDate }}</td>
+            <td>
+                <div class="listen" (click)="listenMusic(ment)">듣기<i class="fas fa-headset"></i>
+                </div>
+            </td>
+            <td>
+                <div class="modi" (click)="itemModi(ment)">수정<i class="far fa-edit"></i></div>
+            </td>
+            <td>
+                <div class="delete" (click)="itemDel(ment)">삭제<i class="far fa-calendar-times"></i></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" (pageChange)="getNext($event)" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+</div>
+
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">기본컬러링 관리</h5>
+        <button type="button" class="close" (click)="close('none')">
+         <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h6 class="box-title">컬러링등록 화면</h6>
+            </div>
+            <hr>
+            <form [formGroup]="regForm">
+                <div class="box-body">
+                    <div class="form-group reg-group ">
+                        <label for="inputText2" class="col-sm-3 control-label">등록일</label>
+                        <div class="col-sm-9">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                      <i class="fas fa-calendar"></i>
+                                  </button>
+                                <input type="text" class="form-control  input-sm" name="dp" formControlName="registerDate" ngbDatepicker #d="ngbDatepicker" readonly>
+                            </div>
+                            <!-- <input type="text" class="form-control input-sm" formControlName="registerDate" name="regist_date" readonly> -->
+                        </div>
+                    </div>
+                    <div class="form-group reg-group">
+                        <label for="inputText2" class="col-sm-3 control-label">음원제목</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control input-sm" formControlName="registerTitle" name="regist_title">
+                        </div>
+                    </div>
+                    <div class="form-group reg-group">
+                        <label for="inputText1" class="col-sm-3 control-label">음원파일</label>
+                        <div class="col-sm-9">
+                            <input type="file" class="form-control input-sm" (change)="upload($event)" name="ment_file">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-footer " style="display:flex; justify-content: space-around;">
+        <button type="button " class="btn btn-secondary " (click)="close('CAN')"><i class="far fa-times-circle"></i>취소 </button>
+        <button type="button " class="btn btn-success" (click)="close('REG')"><i class="fas fa-check"></i>등록 </button>
+    </div>
+
+</ng-template>
+
+<ng-template #modalModiContent let-close="close ">
+    <div class="modal-header">
+        <h5 class="modal-title">기본컬러링 관리</h5>
+        <button type="button" class="close" (click)="close('none')">
+         <span aria-hidden="true ">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h6 class="box-title">컬러링수정 화면</h6>
+            </div>
+            <hr>
+
+            <div class="box-body">
+                <form action=" ">
+                    <div class="form-group reg-group">
+                        <label for="inputText2" class="col-sm-3 control-label">등록일</label>
+                        <div class="input-group col-sm-9">
+                            <!-- <div class="input-group-append ">
+                                <button class="btn btn-outline-secondary calendar " (click)="d.toggle() " type="button ">
+                                <i class="fas fa-calendar "></i>
+                            </button>
+                        </div> -->
+                            <input class="form-control" [value]="modiDate" readonly>
+                            <!-- <input class="form-control " [value]="modiDate " formControlName="modifyDate " readonly ngbDatepicker #d="ngbDatepicker "> -->
+                        </div>
+                    </div>
+
+                    <div class="form-group reg-group">
+                        <label for="inputText2" class="col-sm-3 control-label">음원제목</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control input-sm" name="regist_title" [value]="modiTitle" [(ngModel)]="modiTitle">
+                        </div>
+                    </div>
+                    <div class="form-group reg-group">
+                        <label for="inputText1" class="col-sm-3 control-label ">음원파일</label>
+                        <div class="col-sm-9">
+                            <input type="file" class="form-control input-sm" name="modiment_file" (change)="modiUpload($event)" style="display:none" #fileInput>
+                            <button type="button" class="modibutton" (click)="fileInput.click()">화일선택</button>
+                            <input type="text" class="form-control input-sm" [value]="newFileName">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer" style="display:flex; justify-content: space-around;">
+        <button type="button" class="btn btn-secondary" (click)="close( 'CAN')"><i class="far fa-times-circle"></i>취소 </button>
+        <button type="button" class="btn btn-success" (click)="close( 'REG')"><i class="fas fa-check"></i>수정</button>
+    </div>
+
+</ng-template>
+
+<ng-template #modalListen let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">음원듣기</h5>
+        <button type="button" class="close" (click)="close('none')">
+       <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+    <div class="modal-body">
+
+        <div class="box box-primary">
+
+            <div class="box-body">
+                <div class="form-group reg-group">
+                    <label for="inputText1 " class="col-sm-3 control-label">음원파일</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control input-sm" [value]="musicName">
+                    </div>
+                </div>
+                <div class="form-group reg-group">
+                    <label for="inputText1 " class="col-sm-3 control-label">듣기</label>
+                    <div class="col-sm-9">
+                        <mat-basic-audio-player [audioUrl]="msbapAudioUrl" [title]="msbapTitle" [displayTitle]="msbapDisplayTitle"></mat-basic-audio-player>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" style="display:flex; justify-content: space-around;">
+        <button type="button" class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소 </button>
+    </div>
+
+</ng-template>

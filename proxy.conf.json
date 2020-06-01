@@ -1,0 +1,11 @@
+{
+    "/api" : {
+        "target":"http://221.141.251.58/fileuploadTest",
+        "secure": false
+    },
+
+    "/server": {      
+            "target":"https://localhost:3000/",
+            "secure": false      
+    }
+}

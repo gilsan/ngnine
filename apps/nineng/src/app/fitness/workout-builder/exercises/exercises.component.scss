@@ -1,0 +1,30 @@
+* {
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.exercises {
+    margin-left: 1rem;
+}
+
+.contents {
+    margin-left: 14rem;
+    //  border: 1px solid red;
+    height: 100%;
+}
+
+.title__list {
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    width: 320px;
+    height: 30px;
+    color: white;
+    margin-bottom: 10px;
+    background: #61b9ff;
+    //  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,27 @@
+<main>
+   <div class="loading-shade">
+
+   </div>
+
+   <div class="search">
+        <mat-form-field>
+            <input matInput #filter placeholder="Filter by category">
+        </mat-form-field>
+   </div>
+   <div class="table">
+    <app-expense-table
+    [dataSource] = "dataSource"
+    [categories] = "expenseCategories"
+    [displayedColumns]="displayedColumns"
+    [submitCallback]="getSubmitExpenseCallback$()"
+    (updateOrcreateExpense)="updateOrcreateExpense($event)"
+    (deleteExpense)="deleteExpense($event)"
+  ></app-expense-table>
+   </div>
+
+
+   <div class="add">
+         <button mat-fab color="primary"
+           (click)="openExpenseDialog()">+</button>
+   </div>
+</main>

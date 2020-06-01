@@ -1,0 +1,44 @@
+ <div class="container">
+   <form id="form" class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+     <h2>등록화면</h2>
+     <mat-form-field appearance="fill" color="primary">
+       <mat-label>이름</mat-label>
+       <input matInput type="text" id="username" formControlName='username'>
+       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+       <mat-error *ngIf="!formGroup.valid && formGroup.touched">
+         {{getErrorUsername}}
+       </mat-error>
+     </mat-form-field>
+
+     <mat-form-field appearance="outline" color="accent">
+       <mat-label>이메일</mat-label>
+       <input matInput type="text" id="email" formControlName='email'>
+       <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+         {{getErrorEmail}}
+       </mat-error>
+     </mat-form-field>
+
+     <mat-form-field appearance="outline">
+       <mat-label>비밀번호</mat-label>
+       <input matInput type="password" id="password" formControlName='password'>
+       <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
+         {{getErrorPassword}}
+       </mat-error>
+     </mat-form-field>
+
+     <mat-form-field appearance="fill">
+       <mat-label>비밀번호확인</mat-label>
+       <input matInput type="password" id="password2" formControlName='password2'>
+       <mat-error *ngIf="!formGroup.controls['password2'].valid && formGroup.controls['password2'].touched">
+         {{getErrorPassword}}
+       </mat-error>
+     </mat-form-field>
+
+     <div class="form-element">
+       <button mat-raised-button color="primary" class="button" type="submit" [disabled]="!formGroup.valid">확인</button>
+     </div>
+
+
+   </form>
+
+ </div>

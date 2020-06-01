@@ -1,0 +1,40 @@
+ <div class="info">
+    <div  class="suite" (click)="showInfo()">
+        <h4>AMENITIES</h4>
+        <ng-template #arrowDown>
+            <div class="suite__icon">
+                <i class="material-icons arrow-icon">keyboard_arrow_down</i>
+            </div> 
+        </ng-template>
+        <ng-template #arrowUp>
+            <div class="suite__icon"  >
+                <i class="material-icons arrow-icon">keyboard_arrow_up</i>
+            </div> 
+        </ng-template> 
+        <ng-container *ngTemplateOutlet="toggle ? arrowUp : arrowDown"></ng-container>      
+     </div>
+     <ng-container *ngIf="(room$ | async) as infos">
+        <ul *ngFor="let info of infos" class="list">
+            <li>{{info}}</li>
+        </ul>
+    </ng-container>
+   <div>
+      <span  #bookRegi>CHECK AVAILABLITY</span>
+   </div>
+            
+    <ng-template #checkavail>        
+       <app-checkavail [titleNo]=titleNo></app-checkavail>
+    </ng-template>
+    <modals  #modals
+       [body]="checkavail"
+       [hideOnClickOutside]="false"
+       [hideOnEsc]="true"
+      
+       *closeOpenModal=[bookRegi]>
+        <!-- <mat-icon  (click)="modals.close()">close</mat-icon> -->
+    </modals>
+     
+ </div>
+
+
+

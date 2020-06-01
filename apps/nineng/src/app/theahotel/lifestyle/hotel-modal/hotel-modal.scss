@@ -1,0 +1,86 @@
+.modal-content {
+        width: 100%;
+        padding: 25px;
+        padding-bottom: 60px;
+        border: 1px solid black;
+        height: 90vh;   
+}
+.close {
+    display:flex;
+    justify-content: flex-end;
+    &:hover {
+        cursor: pointer;
+    }
+    &-icon {
+        font-size: 2rem;
+    }
+}
+.b-mr6 {
+    margin-right: 36px;
+    margin-left: 0;
+}
+
+.b-text {
+    font-size: 28px;
+} 
+
+@media screen and (min-width: 400px) {
+    .b-text {
+        font-size: 22px;
+    } 
+}
+
+@media screen and (min-width:768px) {
+   .b-text {
+       font-size: 43px;
+   }    
+}
+
+.b-row-info {
+    display: none;
+}
+
+@media screen and (min-width:768px) {
+    .b-row {
+        padding: 0 1rem;
+       // border: 1px solid black;
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 80%;
+        grid-gap: 1.5rem;
+    
+        &-carousel {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+        &-info {
+            display:block;
+            grid-column: 2 / 3;
+        }
+    }
+
+
+}
+
+ 
+.mat-card-box {
+    border: 1px solid red;
+}
+
+ 
+.booking {
+    padding: 0.5rem 0.4rem;
+    text-align: center;
+    background-color: #F8AB00;
+}
+
+.icons-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+ 
+
+
+
+

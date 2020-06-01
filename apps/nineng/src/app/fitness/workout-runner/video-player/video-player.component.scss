@@ -1,0 +1,14 @@
+ .img-box {
+     border: 1px solid black;
+     &__box {
+        width: 100%;
+        cursor: pointer;
+        
+     }
+
+     &__box:hover {
+        transform: scale(1.1);
+     }
+ }
+
+ 

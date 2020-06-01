@@ -1,0 +1,69 @@
+<main>   
+    <section class="resturants"> 
+        <div>  
+            <mat-card class="resturant resturant--location1">              
+                    <owl-carousel-o [options]="customOptions" (changed)="getData($event)">
+                        <ng-template carouselSlide *ngFor="let slide of restaurants1" [id]="slide.id">                           
+                                <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title" class="slide__img">                                
+                        </ng-template>              
+                    </owl-carousel-o>              
+                <mat-card-content  class="dining__inside"> 
+                    <div class="dining__inside--restaurant">
+                        <span>Restaurant</span>
+                    </div>                  
+                    <div class="dining__inside--location">
+                        <span>La Seine</span>
+                    </div> 
+                    <br />                  
+                    <div class="dining__inside--type">
+                        <span>Type <strong>Buffet</strong></span>
+                        <div class="dining__inside--address">
+                            <div>
+                               <span>Location <strong>Main Tower 1F</strong></span>
+                            </div>
+                            <div  class="view">
+                                <span>View Details</span>
+                                <span class="material-icons">
+                                    keyboard_arrow_right
+                                    </span>
+                            </div>
+                        </div>                
+                    </div>                                               
+                </mat-card-content>                 
+            </mat-card> 
+        </div>
+                      
+        <div>        
+              <mat-card class="resturant resturant--location1">                 
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-template carouselSlide *ngFor="let slide of restaurants2" [id]="slide.id">                             
+                                <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title" class="slide__img">                                              
+                        </ng-template>              
+                    </owl-carousel-o>                
+                  <mat-card-content  class="dining__inside"> 
+                          <div class="dining__inside--restaurant">
+                             <span>Restaurant</span>
+                          </div>                  
+                          <div class="dining__inside--location">
+                             <span>Pierre Gagnaire a Seoul</span>
+                          </div> 
+                          <br />                        
+                          <div class="dining__inside--type">
+                              <span>Type <strong>French</strong></span>
+                              <div  class="dining__inside--address">
+                                <div>
+                                   <span>Location <strong>Executive Tower 35F</strong></span>
+                                </div>
+                                <div class="view">
+                                    <span>View Details</span>
+                                    <span class="material-icons">
+                                        keyboard_arrow_right
+                                        </span>
+                                </div>
+                            </div>                 
+                          </div>                                               
+                  </mat-card-content>                 
+              </mat-card> 
+        </div>         
+    </section>
+</main>

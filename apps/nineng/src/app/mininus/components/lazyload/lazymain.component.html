@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+   <span>콤포넌트 Lazyloading</span>
+</mat-toolbar>
+
+ 
+  <button mat-raised-button
+     *ngIf="!quizStarted"
+     color="primary"
+     class="start-quiz-button"
+     (click)="startQuiz()">
+  시작
+</button>
+<button mat-raised-button color="primary" 
+    *ngIf="quizStarted" class="start-quiz-button"
+    [routerLink]="['/home']">
+    종료</button>
+ 
+
+
+<div  class="quiz-card-container">
+    <ng-template #quizContainer></ng-template>
+</div>

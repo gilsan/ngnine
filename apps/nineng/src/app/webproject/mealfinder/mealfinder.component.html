@@ -1,0 +1,46 @@
+<div class="main">
+  <div class="container">
+    <h1>요리 찿기</h1>
+    <div class="flex">
+      <form action="" class="flex" id="submit">
+        <input type="text" id="search" #search placeholder="음식찿기..steak">
+      </form>
+      <button class="search-btn" type="submit" (click)="searchMeal(search.value)">
+        <i class="fas fa-search"></i>
+      </button>
+      <button class="random-btn random" (click)="random()">
+        <i class="fas fa-random"></i>
+      </button>
+    </div>
+
+    <div id="result-heading">
+      <h2 *ngIf="term">{{term}}요리 찿기 결과:</h2>
+      <p *ngIf="searchResult && term">찿는 요리가 없습니다.</p>
+    </div>
+    <div id="meals" class="meals">
+      <div class="meal" *ngFor="let meal of (search$ | async) as meals" (click)="getMealById(meal.idMeal)">
+        <img [src]="meal.strMealThumb" [alt]="meal.strMeal" />
+        <div class="meal-info" data-mealID="meal.idMeal">
+          <h3>{{meal.strMeal}}</h3>
+        </div>
+      </div>
+    </div>
+    <div id="single-meal">
+      <div class="single-meal" *ngFor="let meal of (single$ | async) as meals">
+        <h1>{{meal.strMeal}}</h1>
+        <img [src]="meal.strMealThumb" alt="meal.strMeal" />
+        <div class="single-meal-info">
+          <p>{{meal.strCategory}}</p>
+          <p>{{meal.strArea}}</p>
+        </div>
+        <div class="main">
+          <p>{{meal.strInstructions}}</p>
+          <h2>식재료</h2>
+          <ul *ngFor="let item of ingredients">
+            <li>{{item}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

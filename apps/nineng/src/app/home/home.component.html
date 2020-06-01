@@ -1,0 +1,97 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #start [(opened)]="opened">
+    <app-sidebar-menu [menu]="menu" [imageDesc]="imageDesc" (selected)="toggle()">
+    </app-sidebar-menu>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="bar-menu">
+
+      <svg class="logo__icon" viewBox="150.3 22.2 213.7 42.8">
+        <path fill="#00ff9b" d="M150.3 65V22.2L193 65z" data-name="Path 1"></path>
+        <path fill="#003eff" d="M193.1 65h-42.8L193 22.2z" data-name="Path 2"></path>
+        <text [ngClass]="{'logo__text-dark': darkModeActive}" class="logo__text" fill="#432c85"
+          font-family="SegoeUI-Semibold,Segoe UI" font-size="20" font-weight="600" letter-spacing=".1em"
+          transform="translate(220 56)">
+          <tspan x="0" y="0">주화면</tspan>
+        </text>
+      </svg>
+      <ul class="cards">
+        <li class="card--1" [routerLink]="['/coloring']">컬러링</li>
+        <li class="card--1" [routerLink]="['/webproject']">미니웹</li>
+        <li class="card--1" (click)="goMininus()">콤포넌트</li>
+        <li class="card--2" (click)="goFitness()">운동</li>
+        <li class="card--2" (click)="goTeahotel()">아차산호텔</li>
+        <li class="card--2" [routerLink]="['/expenses']">지출내역</li>
+        <li class="card--3" [matMenuTriggerFor]="graphType">예제</li>
+        <!-- <li class="card--4" [matMenuTriggerFor]="card4menu">메뉴4  </li> -->
+      </ul>
+
+      <!-- <button mat-mini-fab [routerLink]="['/home','profile']" matTooltip="Profile" aria-label="User Profile" class="buttons">
+            <mat-icon>account_circle</mat-icon>
+           </button>  -->
+      <button mat-mini-fab [routerLink]="['/home','profile']" matTooltip="Profile" aria-label="User Profile"
+        class="buttons">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <span class="flex-spacer"></span>
+      <button mat-mini-fab (click)="versionToggle()" matTooltip="info" aria-label="info" class="buttons">
+        <!-- <mat-icon>not_listed_location</mat-icon> -->
+        <span>안내</span>
+      </button>
+      <div class="version" [ngClass]="version()">
+        <ul class="version__list">
+          <li class="version__list--item"><span>노 드 (v12.16.0)</span></li>
+          <li class="version__list--item"><span>앵귤러 (v9.0.1)</span></li>
+          <li class="version__list--item"><span>Angular Material</span></li>
+        </ul>
+      </div>
+
+      <div class="light">
+        <section class="example-section">
+          <span style="font-size: 10px;margin:0 3px;">밝음</span>
+          <mat-slide-toggle (change)="onChange($event.checked)" class="example-margin" [color]="color"
+            [checked]="checked" [disabled]="disabled">
+
+          </mat-slide-toggle>
+          <span style="font-size: 10px;margin:0 3px;">어둠</span>
+        </section>
+      </div>
+    </div>
+
+    <mat-menu #graphType="matMenu">
+      <!-- <button mat-menu-item  [routerLink]="['/home', 'expense']" >지출내역</button>          -->
+      <button mat-menu-item [routerLink]="['/home', 'piano']">피아노</button>
+      <button mat-menu-item [routerLink]="['/home', 'lemon']">레몬가게</button>
+      <!-- <button mat-menu-item [matMenuTriggerFor]="lazyloadType">LazyLoading</button> -->
+
+      <!--   <button mat-menu-item  >서브메뉴3</button>
+            <button mat-menu-item  >서브메뉴4</button>                               -->
+    </mat-menu>
+
+    <!-- <mat-menu #lazyloadType="matMenu">
+          <button mat-menu-item [routerLink]="['/home', 'lazycomponent']">컴포넌트</button>
+          <button mat-menu-item [routerLink]="['/home', 'lazymodule']">모듈</button>
+        </mat-menu> -->
+    <!-- 
+        <mat-menu #card4menu="matMenu"  class="card--4__submenu">         
+            <div class="card--4__submenu-1">
+              <button mat-menu-item >서브메뉴</button>
+              <button mat-menu-item >서브메뉴</button>
+             </div>
+             <div class="card--4__submenu-2">
+              <button mat-menu-item >서브메뉴</button>
+              <button mat-menu-item >서브메뉴</button>              
+             </div>              
+       </mat-menu>
+        -->
+  </mat-toolbar>
+
+  <div class="content" [ngClass]="{'content-dark': !darkModeActive }">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

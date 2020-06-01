@@ -1,0 +1,47 @@
+ <div class="main">
+   <h1>HangMan</h1>
+   <p>숨은 글씨찿기 -- 단어입력(programming)</p>
+   <div class="game-container">
+     <svg height="250" width="200" class="figure-container">
+       <!-- Rod -->
+       <line x1="60" y1="20" x2="140" y2="20" />
+       <line x1="140" y1="20" x2="140" y2="50" />
+       <line x1="60" y1="20" x2="60" y2="230" />
+       <line x1="20" y1="230" x2="100" y2="230" />
+
+       <!-- Head -->
+       <circle cx="140" cy="70" r="20" class="figure-part" [ngStyle]="style0()" #figure0 />
+       <!-- Body -->
+       <line x1="140" y1="90" x2="140" y2="150" class="figure-part" [ngStyle]="style1()" #figure1 />
+       <!-- Arms -->
+       <line x1="140" y1="120" x2="120" y2="100" class="figure-part" [ngStyle]="style2()" #figure2 />
+       <line x1="140" y1="120" x2="160" y2="100" class="figure-part" [ngStyle]="style3()" #figure3 />
+       <!-- Legs -->
+       <line x1="140" y1="150" x2="120" y2="180" class="figure-part" [ngStyle]="style4()" #figure3 />
+       <line x1="140" y1="150" x2="160" y2="180" class="figure-part" [ngStyle]="style5()" #figure4 />
+
+     </svg>
+
+     <div class="wrong-letters-container">
+       <div class="wrong-letters">
+         <p>잘못입력한 글자</p>
+         <span *ngFor="let charater of wrongLetters">{{charater}}</span>
+       </div>
+     </div>
+
+     <div class="word" id="word" *ngIf="correctLetters.length">
+       <span class="letter" *ngFor="let letter of correctLetters">{{letter}}</span>
+     </div>
+     <div class="popup-container" [ngStyle]="showModal()">
+       <div class="popup">
+         <h2 id="final-message">{{finalMessage}}</h2>
+         <h3 id="final-message-reveal-word"></h3>
+         <button id="play-button" (click)="restart()">게임시작</button>
+       </div>
+     </div>
+
+     <!-- <div class="notification-container" id="notification-container">
+       <p>이미 입력된 문자 입니다.</p>
+     </div> -->
+
+   </div>

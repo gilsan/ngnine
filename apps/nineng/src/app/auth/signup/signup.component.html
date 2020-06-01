@@ -1,0 +1,25 @@
+<div class="main__container">
+  <div class="login-card">
+     <main class="login-content">
+       <span class="login-header">등 록</span>
+
+       <form action="" class="login-form" [formGroup]="form">
+          <input type="email" placeholder="Email" name="emial" class="login-input" formControlName="email">
+          <input type="password" placeholder="암호" name="emial" class="login-input" formControlName="passwd">
+          <input type="submit" value="등록" (click)="signup()" class="login-btn">
+       </form>
+
+       <div class="login-link-wrapper">
+         <span class="login-notice">계정이 가지고 있습니까?</span>
+         <a routerLink="/login" class="login-link">로그인</a>
+       </div>
+     </main>
+
+     <aside class="login-aside">
+       <div class="login-aside-overlay"></div>
+       <h1 class="login-welcome-text">Welcome Back</h1>
+       <hr class="login-aside-hr">
+     </aside>
+
+  </div>
+ </div>

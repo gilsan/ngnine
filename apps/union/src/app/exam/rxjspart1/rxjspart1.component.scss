@@ -1,0 +1,33 @@
+
+.container {
+    margin-top: 2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__select {
+        margin: 1rem 0;
+    }
+}
+
+button {
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    &:hover {
+        cursor: pointer;
+        background-color: gray;
+        color: blue;
+    }
+}
+
+.button-disabled {
+    color: lightgray;
+    background-color: gray;
+}
+
+ 

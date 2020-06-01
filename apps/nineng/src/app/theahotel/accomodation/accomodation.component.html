@@ -1,0 +1,207 @@
+<div  class="main">
+    <div class="main-bar">
+        <div class="header">
+            <img src="../../../assets/hotel/hyatt-logo.webp">
+            <div class="hotel">
+                 <div class="hotel-name">
+                    <h4>Grand Hyatt Seoul</h4>
+                 </div>  
+                 <div class="hotel-info hotel-location">
+                     <div class="hotel-info__icon">
+                        <mat-icon>location_on</mat-icon>
+                     </div>
+                    
+                    <h5>322 Sowol-ro, Yongsan-gu, Seoul, South Korea, 04347</h5>
+                 </div>
+                 <div class="hotel-info hotel-phone">
+                     <div class="hotel-info__icon">
+                        <mat-icon>call</mat-icon>
+                     </div>
+                    
+                    <h5>+82 2 797 1234</h5>
+                 </div>
+                 <div class="hotel-star">
+                     <div>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star_half</mat-icon>
+                     </div>
+
+                    <h5>305 REVIEWS</h5>
+                 </div>
+            </div>         
+         </div>
+         <div class="booking_btn" [ngClass]="getBtnShowHide()" (click)="onToggle()">
+             <h3>Book Now</h3>
+        </div> 
+    </div>
+    <article class="room-container">            
+            <div class="room-info room-info__desc"> 
+                <h1 class="room-info__title">
+                     <div class="richText">Rooms</div>
+                </h1>
+                <p class="room-info__text">
+                    Grand Hyatt Seoul’ 615 guest rooms including 53 suites offer stylish interiors accented with cultural inspiration. Unwind and relax in our newly designed rooms with floor to ceiling windows offering magnificent views of Seoul.
+                </p>
+                <div  class="room-info__check">                 
+                        <mat-icon>schedule</mat-icon>                
+                        <div class="room-info__check-time1">
+                            <h5 class="check">CHECK-IN</h5>
+                            <span class="time">3:00 PM</span>                         
+                        </div>
+                        <div  class="room-info__check-time2">
+                            <h5 class="check">CHECK-OUT</h5>
+                            <span class="time">12:00 PM</span>
+                        </div> 
+                                                       
+                </div>    
+            </div>
+            <div class="room-info room-info__img">
+                <img src="../../../assets/hotel/rooms/main_room.webp"  class="room-info__img-item"  alt="room-img" >
+            </div>             
+     </article>     
+</div>
+ 
+<div  class="booking_container"  *ngIf="booking_modal">
+    <div class="bookings">
+        <div class="booking__mark" (click)="onToggle()">
+            <span><i class="fas fa-times"></i></span>
+        </div>
+        <div  class="booking__schedule">
+           <div class="booking__date_start">
+               <div class="date">  
+                   <span class="material-icons">date_range</span> 
+                   <input type="date" class="check-in"  value="today">
+               </div>
+           </div>
+           <div class="booking__date_end">
+               <div class="date">
+                   <span class="material-icons">date_range</span>  
+                   <input type="date" class="check-out"  value="today">
+               </div>
+           </div>
+           <div  class="booking__title">
+               <div class="date title">               
+                       <label>BOOK NOW</label>                            
+               </div>        
+           </div> 
+        </div>
+        <div class="customer__info">
+             <!-- first --> 
+             <div class="first__row">                  
+                   <div class="room--header" (click)="toggle()">
+                       <mat-icon class="person">perm_identity</mat-icon>
+                       <span class="room--number">1</span>
+                       <span class="room--rooms" *ngIf="person > 1">Rooms</span> 
+                       <span class="room--room" *ngIf="person <= 1">Room,</span>
+                       <span class="room--guest-num">1</span>
+                       <span class="room--guests" *ngIf="guest <= 1">Guest</span> 
+                       <span class="room--guest" *ngIf="guest > 1">Guests</span> 
+                       <mat-icon class="maticon" *ngIf="!isShow">arrow_drop_down</mat-icon>  
+                       <mat-icon class="maticon" *ngIf="isShow">clear</mat-icon>   
+                   </div>
+                   <ng-template  #contents>
+                   <div  class="contents">
+                        <div class="contents__row">
+                            <div>
+                                 <label class="type">Room</label>
+                            </div>
+                            <div class='main'>
+                                <button class='down_count btn btn-info' title='Down' (click)="decreaseRoom()">
+                                    <span class="material-icons">remove</span>
+                                </button>                              
+                                <input class='counter' roomcount >                            
+                                   
+                                <button class='up_count btn btn-info' title='Up' (click)="increaseRoom()">
+                                    <span class="material-icons" 
+                                     >add</span>
+                                </button>
+                              </div>
+                        </div>
+                        <div  class="contents__row">
+                            <div></div>
+                            <div class="acccesible-main">
+                                <input type="checkbox" class="input-box">
+                                <span class="material-icons icon-checkbox">accessible</span>
+                                <span class="accessible">Accessible</span>
+                            </div>
+                        </div>
+                        <div  class="contents__row">
+                           <div>
+                                <span>Adult</span>
+                           </div>
+                           <div class='main'>
+                            <button class='down_count btn btn-info' title='Down' (click)="deductAdult()">
+                                <span class="material-icons">remove</span>
+                            </button>
+                            <input class='counter' type="text"  [value]="adult"/>    
+                            <button class='up_count btn btn-info' title='Up'>
+                                <span class="material-icons" (click)="addAdult()">add</span>
+                            </button>
+                          </div>                 
+                        </div>
+                        <div  class="contents__row">
+                           <div>
+                               <span>Child</span>
+                          </div>
+                          <div class='main'>
+                            <button class='down_count btn btn-info' title='Down' (click)="deductChild()">
+                                <span class="material-icons">remove</span>
+                            </button>
+                            <input class='counter' type="text"  [value]='child' />    
+                            <button class='up_count btn btn-info' title='Up'>
+                                <span class="material-icons" (click)="addChild()">add</span>
+                            </button>
+                          </div>                   
+                        </div>                    
+                    </div> 
+                </ng-template>
+                 <ng-container *ngTemplateOutlet="isShow ? contents : null"></ng-container>                    
+            </div>
+            <!--    end of first ---------- -->
+            <!--    second -->
+            <div class="second__row">
+                <div class="room--header" (click)="selectedToggle()">
+                    <mat-icon class="person">perm_identity</mat-icon>
+                    <span class="list-item">{{item}}</span>
+                    <mat-icon class="maticon2" *ngIf="!isSelected">arrow_drop_down</mat-icon>  
+                    <mat-icon class="maticon2" *ngIf="isSelected">clear</mat-icon>
+                </div>    
+                <div class="item-list" *ngIf="isSelected">
+                     <div *ngFor="let item of items; let i= index;">
+                         <div (click)="showCheck(item,i)" class="item-list">
+                            <span class="material-icons" >check</span>
+                            <span class="radio-label">{{item}}</span>
+                         </div>
+                        
+                     </div>
+                </div>               
+            </div>
+            <!--    end of second--> 
+
+        </div>
+
+        <div class="customer__info">
+            <!-- booking__category -->
+            <div class="first__row">
+                <div class="category--header">     
+                    <img src="https://www.hyatt.com/hds/bellhop/9.1.0/images/brands/world/logos/block.svg" alt="World of Hyatt" width="30" height="30">                            
+                    <label>Award Category 6</label>
+                </div>
+            </div>    
+            <!--booking__point -->
+            <div class="second__row">
+                <div class="category--header">
+                    <span class="material-icons">account_balance</span>
+                    <label>Use Points</label>
+                </div>
+            </div>  
+        </div>
+   
+    </div> 
+  <!-- end of booking-->
+</div> 
+<!-- end of booking container -->
+<app-rooms></app-rooms>

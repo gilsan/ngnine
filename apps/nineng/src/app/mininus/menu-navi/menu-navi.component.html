@@ -1,0 +1,50 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>관리자</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+         진도개
+      </p>
+    </mat-card-content>                
+  </mat-card>      
+
+<mat-list>
+<span *ngFor="let item of menu">
+   <span *ngIf="item.children && item.children.length > 0">
+      <mat-accordion>
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      <div fxLayout="row" fxLayoutAlign="space-between center" >
+                          <mat-icon>{{item.iconName}}</mat-icon>
+                          {{item.displayName}}
+                      </div>
+                  </mat-panel-title>
+              </mat-expansion-panel-header>
+              <span *ngFor="let child of item.children; trackBy: trackByFn">
+                <a mat-list-item (click)="goSubmenu()">
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <mat-icon>{{child.iconName}}</mat-icon>
+                        {{child.displayName}}
+                    </div>
+                </a>
+                <mat-divider></mat-divider>
+              </span>
+          </mat-expansion-panel>
+      </mat-accordion>
+   </span>
+
+   <span *ngIf="!item.children || item.children.length == 0">
+       <a mat-list-item   (click)="goItem(item)">
+           <div fxLayout="row" fxLayoutAlign="space-between center">
+               <mat-icon>{{item.iconName}}</mat-icon>
+               {{item.displayName}}
+           </div>
+       </a>
+       <mat-divider></mat-divider>
+   </span>
+</span>
+</mat-list>

@@ -1,0 +1,27 @@
+
+<mat-toolbar color="primary">
+    <div>
+        <button mat-icon-button (click)="onToggleOpenSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div class="logo-container">
+        <div fxLayout="column" fxLayoutAllign="center center">
+            <img class="logo" [src]="'../../../../assets/hotel/theahotel_logo.png'">
+        </div>
+    </div>
+    <ul class="cards">
+        <li [routerLink]="['/theahotel','home']">안내</li>
+        <li [routerLink]="['/theahotel','accommodation']">객실</li>
+        <li [routerLink]="['/theahotel','foodandberverage']">식당/바</li>
+        <li [routerLink]="['/theahotel','lifestyle']">이벤트</li>   
+        <!-- <li [routerLink]="['/theahotel','celebrations']">연회</li>
+        <li [routerLink]="['/theahotel','offers']">부대시설</li> -->
+        <li [routerLink]="['/home']">홈</li>
+    </ul>
+</mat-toolbar>
+
+
+
+
+

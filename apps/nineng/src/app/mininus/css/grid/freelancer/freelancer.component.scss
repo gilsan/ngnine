@@ -1,0 +1,118 @@
+
+@import "../../sass/base";
+img {
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+
+h3 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 2;
+   
+}
+
+
+.hero {
+    background-image: url(../../../../../assets/minimus/freelancer/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;   
+    height: 100vh;
+    .free_container {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        height: 100vh;
+        color: $light; 
+        align-content: center;
+        text-align: center;
+        .sitename {
+            align-self: flex-end;
+        }
+    }
+}
+.container {
+    width: 100%;
+}
+.services {
+    text-align: center;
+    margin-top: 2rem;
+
+    h2 {
+        padding-bottom: 1rem;
+    }
+    h2:after {
+        content: "";
+        height: 0.2rem;
+        width: 7rem;
+        background-color:$primary;
+        padding-bottom: 0.5rem;
+        display:block;
+        margin:1rem auto 0 auto;
+    }
+    i {
+        font-size: 2rem;
+    }
+
+    p {
+        padding: 1rem;
+    }
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 3rem;
+}
+
+ 
+.portfolio {  
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-rows: auto;
+  
+}
+.item {
+    h3 {
+        display: grid;
+    }
+    h3::after {
+        content: "";
+        display: block;
+        height: 0.3rem;
+        width: 2rem;
+        background-color: $primary;
+    }
+    &:nth-child(3) {
+        grid-row-end: span 2;
+    }
+}
+
+.footer {
+    padding: 2rem 0;
+    background-image: url(../../../../../assets/minimus/freelancer/contact.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: $light;
+    .foot_container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-column-gap: 2rem;
+        .widget {
+            padding: 0 1.5rem;
+        }
+    }
+}

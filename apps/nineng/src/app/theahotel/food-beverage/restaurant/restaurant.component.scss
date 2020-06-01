@@ -1,0 +1,61 @@
+
+.resturants {
+    margin-top: 1.5rem;
+    border-style: none;
+}
+
+ .resturant {
+   max-width: 500px;
+ }
+
+ .carousel {
+    height: 300px;
+    width: 500px;
+ }
+ 
+ .slide__img {
+  transform: scale(1);
+  transition: all 2s ease;
+}
+
+.slide__img:hover {
+  transform: scale(1.2);
+  transition: all 2s ease;
+}
+
+ @media only screen and (min-width: 786px) {
+  .resturants {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 1rem;
+  }
+}
+
+.dining__inside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &--restaurant {
+    font-weight: bold;
+  }
+  &--location {
+    font-size: 1.5rem;
+  }
+  &--address {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.view {
+  display: flex;
+  align-items: center;
+  color: lightskyblue;
+  &:hover {
+    cursor: pointer;
+  }
+}
+ 
+ 

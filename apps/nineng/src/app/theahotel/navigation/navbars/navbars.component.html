@@ -1,0 +1,45 @@
+<div class="navtabs-container">
+    <nav mat-tab-nav-bar  fxFlex fxLayout fxLayoutAlign="center center" class="nav">
+        <a mat-tab-link   [routerLink]="['/theahotel','home']"
+          routerLinkActive #home="routerLinkActive"
+          [active]="home.isActive">
+          안내
+        </a>
+
+        <a mat-tab-link [routerLink]="['/theahotel','accommodation']"
+          routerLinkActive #home="routerLinkActive"
+          [active]="home.isActive">
+          객실
+        </a>
+
+        <a mat-tab-link [routerLink]="['/theahotel','foodandberverage']"
+        routerLinkActive #home="routerLinkActive"
+        [active]="home.isActive">
+         식당/바
+      </a>
+
+      <a mat-tab-link [routerLink]="['/theahotel','lifestyle']"
+        routerLinkActive #home="routerLinkActive"
+        [active]="home.isActive">
+        회의
+      </a>
+
+      <!-- <a mat-tab-link [routerLink]="['/theahotel','celebrations']"
+        routerLinkActive #home="routerLinkActive"
+        [active]="home.isActive">
+        연회
+      </a>
+
+      <a mat-tab-link [routerLink]="['/theahotel','offers']"
+        routerLinkActive #home="routerLinkActive"
+        [active]="home.isActive">
+        부대시설
+      </a> -->
+
+      <a mat-tab-link [routerLink]="['/home']"
+      routerLinkActive #home="routerLinkActive"
+      [active]="home.isActive">
+      홈
+    </a>     
+    </nav>
+</div>

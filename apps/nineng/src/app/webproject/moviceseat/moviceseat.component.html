@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="movie-container">
+    <label for="">영화선택:</label>
+    <select id="movie" (change)="onChange($event.target.value)">
+      <ng-container *ngFor="let list of movieList; let i =index;">
+        <option [value]="list.price + '-' + i" *ngIf="movieIndex === i; else option;" selected>{{list.title}}</option>
+        <ng-template #option>
+          <option [value]="list.price + '-' + i">{{list.title}}</option>
+        </ng-template>
+
+      </ng-container>
+
+    </select>
+  </div>
+
+  <ul class="showcase">
+    <li *ngFor="let status of statusSeat; let i = index;">
+      <div class="seat" *ngIf="i === 0"></div>
+      <div class="seat selected" *ngIf="i === 1"></div>
+      <div class="seat occupied" *ngIf="i === 2"></div>
+      <small>{{status}}</small>
+    </li>
+  </ul>
+
+  <div class="container">
+    <div class="screen"></div>
+    <div *ngFor="let rows of map; let i=index;">
+      <div class="row">
+        <div class="seat" [ngClass]="seatStatus(i,j)" (click)="selected(i,j)" *ngFor="let count of rows; let j =index">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="text">
+    예약: <span id="count">{{total_reserved_seat}}</span>&nbsp;&nbsp;&nbsp; 상연료: <span
+      id="total">{{total_price | currency:'KRW'}}</span>원
+  </p>
+</div>

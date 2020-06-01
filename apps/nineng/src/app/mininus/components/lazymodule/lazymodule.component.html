@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="buttons">
+        <button (click)="loadComponent()">컴포넌트 올리기</button>
+        <button (click)="loadModule1()">모듈 올리기 1</button>
+        <button (click)="loadModule2()">모듈 올리기 2</button>
+    </div>
+    <div class="contents">
+        <ul>
+            <li *ngFor="let factory of componentFactories" (click)="createComponent(factory)">
+                {{factory.componentType.name}}
+            </li>
+        </ul>
+        <div class="anchor">
+            <ng-container #anchor></ng-container>
+        </div>
+    </div>   
+</div>
+
+ 

@@ -1,0 +1,111 @@
+<div fxLayout='row' fxLayoutGap="10px">
+
+    <div fxFlex="30%">
+        <app-left-nav-exercises (exercise)="addExercise($event)"></app-left-nav-exercises>
+    </div>
+    <div fxFlex="70%">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <h3 class="col-sm-9">{{ workoutTitle }}</h3>
+        </div>
+        <form name="formWorkout" [formGroup]="form">
+            <div fxLayout="row" fxLayoutGap=".5rem">
+                <div fxFlex="40%" style=" height:80vh;overflow:auto;">
+                    <div class="exercise tile" *ngFor="let info of  exerciseInfo; let i=index">
+                        <div class="title">
+                            {{info.title}}
+                            <span class="ion-md-trash" (click)="removeExercise(info)"></span>
+                        </div>
+                        <div class="index">
+                            <span>{{i+1}}</span>
+                        </div>
+                        <div class="main">
+                            <div class="image">
+                                <img [src]="info.image? '/'+baseImagePath+'/images/' + info.image: '/static/images/' + 'running.png'" />
+                            </div>
+                            <div class="details">
+                                <select class="select-duration" formControlName="duration">
+                                  <option *ngFor="let duration of durations" [value]="duration.value" >{{duration.title}}</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="order">
+                            <button type="button" (click)="moveExerciseto(info,0)">
+                             <span  class="ion-ios-arrow-dropup"></span>
+                           </button>
+                            <button type="button" (click)="moveExerciseto(info,i-1)">
+                            <span  class="ion-ios-arrow-up"></span>
+                          </button>
+                            <button type="button" (click)="moveExerciseto(info,i+1)">
+                            <span  class="ion-ios-arrow-down"></span>
+                          </button>
+                            <button type="button" (click)="moveExerciseto(info,exerciseInfo.length-1)">
+                            <span  class="ion-ios-arrow-dropdown"></span>
+                          </button>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="60%">
+                    <div style=" height:80vh;">
+
+                        <div class="form-group">
+                            <label for="form-group__label">운동명:</label>
+                            <mat-form-field class="form-group__field">
+                                <input matInput placeholder="이름은 중복되지 않아야 합니다." id="workout-name" formControlName="name">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workout-title">제목:</label>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="운동제목." id="workout-title" formControlName="subject">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workout-desc">설명:</label>
+                            <mat-form-field class="example-full-width">
+                                <textarea matInput id="workout-name" placeholder="운동에 대한 설명" id="workout-desc" formControlName="desc"></textarea>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workout-rest">휴식시간(초)</label>
+                            <mat-form-field>
+                                <input matInput id="workout-rest" formControlName="rest">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workout-rest">운동시간(초)</label>
+                            <mat-form-field>
+                                <input matInput #resttime formControlName="exetime">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group" *ngIf="exeLength>0">
+                            <p>
+                                <span [matBadge]="exeLength" matBadgeOverlap="false">운동수</span>
+                            </p>
+                        </div>
+
+                        <div class="form-group" *ngIf="totalDuration > 0">
+                            <p>
+                                <span [matBadge]="totalDuration" class="badge" matBadgeOverlap="false">총운동시간</span>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <button mat-raised-button color="primary" (click)="onSave()">저장</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<!--
+ 
+-->

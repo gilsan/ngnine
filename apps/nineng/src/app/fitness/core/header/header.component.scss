@@ -1,0 +1,32 @@
+.exe-history {
+    font-size: 1rem;
+    font-weight: bold;
+    float: right;
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+.navbar-header {
+    cursor: pointer;
+    margin-top:1rem;
+}
+ 
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+     width: 90vw;
+    color: white;
+     
+}
+
+.goBack {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    &:hover {
+        color: red;
+        cursor: pointer;
+        transform: scale(2);
+    }
+}

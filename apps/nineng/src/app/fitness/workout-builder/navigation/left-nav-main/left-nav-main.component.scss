@@ -1,0 +1,38 @@
+:host {
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.left_nav_bar {
+    background-color: #1ba2db;
+    min-height: 100%;
+    position: fixed;
+    // margin-left: 1rem;
+    width: 200px;
+    &-group {
+        padding: 1rem 1rem;
+        //  border: 1px solid black;
+    }
+}
+
+.list {
+    width: inherit;
+    padding: 10px;
+    background: #9d4a9c;
+    font-size: 14pt;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    &:hover,
+    &:active {
+        background-color: #fff;
+        text-decoration: none;
+    }
+}

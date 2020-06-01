@@ -1,0 +1,31 @@
+.row-top {
+    margin-top: 10px;
+    display: flex;
+}
+
+.gauge {
+    background-color: coral;
+    border-radius: 51%;
+}
+
+.gaugeLabel {
+    font-size: 20px;
+    color: cyan;
+}
+
+.statusSytem {
+    border: 1px solid black;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    border: 1px solid black;
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+    background-color: aqua;
+}

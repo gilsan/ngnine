@@ -1,0 +1,120 @@
+<div class="container">
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-4 pull-left">
+
+            <div class="form-group form-inline">
+                <input class="form-control ml-2" #searchMent type="text" placeholder="검색 제목입력.." />
+                <div class=" input-group-btn">
+                    <button type="button" class="btn btn-outline-secondary" (click)="mentSearch(searchMent.value)"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-3">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" (click)="reset()">
+                   <i class="fas fa-sync"></i>새로고침
+                </button>
+                <button type="button" class="btn btn-success" (click)="register()">
+            <i class="fas fa-plus-circle"></i>등록
+        </button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col" class="index">#</th>
+            <th scope="col" class="filename">내선번호</th>
+
+            <th scope="col" class="item head_modi">수정</th>
+            <th scope="col" class="item head_delete">삭제</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let send of ( send$ | async) as sends">
+            <th scope="row" class="index">{{send.id}} </th>
+            <td class="filename ">{{send.number}} </td>
+            <td>
+                <div class="modi" (click)="sendUpdate(send)">수정<i class="far fa-edit"></i></div>
+            </td>
+            <td>
+                <div class="delete" (click)="sendDelete(send)">삭제<i class="far fa-calendar-times"></i></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" (click)="getNext()" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+</div>
+<!--   발신녹취 등록화면   --------------------------------------------------------  -->
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+        <h6 class="modal-title">발신녹취 등록</h6>
+
+        <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="close('none')">
+     <span aria-hidden="true">&times;</span>
+</button>
+    </div>
+    <div class="modal-body">
+
+        <div class="box box-primary">
+            <form [formGroup]="form">
+                <div class="box-body">
+
+
+                    <div class="form-group reg-group">
+                        <label for="inputText2" class="col-sm-3 control-label">내선번호</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control input-sm" formControlName="number" placeholder="내선번호" name="regist_title">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer " style="display:flex; justify-content: space-around;">
+        <button type="button " class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소 </button>
+        <button type="button " class="btn btn-success" [disabled]="form.invalid" (click)="close('REG')"><i class="fas fa-check" ></i>등록 </button>
+    </div>
+</ng-template>
+<!--     끝  ==============================================================================================           -->
+<ng-template #modalModiContent let-close="close">
+    <div class="modal-header">
+        <h6 class="modal-title">발신녹취 수정</h6>
+
+        <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="close('none')">
+   <span aria-hidden="true">&times;</span>
+</button>
+    </div>
+    <div class="modal-body">
+
+        <div class="box box-primary">
+            <form [formGroup]="form">
+                <div class="box-body">
+
+
+                    <div class="form-group reg-group">
+                        <label for="inputText2" class="col-sm-3 control-label">내선번호</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control input-sm" formControlName="number" placeholder="내선번호" name="regist_title">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer " style="display:flex; justify-content: space-around;">
+        <button type="button " class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소 </button>
+        <button type="button " class="btn btn-success" [disabled]="form.invalid" (click)="close('MOD')"><i class="fas fa-check" ></i>수정 </button>
+    </div>
+</ng-template>

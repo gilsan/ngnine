@@ -1,0 +1,37 @@
+
+<h2 mat-dialog-title>내용수정</h2>
+<loading></loading>
+<mat-dialog-content [formGroup]="form">
+    <mat-form-field appearance="fill"  class="form-field">
+        <mat-label>내용</mat-label>
+        <input matInput formControlName="description"> 
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill"  class="form-field">
+        <mat-label>카테고리</mat-label>
+        <mat-select formControlName="categories">
+            <mat-option value="BEGINNER">초급</mat-option>
+            <mat-option value="ADVANCED">고급</mat-option>
+        </mat-select> 
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill"  class="form-field">
+        <mat-label>자세한내용</mat-label>
+        <textarea matInput formControlName="longDescription"></textarea>
+    </mat-form-field>  
+</mat-dialog-content>
+
+<mat-dialog-actions>
+ 
+
+    <div mat-dialog-actions class="course-action">        
+        <button  mat-button class="mat-raised-button mat-accent"
+        (click)="save()">
+          수정
+        </button>
+        <button class="mat-raised-button"   (click)="close()" >
+          취소
+        </button>
+    </div>
+</mat-dialog-actions>    
+ 

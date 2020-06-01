@@ -1,0 +1,41 @@
+ <div class="app-container">
+    <mat-toolbar color="primary" class="toolbar" class="menu_list">
+        <!-- <button mat-icon-button  (click)="sidenav.toggle()"> -->
+            <button mat-icon-button  (click)="toggle()">    
+           <mat-icon>menu</mat-icon>
+        </button>
+        <a mat-icon-button [routerLink]="['/home']"  class="title">
+            <mat-icon >home</mat-icon>
+            <span class="mat-h3" style="margin-left: 0.5rem;">홈</span>
+        </a>       
+        <a mat-icon-button [routerLink]="['/home','lemon']"  class="title">
+            <mat-icon svgIcon="lemon"></mat-icon>
+            <span class="mat-h3" style="margin-left: 0.5rem;">레몬가게</span>
+        </a> 
+        <span class="flex-spacer"></span>
+        <button mat-mini-fab  [routerLink]="['/home','lemon','profile']" matTooltip="Profile" aria-label="User Profile">
+            <mat-icon>account_circle</mat-icon>
+        </button> 
+        <span class="flex-spacer"></span>      
+     </mat-toolbar>
+     <mat-sidenav-container class="app-sidenav-container">
+         <mat-sidenav #sidenav  [(opened)]="opened">
+            <app-sidebar-menu 
+                [menu]="menu"
+                [imageDesc]="imageDesc"
+                (selected)="toggle()">
+            </app-sidebar-menu>
+             <!-- <app-navigation-menu (selected)="toggle()"></app-navigation-menu>            -->
+         </mat-sidenav>
+         <mat-sidenav-content>
+            <router-outlet></router-outlet>
+         </mat-sidenav-content>
+     </mat-sidenav-container>
+     
+ </div>
+
+ 
+ 
+
+
+ 

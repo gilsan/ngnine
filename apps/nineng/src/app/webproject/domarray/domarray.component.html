@@ -1,0 +1,26 @@
+<div class="main">
+  <h1>DOM 배열 함수 사용예제</h1>
+
+  <div class="container">
+    <aside>
+      <button id="add-user" (click)="addUser()">사용자 추가 (push)</button>
+      <button id="double" (click)="makeDouble()">금액 2배만들기 (map)</button>
+      <button id="show-millionaires" (click)="showMillionaire()">5000이상 (filter)</button>
+      <button id="sort" (click)="doSort()">금액순 정렬 (sort)</button>
+      <button id="calculate-wealth" (click)="doSum()">전체 합산 (reduce)</button>
+    </aside>
+
+    <main id="main">
+      <h2>
+        <strong>이 름</strong>자산금액
+      </h2>
+      <div *ngFor="let item of user" class="person">
+        <strong>{{item.name}}</strong>{{item.money | currency:'KRW':'symbol':'1.0'}}
+      </div>
+      <div class="person" *ngIf="grandTotal > 0">
+        <strong></strong>{{grandTotal| currency:'KRW':'symbol':'1.0'}}
+      </div>
+    </main>
+
+  </div>
+</div>

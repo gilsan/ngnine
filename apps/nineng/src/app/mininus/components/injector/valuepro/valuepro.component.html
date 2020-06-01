@@ -1,0 +1,32 @@
+
+<!--
+1. Structural directives
+2. Animations
+3. Static properties
+4. Dynamic properties
+5. Events
+
+
+
+-->
+
+
+
+<div class="container">
+    <div>
+        <span>
+            Value Provider 예:(소스참고)
+        </span>
+    </div>
+    <div  class="service">
+        서비스명: {{config.serviceName}}
+    </div>
+    <div class="level">
+        회원등급: {{config.grade | json}}
+    </div>
+    <div class="info">
+        정보: 
+        <span [innerHTML]="config.getInfo()"></span>
+    </div>
+</div>
+

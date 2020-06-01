@@ -1,0 +1,47 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+}
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    background-color: lightsalmon;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.contents {
+    display: flex;
+    background-color: rgb(230,222,213);
+    height: 300px;
+    
+}
+
+.anchor:not(:empty) {
+    padding: 0.5rem;
+    border: 1px dashed reb(83,83,83); 
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    background:rgb(12, 88, 158);
+    color: rgb(237, 243, 248);
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+li + li {
+    border-top: 1px solid rgb(224, 222, 222);
+}

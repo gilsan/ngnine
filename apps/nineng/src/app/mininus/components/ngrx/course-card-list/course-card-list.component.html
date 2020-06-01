@@ -1,0 +1,23 @@
+ <mat-card  *ngFor="let course of   courses"  class="course-card mat-elevation-z10">
+     <mat-card-header>
+         <mat-card-title>
+           {{course.titles.description}}
+         </mat-card-title>
+     </mat-card-header>
+     <img mat-card-image [src]="course.iconUrl">
+     <mat-card-content>
+         <p>{{course.titles.longDescription}}</p>
+     </mat-card-content>
+     <mat-card-actions class="course-action">
+         <button mat-button class="mat-raised-button mat-primary"
+         (click)="goCourse(course.url)">
+          <!-- [routerLink]="['/mininus','components','ngrx',course.url]"> -->          
+           코드보기
+         </button>
+         <button  mat-button class="mat-raised-button mat-accent"
+         (click)="editCourse(course)">
+           편집
+         </button>
+     </mat-card-actions>
+ </mat-card>
+ 

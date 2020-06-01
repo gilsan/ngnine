@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <h3>개인 운동 리스트</h3>
+    </div>
+    <!--  <div class="row">
+        <label>Workouts</label>
+    </div> -->
+    <div class="row table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>시작</th>
+                    <th>종료</th>
+                    <th>마지막운동</th>
+                    <th>완료한운동</th>
+                    <th>완료여부</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let historyItem of history; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{historyItem.startedOn | date:'short'}}</td>
+                    <td>{{historyItem.endedOn | date:'short'}}</td>
+                    <td>{{historyItem.lastExercise}}</td>
+                    <td>{{historyItem.exercisesDone}}</td>
+                    <td>{{historyItem.completed? "완료" : "미완료"}}</td>
+                </tr>
+                <tr *ngIf="history.length===0" class="warining">
+                    <td colspan="6">운동기록이 없습니다.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary pull-right" (click)="goBack()">뒤로</button>
+    </div>
+</div>

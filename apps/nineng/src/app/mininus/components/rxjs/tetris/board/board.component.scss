@@ -1,0 +1,37 @@
+:host {
+    font-family: 'Press Start 2P', cursive;
+    
+}
+
+.grid {
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 10%);
+    width: 50vw;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 500px 200px;
+    grid-gap: 1rem;
+    
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-board {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+     
+    border: 2px solid black;
+}
+
+.play-button {
+    background-color: #4caf50;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+}

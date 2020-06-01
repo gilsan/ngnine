@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row" class="row-top">
+
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-3">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary">
+                     <i class="fas fa-sync"></i>새로고침
+                </button>
+                <button type="button" class="btn btn-success">
+                     <i class="fas fa-plus-circle"></i>등록
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row" class="row-top  statusSytem">
+        <div class="col-lg-3 col-xs-3 system_title" class="title">
+            <div>
+                <p>  금  일  호  </p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6 text-center">
+            <ngx-gauge [type]="gaugeType" [value]="callValue" [label]="gaugeLabel" [append]="callText" [thick]="gaugeThick" [size]="gaugeSize" [thresholds]="thresholdConfig" [backgroundColor]="gaugeBc" [foregroundColor]="gaugeFc">
+                <ngx-gauge-label class="gaugeLabel">통화중</ngx-gauge-label>
+            </ngx-gauge>
+        </div>
+        <div class="col-lg-3 col-xs-6 text-center">
+            <ngx-gauge [type]="gaugeType" [value]="callsumValue" [label]="gaugeLabel" [append]="callText" [thick]="gaugeThick" [size]="gaugeSize" [thresholds]="thresholdConfig" [backgroundColor]="gaugeBc" [foregroundColor]="gaugeFc">
+                <ngx-gauge-label class="gaugeLabel">금일통화</ngx-gauge-label>
+            </ngx-gauge>
+        </div>
+        <div class="col-lg-3 col-xs-6 text-center">
+            <ngx-gauge [type]="gaugeType" [value]="callfailValue" [label]="gaugeLabel" [append]="callText" [thick]="gaugeThick" [size]="gaugeSize" [thresholds]="thresholdConfig" [backgroundColor]="gaugeBc" [foregroundColor]="gaugeFc">
+                <ngx-gauge-label class="gaugeLabel">미통화</ngx-gauge-label>
+            </ngx-gauge>
+        </div>
+    </div>
+    
+    <div class="row" class="row-top  statusSytem">
+        <div class="col-lg-3 col-xs-3 system_title" class="title">
+            <div>
+                <p>시스템 사용율</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6 text-center">
+            <ngx-gauge [type]="gaugeType" [value]="gaugeCpuValue" [label]="gaugeLabel" [append]="gaugeAppendText" [thick]="gaugeThick" [size]="gaugeSize" [thresholds]="thresholdConfig" [backgroundColor]="gaugeBc" [foregroundColor]="gaugeFc">
+                <ngx-gauge-label class="gaugeLabel">CPU</ngx-gauge-label>
+            </ngx-gauge>
+        </div>
+        <div class="col-lg-3 col-xs-6 text-center">
+            <ngx-gauge [type]="gaugeType" [value]="gaugeMemValue" [label]="gaugeLabel" [append]="gaugeAppendText" [thick]="gaugeThick" [size]="gaugeSize" [thresholds]="thresholdConfig" [backgroundColor]="gaugeBc" [foregroundColor]="gaugeFc">
+                <ngx-gauge-label class="gaugeLabel">메모리</ngx-gauge-label>
+            </ngx-gauge>
+        </div>
+        <div class="col-lg-3 col-xs-6 text-center">
+            <ngx-gauge [type]="gaugeType" [value]="gaugeDiskValue" [label]="gaugeLabel" [append]="gaugeAppendText" [thick]="gaugeThick" [size]="gaugeSize" [thresholds]="thresholdConfig" [backgroundColor]="gaugeBc" [foregroundColor]="gaugeFc">
+                <ngx-gauge-label class="gaugeLabel">디스크</ngx-gauge-label>
+            </ngx-gauge>
+        </div>
+    </div>
+
+
+   
+</div>
+
+<br>

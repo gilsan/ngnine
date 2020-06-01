@@ -1,0 +1,43 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-toolbar color="primary" class="toolbar">
+    <div class="bar-menu">
+      <ul class="cards">
+        <li class="card--1" [routerLink]="['/home']">홈</li>
+        <li class="card--1" [matMenuTriggerFor]="miniweb1">미니웹1</li>
+        <li class="card--2" [matMenuTriggerFor]="miniweb2">미니웹2</li>
+        <li class="card--2">미니웹3</li>
+        <li class="card--2">미니웹4</li>
+      </ul>
+      <mat-menu #miniweb1="matMenu">
+        <button mat-menu-item [routerLink]="['/webproject', 'formvalidator']">양식검증</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'moviceseat']">좌석예약</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'videoplayer']">비디오</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'exchangerate']">환율계산기</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'domarray']">DOM 배열함수</button>
+      </mat-menu>
+
+      <mat-menu #miniweb2="matMenu">
+        <button mat-menu-item [routerLink]="['/webproject', 'menumodal']">메뉴&모달</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'hangmangame']">행맨게임</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'mealfinder']">음식찿기</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'expensetracker']">경비내역</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'musicplayer']">음악듣기</button>
+      </mat-menu>
+
+
+      <!-- <button mat-menu-item [routerLink]="['/webproject', '']"></button>
+        <button mat-menu-item [routerLink]="['/webproject', '']"></button>
+        <button mat-menu-item [routerLink]="['/webproject', '']"></button>
+        <button mat-menu-item [routerLink]="['/webproject', '']"></button>
+        <button mat-menu-item [routerLink]="['/webproject', '']"></button>         -->
+
+
+    </div>
+  </mat-toolbar>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

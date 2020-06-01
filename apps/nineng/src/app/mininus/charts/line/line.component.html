@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+ 
+
+<div class="demo">
+     <div class="demo__chart demo__chart--1">
+        <h4>일반: </h4>
+        <div echarts [options]="options" class="chart"></div>
+     </div>
+     <div class="demo__chart demo__chart--2">
+        <h4>Easy to choose a theme: </h4>
+        <div echarts [options]="options" theme="macarons" class="chart"></div>
+     </div>
+    
+     <div  class="demo__chart demo__chart--3">
+        <h4>비동기: 
+           <button (click)="getData()" style="padding: 0.5em;">Get Data</button>
+        </h4>
+        <div echarts [options]="options" [merge]="mergeOption" [loading]="loading" class="chart"></div>
+     </div>
+    
+</div>
+ 
+<div class="realtime">
+   <h4>실시간 그래프: </h4>
+   <div echarts [options]="option" [merge]="updateOptions" class="demo-chart"></div>
+</div>
+ 
+
+
+
+
+
+ 

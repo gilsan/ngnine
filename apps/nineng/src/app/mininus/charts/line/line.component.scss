@@ -1,0 +1,30 @@
+ 
+  .chart-lg {
+    height: 700px;
+  }
+
+  .demo {
+    width: 90%;
+    height: 400px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &__chart {
+    //  border: 1px solid black;      
+      .chart {
+        width: 300px;
+        height: 200px; 
+      }
+    }
+  }
+
+  h4 {
+    text-align:center;
+  }
+
+  .realtime {
+    width: 60%;
+    height: 300px;
+  }

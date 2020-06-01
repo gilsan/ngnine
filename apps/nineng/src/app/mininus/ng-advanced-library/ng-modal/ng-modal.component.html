@@ -1,0 +1,19 @@
+<div class="container">
+    <h3>모달 예제</h3>
+    <div class="modal-buttons">
+        <button #loginButton>로그인 </button>
+        <button #signUpButton>등록</button>
+    </div>
+    <ng-template #authModalBody>
+        <app-ng-tap></app-ng-tap>
+    </ng-template>
+        <modal  #modal
+            [body] = "authModalBody"
+            [hideOnClickOutside]="false"
+            [hideOnEsc]="true"
+           *appModalOpenClose=[loginButton,signUpButton]>
+           
+            <mat-icon (click)="modal.close()">cancel</mat-icon>
+        </modal>
+</div>
+ 

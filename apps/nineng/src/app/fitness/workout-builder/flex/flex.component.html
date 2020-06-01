@@ -1,0 +1,95 @@
+<div fxLayout='row' fxLayoutGap="10px" class="zero">
+
+    <div fxFlex="30%" class="one ">
+        <app-left-nav-exercises></app-left-nav-exercises>
+    </div>
+    <div fxFlex="70%" class="three">
+        <div fxLayout="row">
+            <div fxFlex="40%">
+                <div style="border:1px solid red;height:80vh;">
+                    <div class="panel" *ngFor="let item of items; let i=index">
+                        <div class="panel__item">
+                            <span>{{item}}</span>
+                        </div>
+                        <div class="panel__index">
+                            <span>{{i+1}}</span>
+                        </div>
+                        <div class="panel__control">
+                            <button type="button" class="panel__control-up" (click)="moveExerciseto(item,i-1)">
+                            <span  class="ion-ios-arrow-up"></span>
+                          </button>
+                            <button type="button" class="panel__control-down" (click)="moveExerciseto(item,i+1)">
+                            <span  class="ion-ios-arrow-down"></span>
+                          </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div fxFlex="60%">
+                <div style="border:1px solid blue;height:80vh;">
+                    <form [formGroup]="form">
+                        <div class="main-panel">
+                            <div class="main-panel__name">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" formControlName="name">
+                            </div>
+                            <div class="panel-content" formArrayName="address">
+                                <div *ngFor="let address of videoArray.controls; let k=index">
+                                    <div class="subpanel">
+                                        <div class="subpanel__header">
+                                            Address #{{k +1}}
+                                        </div>
+                                        <!--------  -----------------------------------------------------------------------------    -->
+                                        <div class="panel-body" [formGroupName]="k">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" style="background-color: rgb(17, 167, 218);">
+                                                    <mat-label>주소</mat-label>
+                                                    <input matInput>
+                                                    <mat-icon matSuffix class="trash-icon">delete_forever</mat-icon>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+
+                                        <!--  -----------------------------------------------------------------------------------------          -->
+                                        <div class="subpanel__body">
+                                            <input type="text">
+                                            <!--
+                                            <mat-form-field appearance="outline" style="background-color: lightblue;">
+                                                <mat-label>주소</mat-label>
+                                                <input matInput [value]="address">
+                                                <mat-icon matSuffix class="trash-icon">delete_forever</mat-icon>
+                                            </mat-form-field>
+                                             -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div class="container">
+    <div class="item item1">
+        <ul class="item__sub">
+            <li class="list">1</li>
+            <li class="list i2">2</li>
+            <li class="list i3">3</li>
+        </ul>
+    </div>
+    <div class="item item2">
+        <ul class="item__sub">
+            <li class="list">4</li>
+            <li class="list i5">5</li>
+            <li class="list">6</li>
+        </ul>
+    </div>
+    <div class="item item3">item3</div>
+
+</div>
+-->

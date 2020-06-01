@@ -1,0 +1,20 @@
+<mat-tab-group>
+    <mat-tab label="유 형">
+       <app-categories 
+       [expenseCategories$]="expenseCategories$"
+       (categoryAdded)="addExpenseCategory($event)"
+       (categoryUpdated)="categoryUpdated($event)"
+       ></app-categories>        
+    </mat-tab>
+
+    <mat-tab label="비 용">
+         <app-expenses></app-expenses>
+    </mat-tab>
+
+    <mat-tab label="계정">
+       <!-- <app-tablerow></app-tablerow> -->
+        <app-user></app-user>
+    </mat-tab>
+</mat-tab-group>
+
+ 

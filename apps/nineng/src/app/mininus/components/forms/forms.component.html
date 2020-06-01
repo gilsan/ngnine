@@ -1,0 +1,17 @@
+<div class="panel">
+    <mat-expansion-panel *ngFor="let category of categories">
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{category.name}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      
+        <app-formarray  
+          [category]="category"
+          (categoryAdded)="categoryAdded($event)"></app-formarray>
+      
+      </mat-expansion-panel>
+</div>
+
+

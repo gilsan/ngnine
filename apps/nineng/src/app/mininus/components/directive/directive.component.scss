@@ -1,0 +1,78 @@
+ 
+
+
+
+.course-card.beginner {
+    background: lightsalmon;
+}
+
+.top-menu {
+    background: #1976d2;
+    padding: 2px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    span {
+        color: white;
+        font-size: 1.2rem;
+        &:hover {
+            // color: lightgrey;
+            cursor: pointer;
+        }
+    }
+}
+.menupanel {
+    width: 180px;
+    height: 30px;
+   // border: 1px solid black; 
+    &:hover span {
+      color: lightgreen;
+      background-color: gray;
+    }
+}
+.submenu {
+    list-style: none;
+    background-color: #849e65;
+    border: 1px solid black;
+    border-radius: 5px;
+    display:flex;
+    flex-direction: column;
+    
+    font-size: 1rem;
+    color: black;
+    font-weight: bold;
+    width: 5rem;
+    transition: all 1s ease;
+    
+    &__item {
+        padding-left: 1rem;
+        padding-top: 0.3rem;
+        &:hover {
+           color: blue;
+           background-color: lightgray; 
+           cursor: pointer;
+           padding-left: 2rem;
+        }
+    }
+}
+
+.logo {
+  max-height: 55px;
+}
+
+
+.courses {
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.highlighted {
+    box-shadow: 0 2px 16px 0 #de1e19, 0 3px 8px 0 rgba(226,21,19,0.47), 0 6px 8px -1px #b41c18;
+}
+
+.highlightshow {
+    background-color: white;
+    padding: 1rem 2rem;
+    margin: 3rem;
+}

@@ -1,0 +1,162 @@
+<mat-sidenav-container fullscreen>
+   
+     <mat-toolbar color="primary" class="toolbar">
+          <div  (click)="goBack()"  class="goBack">
+            <i class="fas fa-arrow-left"></i>
+         </div>
+         <!-- <button mat-icon-button (click)="start.open('mouse')"> -->
+          <button mat-icon-button (click)="start.toggle()">
+            <mat-icon>menu</mat-icon>
+         </button>
+         <div class="bar-menu">
+            
+           <svg class="logo__icon" viewBox="150.3 22.2 213.7 42.8">
+            <path fill="#00ff9b" d="M150.3 65V22.2L193 65z" data-name="Path 1"></path>
+            <path fill="#003eff" d="M193.1 65h-42.8L193 22.2z" data-name="Path 2"></path>
+            <text [ngClass]="{'logo__text-dark': darkModeActive}" class="logo__text" fill="#432c85"
+                  font-family="SegoeUI-Semibold,Segoe UI" font-size="20" font-weight="600"
+                  letter-spacing=".1em" transform="translate(220 56)">
+              <tspan x="0" y="0">도시날씨</tspan>
+            </text>
+          </svg>
+           <ul class="cards">
+               <li class="card--1" [matMenuTriggerFor]="graphType" (click)="hideMenu()">그래프</li>
+               <li class="card--2" [matMenuTriggerFor]="montoringType"  (click)="hideMenu()">관제</li>
+               <li class="card--3"  (click)="submenuthreeToggle()">컴포넌트</li>   
+
+               <li class="card--4" [matMenuTriggerFor]="cssCollection" (click)="hideMenu()" >CSS모음</li>
+               <li class="card--4" [matMenuTriggerFor]="angularCollection" (click)="hideMenu()" >Angular</li>
+           </ul>
+
+           <div class="card--3__submenu" [ngClass]="showMenus()">           
+                <div class="card--3__submenu-1">
+                   <ul>
+                     <li  class="submenu__item" (click)="goCanvas()">Canvas예제</li>
+                     <li  class="submenu__item" (click)="goGame()">우주선게임</li>
+                     <li  class="submenu__item" (click)="goTetris()">테트리스</li>
+                   </ul>
+                </div>
+                <div class="card--3__submenu-2">
+                  <span>Library</span>
+                 <ul>
+                   <li class="submenu__item" (click)="goAuinput()">입력양식</li>
+                   <li class="submenu__item"  (click)="goTaps()">탭</li>
+                   <li class="submenu__item" (click)="goModal()">모달</li>
+                 </ul>
+               </div>
+               <div class="card--3__submenu-3">
+                 <ul>
+                   <li class="submenu__item"  (click)="goProgressbar()">RxJS:ProgressiveBar</li>
+                   <li class="submenu__item">공사중</li>
+                   <li class="submenu__item">공사중</li>
+                 </ul>
+               </div>
+            </div> 
+                       
+           <!-- <span class="logout" (click)="goHome()">홈이동</span> -->
+           <div class="light">
+               <section class="example-section">
+                   <span style="font-size: 10px;margin:0 3px;">밝음</span>
+                   <mat-slide-toggle  (change)="onChange($event.checked)"
+                       class="example-margin"
+                       [color]="color"
+                       [checked]="checked"
+                       [disabled]="disabled">
+                     
+                   </mat-slide-toggle>
+                   <span  style="font-size: 10px;margin:0 3px;">어둠</span>
+                 </section>
+           </div>
+         </div>
+         <mat-menu #graphType="matMenu">          
+            <button mat-menu-item  [routerLink]="['charts', 'line']">라인챠트</button>
+            <button mat-menu-item  [routerLink]="['charts', 'bar']">바차트</button>
+            <button mat-menu-item  [routerLink]="['charts', 'pie']">파이차트</button>
+            <button mat-menu-item  [routerLink]="['charts', 'gauge']">게이지</button>                              
+        </mat-menu>
+        <mat-menu #montoringType="matMenu">
+          <button mat-menu-item  [routerLink]="['monitor', 'topology']">망도</button>
+          <button mat-menu-item  [routerLink]="['monitor', 'hw']">하드웨어상태</button>
+        </mat-menu>
+
+        <mat-menu #cssCollection="matMenu"  class="card--4__submenu">
+            <div>
+                <button mat-menu-item  [matMenuTriggerFor]="scss">SCSS</button>
+                <button mat-menu-item  [matMenuTriggerFor]="flexlayout">FLEX</button>
+                <button mat-menu-item  [matMenuTriggerFor]="gridlayout">GRID</button>
+            </div>                        
+       </mat-menu>
+       <mat-menu #scss="matMenu">
+            <div class="card--4__submenu-1">
+               <button mat-menu-item  (click)="goCSS()">Coffee</button>
+               <button mat-menu-item  (click)="goFlex()">Travel</button>
+               <button mat-menu-item  (click)="goMusic()">UDEMY</button>
+               <button mat-menu-item  (click)="goNetflix()">NETFLIX</button>
+               <button mat-menu-item  (click)="goAdmin()">ADMIN</button>
+            </div>
+       </mat-menu>
+       <mat-menu #gridlayout="matMenu">
+           <div class="card--4__submenu-1">
+              <button mat-menu-item  (click)="goBasic()">기초</button>
+              <button mat-menu-item  (click)="goVlog()">블러그</button>
+              <button mat-menu-item  (click)="goReal()">부동산</button>
+              <button mat-menu-item  (click)="goFreelancer()">Freelancer</button>
+              <button mat-menu-item  (click)="goAirbnb()">AirBNB</button>
+           </div>
+      </mat-menu>
+      <mat-menu #flexlayout="matMenu">
+          <button mat-menu-item (click)="portpolio()">Portpolio</button>
+          <button mat-menu-item (click)="webagency()">WebAgency</button>
+          <button mat-menu-item  [routerLink]="['/mininus', 'components','codemaster']">CodeMaster</button>
+      </mat-menu>  
+      
+      <mat-menu #angularCollection="matMenu">
+        <div>
+          <button mat-menu-item  [matMenuTriggerFor]="mgndom">DOM관리</button>  
+          <button mat-menu-item  [matMenuTriggerFor]="inject">Provider</button> 
+          <button mat-menu-item  [matMenuTriggerFor]="lazyloading">Lazyloading</button> 
+          <button mat-menu-item  
+              [routerLink]="['/mininus', 'components','directive']">Directive</button>  
+          <button mat-menu-item [routerLink]="['/mininus', 'components','ngrx']">Firebase</button>  
+          <button mat-menu-item [routerLink]="['/mininus', 'components','formarray']">FormArray</button>       
+      </div>
+      </mat-menu>
+      <!--
+        //https://www.youtube.com/watch?v=qWmqiYDrnDc&list=PLVI0Ut22uwY4UC1v5fUvi2RIU4R4jPkba&sns=tw
+      -->
+      <mat-menu #mgndom="matMenu">
+          <div>
+            <button mat-menu-item  
+              [routerLink]="['/mininus', 'components','elementref']">ElementRef</button>
+            <button mat-menu-item 
+              [routerLink]="['/mininus', 'components','templateref']">TemplateRef</button>
+            <button mat-menu-item  
+              [routerLink]="['/mininus', 'components','viewref']">ViewRef</button>
+            <button mat-menu-item  
+              [routerLink]="['/mininus', 'components','componentref']">ComponentRef</button>
+            <button mat-menu-item  
+              [routerLink]="['/mininus', 'components','viewcomponentref']">ViewContainerRef</button>
+              <button mat-menu-item  
+              [routerLink]="['/mininus', 'components','ngtemplateoutlet']">ngTemplateOutlet</button>  
+              
+          </div>
+      </mat-menu>
+      <mat-menu   #inject="matMenu">
+          <button mat-menu-item [routerLink]="['/mininus', 'components','valuepro']">값제공자</button>
+          <button mat-menu-item [routerLink]="['/mininus', 'components','factorypro']">팩토리제공자</button>
+          <button mat-menu-item [routerLink]="['/mininus', 'components','classpro']">클래스제공자</button>
+      </mat-menu>
+      <mat-menu #lazyloading="matMenu">
+          <button mat-menu-item [routerLink]="['/mininus', 'components','lazycomponent']">컴포넌트</button>
+          <button mat-menu-item [routerLink]="['/mininus', 'components','lazymodule']">모듈</button>
+      </mat-menu>
+     </mat-toolbar>
+   
+      <mat-sidenav #start (click)="start.close()">          
+          <app-menu-navi></app-menu-navi>   
+      </mat-sidenav>
+    
+          <div class="content" [ngClass]="{'content-dark': !darkModeActive }">
+            <router-outlet></router-outlet>
+          </div>   
+</mat-sidenav-container>

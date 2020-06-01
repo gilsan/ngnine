@@ -1,0 +1,132 @@
+@import '../../scss/variable';
+
+// GRID
+$grid-width: 100%; //114rem;
+$gutter-vertical: 1rem;
+$gutter-horizontal: 6rem;
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.row {
+    max-width: $grid-width;
+   // margin: 0 auto;
+     margin: 0  2rem;
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
+    
+    @include clearfix;
+
+    [class^="col-"] {
+        float: left;
+
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+        
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+
+    .col-2-of-3 {
+        width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+    }
+
+    .col-1-of-4 {
+        width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    }
+
+    .col-2-of-4 {
+        width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4 {
+        width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+    }
+
+}
+
+ 
+
+.myModal {
+    width: 100%;
+    padding: 3rem 6rem;
+    background-color: #faf9f7;
+    
+}
+
+.modal-content {
+    border: 1px solid black;
+    width: 80%;
+    padding: 1rem 0;
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+}
+
+.myBorder {
+    border: 1px solid black;
+    background-color: white;
+}
+
+.mark {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+ 
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.main-title {
+    font-size: 1.5rem;
+}
+
+.first-row {
+    display: flex;
+    justify-content: flex-start;    
+}
+
+.second__row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem 0;
+    & input {
+        border-style: none;
+    }
+}
+
+.bottom-margin {
+    margin-bottom: 2rem;
+}
+
+.book {
+    .success {
+        padding: 0.7rem 2rem;
+        background-color: blueviolet;
+        color: white;
+        border-radius: 5px;
+        border-style: none;
+    }
+   
+}
+
+
+ 
+ 

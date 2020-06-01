@@ -1,0 +1,21 @@
+.toolbar-flex {
+    flex: 1 0.5 auto;
+  }
+
+  nav {
+    background-color: lightblue;
+  }
+ a {
+   text-decoration: none;
+   font-size: 1rem;
+   font-weight: bold;
+   color: blue;
+   &:hover {
+     background-color: green;
+     color: white;
+   }
+ }
+
+ .mat-tab-header-pagination-disabled {
+   display: none !important;
+ }

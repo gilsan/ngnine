@@ -1,0 +1,7 @@
+<div class="left-nav-exercise-bar">
+    <h3 class="title">운동목록</h3>
+    <div *ngFor="let exercise of (exerciseList$| async)" class="left-nav-exercise-bar_list">
+        <button class="btn item" (click)="addExercise(exercise)">{{exercise.title}}</button>
+        <span class="ion-ios-arrow-forward"></span>
+    </div>
+</div>

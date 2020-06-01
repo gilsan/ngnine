@@ -1,0 +1,28 @@
+.progress-container {
+    height: 2em;
+    border: 2px solid #FF00FF;
+    width: 90%;
+}
+
+.progress-container .progress {
+    height: 90%;
+    background-color: #FFFF00;
+    transition: all 00.6s ease;
+    width: 0px;
+}
+
+.progress-container .progress.finished {
+    background-color: #00FF00;
+}
+
+#load {
+     margin: 1rem;
+     display:flex;
+     justify-content: center;
+}
+
+#data {
+    width: 90%;
+    margin: 1em 0;
+    text-align: center;
+}

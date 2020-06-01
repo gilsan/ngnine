@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    // background-color: #ccc;
+    //   padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.item {
+    //  background-color: #f1425d;
+    //  padding: 10px;
+    margin: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    // width: 25%;
+    &__sub {
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+// 개별 아이템
+.item1 {
+    flex: 0 0 40%;
+}
+
+.item2 {
+    flex: 0 0 30%;
+}
+
+.item3 {
+    flex: 0 0 30%;
+}
+
+.list {
+    //  width: 40px;
+    //   height: 40px;
+    //  border: 1px solid black;
+    text-align: center;
+    //  background-color: lightblue;
+    color: blue;
+    margin: 0 10px;
+}
+
+a {
+    color: white;
+}

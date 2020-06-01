@@ -1,0 +1,28 @@
+<!-- <div class="row pt-4" *ngIf="currentExercise"> -->
+<div class="row pt-4" *ngIf="currentExercise">  
+    <div id="description-pane" class="col-sm-3">
+        <app-exercise-description [description]="currentExercise.exercise.description" [steps]="currentExercise.exercise.procedure"></app-exercise-description>
+    </div>
+    <div id="exercise-pane" class="col-sm-6">
+        <div id="pause-overlay" (click)="pauseResumeToggle()" (window:keyup)="onKeyPressed($event)" style="border: 1px solid black;">
+            <span class="pause absolute-center" [ngClass]="{'ion-md-pause': !workoutPaused, 'ion-md-play': workoutPaused}"></span>
+        </div>
+        <h4 class="text-center">운동잔여시간: {{workoutTimeRemaining | secondsToTime }}</h4>
+        <h1 class="text-center">{{currentExercise.exercise.title}}</h1>
+        <div class="image-container row">
+            <img [src]="'../../../'+baseImagePath+'/images/' + currentExercise.exercise.image" class="img-fluid col-sm" />
+        </div>
+        <div class="progress time-progress row">
+            <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="exerciseRunningDuration" aria-valuemin="0" [attr.aria-valuemax]="currentExercise.duration" [ngStyle]="{'width':(exerciseRunningDuration/currentExercise.duration)* 100 + '%'}"></div>
+        </div>
+        <div class="row">
+            <h4 class="col-sm-6 text-left">잔여시간: {{ currentExercise.duration-exerciseRunningDuration}}</h4>
+            <h4 class="col-sm-6 text-right" *ngIf="currentExercise.exercise.name =='rest'">다음단계:<strong>
+               {{workoutPlan.exercises[currentExerciseIndex + 1].exercise.title}}
+            </strong></h4>
+        </div>
+    </div>
+    <div id="video-panel" class="col-sm-3">
+        <app-video-player [videos]="currentExercise.exercise.videos" (playbackStarted)="pause()" (playbackEnded)="resume()"></app-video-player>
+    </div>
+</div>

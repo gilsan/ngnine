@@ -1,0 +1,56 @@
+.container {
+    margin:5% auto;
+    max-width: 500px;
+    padding-top: 65px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    font-weight: bold;
+    padding: 1rem 2rem;
+    background-color: #7FFF00;
+}
+
+.modal-buttons {
+    padding: 1rem 1.5rem;  
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+button {
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: lightblue;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: 500;
+    &:hover {
+        cursor: pointer;
+        color: white;
+    }
+}
+
+::ng-deep .auth-modal .modal-body {
+    min-width: 300px;
+}
+
+
+label {
+    width: 100px;
+    text-align: right;
+}
+
+.form-row {
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+.form-field {
+    margin-bottom: 5px;
+}

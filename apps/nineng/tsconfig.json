@@ -2,5 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "types": ["node", "jest"]
+  },
+  "paths": {
+    "@models/*": [
+      "./app/expense/models/*",
+      "./src/app/expense/models/*"
+    ]
   }
 }

@@ -1,0 +1,91 @@
+ 
+ 
+ .tabs {
+     margin-top: 2rem;
+     display:flex;
+     justify-content: center;
+     &-width {
+         width: 90vw;
+     }
+ }
+
+ .main-suites {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+ }
+
+ @media screen and (min-width: 768px) {
+    .suite {
+        flex: 0 0 calc(50% - 1rem);
+        img {
+            width: 100%;
+        }
+    }
+ }
+
+ .phone {
+     background-color: lightsalmon;
+     padding: 0.5rem;
+     border-style: none;
+     border-radius: 50%;
+     color: white;
+ }
+
+ .suite {
+     &__modal {
+         padding: 1rem 0;
+         font-size: 1.5rem;
+         font-weight: bold;
+     }
+     p {
+         padding: 0;
+         margin: 0 0 12px;
+     }
+     &__btn {
+         border-style:none;
+         background-color: white;
+         .b-icon {
+             display: inline-block;
+             font-family: "BellhopIcons";
+             font-style: normal;
+             font-weight: 400;
+             line-height: 1;
+             font-size:1.3rem;
+
+         }
+         .b-icon-down {
+            
+             top:1px;
+             transition: transform 0.3s ease;
+             .arrow-icon {
+                display:flex;
+                flex-direction: column;
+                justify-content: space-between;
+                 position: relative;
+             }
+         }
+         ::before {
+           content:"";
+         }
+         &:hover {
+             text-decoration: underline;
+         }
+     }
+     &__info { 
+           margin: 1rem 0;               
+          &:hover {
+             cursor: pointer;
+          }          
+     }
+     &__info--title {
+       font-weight: 400;  
+     }
+ }
+
+ 
+
+
+
+ 

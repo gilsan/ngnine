@@ -1,0 +1,93 @@
+<div class="course">
+
+    <h2>{{course?.titles.description}}</h2>
+
+    <img class="course-thumbnail mat-elevation-z8" [src]="course?.iconUrl">
+
+    <div class="spinner-container" *ngIf="loading">
+
+        <mat-spinner></mat-spinner>
+
+    </div>
+
+    <mat-table class="lessons-table mat-elevation-z8" [dataSource]="lessons">
+
+        <ng-container matColumnDef="seqNo">
+
+            <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+
+            <mat-cell *matCellDef="let lesson">{{lesson.seqNo}}</mat-cell>
+
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+
+            <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+
+            <mat-cell class="description-cell"
+                      *matCellDef="let lesson">{{lesson.description}}</mat-cell>
+
+        </ng-container>
+
+        <ng-container matColumnDef="duration">
+
+            <mat-header-cell *matHeaderCellDef>Duration</mat-header-cell>
+
+            <mat-cell class="duration-cell"
+                      *matCellDef="let lesson">{{lesson.duration}}</mat-cell>
+
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    </mat-table>
+
+
+    <button class="bottom-toolbar" mat-raised-button color="primary"
+            (click)="loadMore()">Load More</button>
+            &nbsp;
+    <button class="bottom-toolbar" mat-raised-button color="primary" (click)="goBack()">
+        종료
+    </button>
+</div>
+
+<!-- <div class="course">
+    <h2>{{course?.titles.description}}</h2>
+    <img src="" alt="" class="course-thumbnail mat-elevation-z8" [src]="course?.iconUrl">
+    <div class="spinner-container" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+    
+    <mat-table class="lessons-table mat-elevation-z8" [dataSource]="lessons">
+        <ng-container matColumnDef="seqNo">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let lesson" class="mat-cell"> {{lesson.seqNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description" >
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let lesson"  class="mat-cell"> {{lesson.description}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="duration">
+            <th mat-header-cell *matHeaderCellDef>duration</th>
+            <td mat-cell *matCellDef="let lesson"  class="mat-cell"> {{lesson.duration}} </td>
+        </ng-container>        
+ 
+        <mat-header-row *matHeaderRowDef="displayedColumns" class="header"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <div>
+        <button class="bottom-toolbar" mat-raised-button color="primary" (click)="loadMore()">
+            더 보기
+        </button> 
+        <button class="bottom-toolbar" mat-raised-button color="primary" (click)="goBack()">
+            종료
+        </button> 
+    </div>
+    
+
+
+</div> -->

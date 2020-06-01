@@ -1,0 +1,39 @@
+@import '../../../../theme';
+
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+ 
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+.panel {
+    background-color:#D81B60 ;
+    border: none;
+    color: white;
+    font-size: 12px;
+    margin: 0 10px;
+    &:hover {
+        cursor:pointer;
+        color: black;
+        background-color: #ddd;
+    }
+}
+
+svg {
+    vertical-align: top !important;
+}
+
+.menu-item {
+   flex:0 0 auto;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   color: blue;
+}
+
+ 
+ 
+ 

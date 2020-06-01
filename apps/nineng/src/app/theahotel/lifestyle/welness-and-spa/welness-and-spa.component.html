@@ -1,0 +1,120 @@
+
+<section>
+    <div class="event">
+        <div  class="event__main">
+            <img src="../../../../assets/hotel/event/Flower.webp" class="event__main--image">
+        </div>
+        <div>
+            <h1 class="page-title">               
+                    Special Events
+            </h1>
+            <br>
+            <div class="description">
+                <div>
+                   
+                        Park Hyatt Seoul provides six event venues covering a total of 317 sq m and catering occasions of all manners and sizes. From small high-end business meetings to elegant private events and weddings, an experienced events team will ensure every event is meticulously planned, flawlessly executed and highly memorable. All space benefits from the natural light from floor-to-ceiling windows and attention-to-detail services. Park Hyatt Seoul also offers a first-class off-site catering service with various menu options, exquisite dishes, elegant presentations and sophisticated services.
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="component rooms-space-count">
+    <div class="b-container">
+        <div class="b-row psr-row two-col">
+            <div class="psr-col">
+                <h4 class="title b-text_weight-bold fg-black">Total Sleeping Rooms</h4>
+                <p>185</p>
+            </div>
+            <div class="psr-col">
+                    <h4 class="title b-text_weight-bold fg-black">Largest Space</h4>
+                    <p>317 sq. ft.</p>                                
+            </div>
+        </div>
+    </div>
+</section>
+<div class="align-center">
+   <section class="spaces-container">
+        <div class="b-row">
+            <div class="divider">
+                <div class="b-col">
+                    <h2 class="b-title">
+                        <div class="richText">
+                            Spaces
+                        </div>
+                    </h2>
+                </div>
+            </div>
+
+        </div>
+ 
+        <div class="sectionheader">
+            <div class="room-size">
+                <img src="../../../../assets/hotel/event/Salon.webp" class="img-size">
+                <div class="spaces-title"  #salons>
+                    Salons                  
+                </div>
+                <ng-template #detail_image>
+                    <div class="myModal">
+                        <div  class="spaces-title l-header">
+                            <div>
+                                Salons
+                            </div>
+                            
+                            <span class="material-icons"  (click)="close()">clear</span>
+                        </div>
+                        <div>
+                            <img src="../../../../assets/hotel/event/Salon.webp" class="img-sub-size" >
+                        </div> 
+                        <div class="sub-description">
+                            <p>
+                                Park Hyatt Seoul has three salons, The Salon, Salon I and Salon II. The Salon is the largest of the meeting rooms at 112 square metres and can accommodate 85 guests for a reception, 65 theatre style and 60 for a seated dinner. The unique Salon I and Salon II are 27 square metres and 52 square metres respectively and are perfect for boardroom meetings for between 10 and 14 people. 
+                            </p>
+                        </div>                    
+                    </div>
+                </ng-template>
+                 
+                <modals  #modals
+                     [body]="detail_image"
+                     [hideOnClickOutside]="false"
+                     [hideOnEsc]="true"                    
+                     *closeOpenModal=[salons]>            
+                </modals>
+
+                <modals  #modals
+                   [body]="broadroom"
+                   [hideOnClickOutside]="false"
+                   [hideOnEsc]="true"                    
+                   *closeOpenModal=[broadrooms]>            
+                </modals>
+
+            </div>
+            <div  class="room-size">
+                <img src="../../../../assets/hotel/event/Offset.webp" class="img-size">
+                <div class="spaces-title" #broadrooms>
+                    Boardrooms
+                </div>                
+            </div>
+            <ng-template #broadroom>
+                <div class="myModal">
+                    <div  class="spaces-title l-header">
+                        <div>
+                            Boardrooms
+                        </div>
+                        
+                        <span class="material-icons"  (click)="close()">clear</span>
+                    </div>
+                    <div>
+                        <img src="../../../../assets/hotel/event/Offset.webp" class="img-sub-size" >
+                    </div> 
+                    <div class="sub-description">
+                        <p>
+                            Park Hyatt Seoul has three salons, The Salon, Salon I and Salon II. The Salon is the largest of the meeting rooms at 112 square metres and can accommodate 85 guests for a reception, 65 theatre style and 60 for a seated dinner. The unique Salon I and Salon II are 27 square metres and 52 square metres respectively and are perfect for boardroom meetings for between 10 and 14 people. 
+                        </p>
+                    </div>                    
+                </div>                
+            </ng-template>
+        </div>
+   </section>
+</div>
+ 

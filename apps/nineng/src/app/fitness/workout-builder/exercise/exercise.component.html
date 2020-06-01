@@ -1,0 +1,80 @@
+<div>
+    <div class="header">
+        <h3 *ngIf="exercise">{{exercise.title}}</h3>
+    </div>
+    <form [formGroup]="form">
+        <div fxLayout="row" fxLayoutGap="20px">
+            <div class="left-container" fxFlex="40%">
+                <div class="form-group">
+                    <mat-form-field appearance="outline" id="name">
+                        <mat-label>이름</mat-label>
+                        <input matInput placeholder="이름입력" formControlName="name">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field appearance="outline" id="name">
+                        <mat-label>제목</mat-label>
+                        <input matInput placeholder="제목명" formControlName="title">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="form-group-textarea">
+                    <mat-form-field appearance="outline" id="name" class="areatext">
+                        <mat-label>셜명</mat-label>
+                        <textarea matInput placeholder="제목명" rows="3" formControlName="description"></textarea>
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group-textarea">
+                    <mat-form-field appearance="outline" id="name" class="areatext">
+                        <mat-label>운동방법</mat-label>
+                        <textarea matInput placeholder="제목명" rows="5" formControlName="procedure"></textarea>
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field appearance="outline" id="name">
+                        <mat-label>오디오</mat-label>
+                        <input matInput placeholder="오디오명" formControlName="nameSound">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="right-container" fxFlex="60%">
+                <div class="video-form-group">                    
+                    <img class="video-img" [src]="imageUrl">
+                    <label for="exercise-image">운동이미지명  입력( 540 X 360 px):</label>
+                    <input type="text" class="form-control" formControlName="image" placeholder="church.jpg, mount.jpg" #imagename>
+                </div>
+
+                <div fxLayout="row" class="right-sub">
+                    <div fxFlex="70%">
+                        <div class="video-input" formArrayName="videos">
+                            <div *ngFor="let video of videoArray.controls; let i=index" style="height: 60px;margin-top: 1rem;">
+                                <mat-form-field appearance="outline" class="video-name">
+                                    <mat-label>비디오명</mat-label>
+                                    <input matInput placeholder="비디오명" [formControlName]="i" class="form-control">
+                                    <mat-icon matSuffix class="trash-icon" (click)="delete(i)">delete_forever</mat-icon>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxFlex="30%">
+                        <div class="buttons">
+                            <div>
+                                <button mat-raised-button color="accent" (click)="save()">Save</button>
+                            </div>
+                            <div>
+                                <button mat-raised-button color="primary" (click)="addVideo()">비디오추가</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

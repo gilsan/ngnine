@@ -1,0 +1,220 @@
+
+<div class="area">
+   <p>{{area}}</p>
+</div>
+
+<div class="module">
+  <div>
+    <svg style="width:660px;height:620px;border:1px solid black;">
+      <g transform="translate(145,40)">
+        <rect [attr.x]="x" [attr.y]="y" [attr.width]="w" [attr.height]="h" rx="3" y="3" style="fill:color"></rect>
+        <text [attr.x]="x+50" [attr.y]="y+18" style="font-weight:bold;fill:white;text-anchor:middle;">E2E</text>         
+      </g>   
+             
+      <g transform="translate(405,40)">
+         <rect  [attr.x]="x"    [attr.y]="y" rx="3" y="3" width="100" height="30" style="fill:color"></rect>
+         <text  [attr.x]="x+50" [attr.y]="y+18" style="font-weight:bold;fill:white;text-anchor:middle;">SDNC</text>
+      </g> 
+      
+      <line *ngFor="let e2e of line_e2e;" [attr.x1]="e2e.x1"  [attr.y1]="e2e.y1"   [attr.x2]="e2e.x2"  [attr.y2]="e2e.y2" style="stroke:black;stroke-width:3"/> 
+       
+         <g transform="translate(80,110)">
+          <rect  [attr.x]="x"      [attr.y]="y" rx="3" ry="3" width="100" height="30" style="fill:#333;"></rect>
+          <text  [attr.x]="x+w/2"  [attr.y]="y+h/2+4" style="fill:white;text-anchor:middle;">WAS#1</text>                                            
+          <rect  [attr.x]="x"      [attr.y]="y+h" rx="3" ry="3" width="100" height="150" style="fill:#f4f4f4;"></rect>
+
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+10" rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect>        
+          <image [attr.x]="x+10"   [attr.y]="y+h+12" [attr.href]="queryImg('was1','cpu')" height="15" width="15" ></image>     
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+24" [ngStyle]="getColor('was1_cpu')">CPU</text> 
+
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+35" rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect>         
+          <image [attr.x]="x+10"   [attr.y]="y+h+37" [attr.href]="queryImg('was1','memory')" height="15" width="15" ></image>               
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+49" [ngStyle]="getColor('was1_mem')">Memory</text>
+ 
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+60" rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect>         
+          <image [attr.x]="x+10"   [attr.y]="y+h+62" [attr.href]="queryImg('was1','disk')" height="15" width="15" ></image>             
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+74" [ngStyle]="getColor('was1_disk')">Disk</text>
+ 
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+85" rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect>        
+          <image [attr.x]="x+10"   [attr.y]="y+h+87" [attr.href]="queryImg('was1','nic')" height="15" width="15" ></image>      
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+99" [ngStyle]="getColor('was1_nic')">NIC</text>
+  
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+110" rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect>        
+          <image [attr.x]="x+10"   [attr.y]="y+h+112" [attr.href]="queryImg('was1','process')" height="15"width="15"></image>             
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+124" [ngStyle]="getColor('was1_pro')">Process</text>
+         </g>
+         <g transform="translate(210,110)">
+          <rect  [attr.x]="x"      [attr.y]="y"       rx="3" ry="3" width="100" height="30" style="fill:#333;"></rect>
+          <text  [attr.x]="x+w/2"  [attr.y]="y+h/2+4" style="fill:white;text-anchor:middle;">WAS#2</text>                                            
+          <rect  [attr.x]="x"      [attr.y]="y+h"     rx="3" ry="3" width="100" height="150" style="fill:#f4f4f4;"></rect>  
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+10"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+12"  [attr.href]="queryImg('was2','cpu')" height="15" width="15" ></image>               
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+24"  [ngStyle]="getColor('was2_cpu')">CPU</text>
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+35"  rx="2" ry="2"    width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+37"  [attr.href]="queryImg('was2','memory')" height="15" width="15" ></image>               
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+49"  [ngStyle]="getColor('was2_mem')">Memory</text> 
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+60"  rx="2" ry="2"  width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+62"  [attr.href]="queryImg('was2','disk')" height="15" width="15" ></image>              
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+74"  [ngStyle]="getColor('was2_disk')">Disk</text>
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+85"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+87"  [attr.href]="queryImg('was2','nic')" height="15" width="15" ></image>              
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+99"  [ngStyle]="getColor('was2_nic')">NIC</text>
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+110" rx="2" ry="2"     width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+112" [attr.href]="queryImg('was2','process')" height="15" width="15" ></image>             
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+124" [ngStyle]="getColor('was2_pro')">Process</text>
+       </g>
+
+       <line *ngFor="let sdnc of line_sdnc;" [attr.x1]="sdnc.x1"  [attr.y1]="sdnc.y1"   [attr.x2]="sdnc.x2"  [attr.y2]="sdnc.y2" style="stroke:black;stroke-width:3"/>       
+
+       <g transform="translate(340,110)">
+        <rect  [attr.x]="x"      [attr.y]="y"       rx="3" ry="3" width="100" height="30" style="fill:#333;"></rect>
+        <text  [attr.x]="x+w/2"  [attr.y]="y+h/2+4" style="fill:white;text-anchor:middle;">Collector1</text>                                            
+        <rect  [attr.x]="x"      [attr.y]="y+h"     rx="3" ry="3" width="100" height="150" style="fill:#f4f4f4;"></rect>   
+        <rect  [attr.x]="x+d"    [attr.y]="y+h+10"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+        <image [attr.x]="x+10"   [attr.y]="y+h+12"  [attr.href]="queryImg('collector1','cpu')" height="15" width="15" ></image>               
+        <text  [attr.x]="x+d+25" [attr.y]="y+h+24"  [ngStyle]="getColor('col1_cpu')">CPU</text>
+        <rect  [attr.x]="x+d"    [attr.y]="y+h+35"  rx="2" ry="2"    width="90" height="20" style="fill:#fff"></rect> 
+        <image [attr.x]="x+10"   [attr.y]="y+h+37"  [attr.href]="queryImg('collector1','memory')" height="15" width="15" ></image>               
+        <text  [attr.x]="x+d+25" [attr.y]="y+h+49"  [ngStyle]="getColor('col1_mem')">Memory</text>
+        <rect  [attr.x]="x+d"    [attr.y]="y+h+60"  rx="2" ry="2"  width="90" height="20" style="fill:#fff"></rect>
+        <image [attr.x]="x+10"   [attr.y]="y+h+62"  [attr.href]="queryImg('collector1','disk')" height="15" width="15" ></image>               
+        <text  [attr.x]="x+d+25" [attr.y]="y+h+74"  [ngStyle]="getColor('col1_disk')">Disk</text>
+        <rect  [attr.x]="x+d"    [attr.y]="y+h+85"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect>
+        <image [attr.x]="x+10"   [attr.y]="y+h+87"  [attr.href]="queryImg('collector1','nic')" height="15" width="15" ></image>                
+        <text  [attr.x]="x+d+25" [attr.y]="y+h+99"  [ngStyle]="getColor('col1_nic')">NIC</text>
+        <rect  [attr.x]="x+d"    [attr.y]="y+h+110" rx="2" ry="2"     width="90" height="20" style="fill:#fff"></rect> 
+        <image [attr.x]="x+10"   [attr.y]="y+h+112" [attr.href]="queryImg('collector1','process')" height="15" width="15" ></image>                
+        <text  [attr.x]="x+d+25" [attr.y]="y+h+124" [ngStyle]="getColor('col1_pro')">Process</text>
+     </g>       
+
+     <g transform="translate(340,110)">
+      <rect  [attr.x]="x"      [attr.y]="y"       rx="3" ry="3" width="100" height="30" style="fill:#333;"></rect>
+      <text  [attr.x]="x+w/2"  [attr.y]="y+h/2+4" style="fill:white;text-anchor:middle;">Collector1</text>                                            
+      <rect  [attr.x]="x"      [attr.y]="y+h"     rx="3" ry="3" width="100" height="150" style="fill:#f4f4f4;"></rect>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+10"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+      <image [attr.x]="x+10"   [attr.y]="y+h+12"  [attr.href]="queryImg('collector1','cpu')" height="15" width="15" ></image>               
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+24"  [ngStyle]="getColor('col1_cpu')">CPU</text>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+35"  rx="2" ry="2"    width="90" height="20" style="fill:#fff"></rect> 
+      <image [attr.x]="x+10"   [attr.y]="y+h+37"  [attr.href]="queryImg('collector1','memory')" height="15" width="15" ></image>               
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+49"  [ngStyle]="getColor('col1_mem')">Memory</text>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+60"  rx="2" ry="2"  width="90" height="20" style="fill:#fff"></rect>
+      <image [attr.x]="x+10"   [attr.y]="y+h+62"  [attr.href]="queryImg('collector1','disk')" height="15" width="15" ></image>               
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+74"  [ngStyle]="getColor('col1_disk')">Disk</text>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+85"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect>
+      <image [attr.x]="x+10"   [attr.y]="y+h+87"  [attr.href]="queryImg('collector1','nic')" height="15" width="15" ></image>                
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+99"  [ngStyle]="getColor('col1_nic')">NIC</text>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+110" rx="2" ry="2"     width="90" height="20" style="fill:#fff"></rect> 
+      <image [attr.x]="x+10"   [attr.y]="y+h+112" [attr.href]="queryImg('collector1','process')" height="15" width="15" ></image>                
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+124" [ngStyle]="getColor('col1_pro')">Process</text>
+   </g>
+        
+   <g transform="translate(470,110)">
+      <rect  [attr.x]="x"      [attr.y]="y"       rx="3" ry="3" width="100" height="30" style="fill:#333;"></rect>
+      <text  [attr.x]="x+w/2"  [attr.y]="y+h/2+4" style="fill:white;text-anchor:middle;">Collector2</text>                                            
+      <rect  [attr.x]="x"      [attr.y]="y+h"     rx="3" ry="3" width="100" height="150" style="fill:#f4f4f4;"></rect>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+10"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+      <image [attr.x]="x+10"   [attr.y]="y+h+12"  [attr.href]="queryImg('collector2','cpu')" height="15" width="15" ></image>               
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+24"  [ngStyle]="getColor('col2_cpu')">CPU</text>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+35"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+      <image [attr.x]="x+10"   [attr.y]="y+h+37"  [attr.href]="queryImg('collector2','memory')" height="15" width="15" ></image>               
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+49"  [ngStyle]="getColor('col2_mem')">Memory</text>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+60"  rx="2" ry="2"  width="90" height="20" style="fill:#fff"></rect> 
+      <image [attr.x]="x+10"   [attr.y]="y+h+62"  [attr.href]="queryImg('collector2','disk')" height="15" width="15" ></image>                
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+74"  [ngStyle]="getColor('col2_disk')">Disk</text>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+85"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+      <image [attr.x]="x+10"   [attr.y]="y+h+87"  [attr.href]="queryImg('collector2','nic')" height="15" width="15" ></image>               
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+99"  [ngStyle]="getColor('col2_nic')">NIC</text>
+      <rect  [attr.x]="x+d"    [attr.y]="y+h+110" rx="2" ry="2"    width="90" height="20" style="fill:#fff"></rect> 
+      <image [attr.x]="x+10"   [attr.y]="y+h+112" [attr.href]="queryImg('collector2','process')" height="15" width="15" ></image>                
+      <text  [attr.x]="x+d+25" [attr.y]="y+h+124" [ngStyle]="getColor('col2_pro')">Process</text>
+   </g>  
+     <line *ngFor="let line of lines;" [attr.x1]="line.x1"  [attr.y1]="line.y1"   [attr.x2]="line.x2"  [attr.y2]="line.y2" style="stroke:black;stroke-width:3"/>
+      
+        
+      <g transform="translate(80,380)">
+         <rect  [attr.x]="x"      [attr.y]="y"       rx="3" ry="3" width="100" height="30" style="fill:#333;"></rect>
+         <text  [attr.x]="x+w/2"  [attr.y]="y+h/2+4" style="fill:white;text-anchor:middle;">Web#1</text>                                            
+         <rect  [attr.x]="x"      [attr.y]="y+h"     rx="3" ry="3" width="100" height="150" style="fill:#f4f4f4;"></rect>   
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+10"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+12"  [attr.href]="queryImg('web1','cpu')" height="15" width="15" ></image>               
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+24"  [ngStyle]="getColor('web1_cpu')">CPU</text>
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+35"  rx="2" ry="2"    width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+37"  [attr.:href]="queryImg('web1','memory')" height="15" width="15" ></image>               
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+49"  [ngStyle]="getColor('web1_mem')">Memory</text>
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+60"  rx="2" ry="2"  width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+62"  [attr.href]="queryImg('web1','disk')" height="15" width="15" ></image>              
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+74"  [ngStyle]="getColor('web1_disk')">Disk</text>
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+85"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+87"  [attr.:href]="queryImg('web1','nic')" height="15" width="15" ></image>              
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+99"  [ngStyle]="getColor('web1_disk')">NIC</text>
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+110" rx="2" ry="2"     width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+112" [attr.href]="queryImg('web1','process')" height="15" width="15" ></image>                
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+124" [ngStyle]="getColor('web1_pro')">Process</text>
+      </g> 
+     
+      <g transform="translate(210,380)">
+         <rect  [attr.x]="x"      [attr.y]="y"       rx="3" ry="3" width="100" height="30" style="fill:#333;"></rect>
+         <text  [attr.x]="x+w/2"  [attr.y]="y+h/2+4" style="fill:white;text-anchor:middle;">Web#2</text>                                            
+         <rect  [attr.x]="x"      [attr.y]="y+h"     rx="3" ry="3" width="100" height="150" style="fill:#f4f4f4;"></rect>    
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+10"  rx="2" ry="2"  width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+12"  [attr.href]="queryImg('web2','cpu')" height="15" width="15" ></image>                
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+24"  [ngStyle]="getColor('web2_cpu')">CPU</text>
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+35"  rx="2" ry="2"    width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+37"  [attr.href]="queryImg('web2','memory')" height="15" width="15" ></image>              
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+49"  [ngStyle]="getColor('web2_mem')">Memory</text>      
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+60"  rx="2" ry="2"  width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+62"  [attr.href]="queryImg('web2','disk')" height="15" width="15" ></image>                
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+74"  [ngStyle]="getColor('web2_disk')">Disk</text>      
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+85"  rx="2" ry="2" width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+87"  [attr.href]="queryImg('web2','nic')" height="15" width="15" ></image>               
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+99"  [ngStyle]="getColor('web2_nic')">NIC</text>         
+         <rect  [attr.x]="x+d"    [attr.y]="y+h+110" rx="2" ry="2"     width="90" height="20" style="fill:#fff"></rect> 
+         <image [attr.x]="x+10"   [attr.y]="y+h+112" [attr.href]="queryImg('web2','process')" height="15" width="15" ></image>               
+         <text  [attr.x]="x+d+25" [attr.y]="y+h+124" [ngStyle]="getColor('web2_pro')">Process</text>
+     </g>
+     
+     <g transform="translate(340,380)">
+          <rect  [attr.x]="x"      [attr.y]="y"        rx="3" ry="3" width="100" height="30" style="fill:#333;"></rect>
+          <text  [attr.x]="x+w/2"  [attr.y]="y+h/2+4"  style="fill:white;text-anchor:middle;">DB#1</text>                                            
+          <rect  [attr.x]="x"      [attr.y]="y+h"      rx="3" ry="3" width="100" height="150" style="fill:#f4f4f4;"></rect>            
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+10"   rx="2" ry="2"     width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+12"   [attr.href]="queryImg('db1','cpu')" height="15" width="15" ></image>                  
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+24"   [ngStyle]="getColor('db1_cpu')">CPU</text>   
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+35"   rx="2" ry="2"        width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+37"   [attr.href]="queryImg('db1','memory')" height="15" width="15" ></image>                 
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+49"   [ngStyle]="getColor('db1_mem')">Memory</text>     
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+60"   rx="2" ry="2"      width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+62"   [attr.href]="queryImg('db1','disk')" height="15" width="15" ></image>                 
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+74"   [ngStyle]="getColor('db1_disk')">Disk</text>      
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+85"   rx="2" ry="2"      width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+87"   [attr.href]="queryImg('db1','nic')" height="15" width="15" ></image>                 
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+99"   [ngStyle]="getColor('db1_nic')">NIC</text>          
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+110"  rx="2" ry="2"         width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+112"  [attr.href]="queryImg('db1','process')" height="15" width="15" ></image>                
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+124"  [ngStyle]="getColor('db1_pro')">Process</text>
+     </g>
+     
+     <g transform="translate(470,380)">
+          <rect  [attr.x]="x"      [attr.y]="y"       rx="3" ry="3" width="100" height="30" style="fill:#333;"></rect>
+          <text  [attr.x]="x+w/2"  [attr.y]="y+h/2+4" style="fill:white;text-anchor:middle;">DB#2</text>                                            
+          <rect  [attr.x]="x"      [attr.y]="y+h"     rx="3" ry="3" width="100" height="150" style="fill:#f4f4f4;"></rect>             
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+10"  rx="2" ry="2"     width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+12"  [attr.href]="queryImg('db2','cpu')" height="15" width="15" ></image>
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+24"  [ngStyle]="getColor('db2_cpu')">CPU</text>    
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+35"  rx="2" ry="2"        width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+37"  [attr.href]="queryImg('db2','memory')" height="15" width="15" ></image>                
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+49"  [ngStyle]="getColor('db2_mem')">Memory</text>     
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+60"  rx="2" ry="2"      width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+62"  [attr.href]="queryImg('db2','disk')" height="15" width="15" ></image>                
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+74"  [ngStyle]="getColor('db2_disk')">Disk</text>      
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+85"  rx="2" ry="2"     width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+87"  [attr.href]="queryImg('db2','nic')" height="15" width="15" ></image>                 
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+99"  [ngStyle]="getColor('db2_nic')">NIC</text>          
+          <rect  [attr.x]="x+d"    [attr.y]="y+h+110" rx="2" ry="2"         width="90" height="20" style="fill:#fff"></rect> 
+          <image [attr.x]="x+10"   [attr.y]="y+h+112" [attr.href]="queryImg('db2','process')" height="15" width="15" ></image>                  
+          <text  [attr.x]="x+d+25" [attr.y]="y+h+124" [ngStyle]="getColor('db2_pro')">Process</text>
+     </g> 
+           
+    </svg>
+</div>
+ </div> 

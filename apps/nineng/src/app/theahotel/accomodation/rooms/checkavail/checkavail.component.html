@@ -1,0 +1,150 @@
+<section class="myModal">
+
+        <div class="modal-content">
+            <div class="mark" (click)="close()">
+                <span class="material-icons"> close </span> 
+            </div>
+        
+            <div class="row first-row bottom-margin">                 
+                <div class="col-2-of-3"> 
+                        <span class="main-title">{{title}}</span>
+                </div>         
+            </div> 
+            
+            <div class="row first-row bottom-margin">                 
+                <div class="col-1-of-3 myBorder"> 
+                    <div class="second__row">
+                        <span class="material-icons icon">date_range</span> 
+                        <input type="date" class="check-in" value="today"> 
+                    </div>                                         
+                </div>
+                    
+                 <div class="col-1-of-3 myBorder"> 
+                     <div  class="second__row">
+                        <span class="material-icons">date_range</span>  
+                        <input type="date" class="check-out"  value="today">   
+                     </div>                 
+                   
+                </div>
+                <div  class="col-1-of-3 book">                             
+                    <button  class="success">BOOK NOW</button>
+               </div>          
+            </div> 
+    
+            <div class="row first-row bottom-margin">                 
+                <div class="col-1-of-3 room--info">                      
+                    <div class="room--header" (click)="toggle()">
+                        <mat-icon class="person">perm_identity</mat-icon>
+                        <span class="room--number">{{room}}</span>
+                        <span class="room--rooms" *ngIf="person > 1">Rooms</span> 
+                        <span class="room--room" *ngIf="person <= 1">Room,</span>
+                        <span class="room--guest-num">{{adult}}</span>
+                        <span class="room--guests" *ngIf="guest <= 1">Guest</span> 
+                        <span class="room--guest" *ngIf="guest > 1">Guests</span> 
+                        <mat-icon class="maticon" *ngIf="!isShow">arrow_drop_down</mat-icon>  
+                        <mat-icon class="maticon" *ngIf="isShow">clear</mat-icon>   
+                    </div>               
+                </div>                   
+                 <div class="col-1-of-3  lists">                  
+                    <div class="room--header2" (click)="selectedToggle()">
+                        <mat-icon class="person">perm_identity</mat-icon>
+                        <span class="list-item">{{item}}</span>
+                        <mat-icon class="maticon2" *ngIf="!isSelected">arrow_drop_down</mat-icon>  
+                        <mat-icon class="maticon2" *ngIf="isSelected">clear</mat-icon>
+                    </div>                 
+                </div>                       
+            </div> 
+
+            <div class="row first-row bottom-margin  list-items">
+                <div class="col-1-of-3 items-panel">
+                    <div class="item-list" *ngIf="isSelected">
+                        <div *ngFor="let item of items; let i= index;">
+                            <div (click)="showCheck(item,i)" class="item">
+                               <span class="material-icons" *ngIf="checked(i)">check</span>
+                               <span  *ngIf="!checked(i)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                               <span class="radio-label">{{item}}</span>
+                            </div>                           
+                        </div>
+                   </div> 
+                </div>
+            </div>            
+             <ng-template #contents>
+                <div class="row first-row bottom-margin room--info--move">                 
+                    <div class="col-2-of-3 room--info--extends"> 
+                        <div class="contents">
+                            <div  class="contents__row">
+                                <div>
+                                    <label class="type">Room</label>
+                               </div>
+                               <div class='main'>
+                                   <button class='down_count btn btn-info' (click)="decreaseRoom()">
+                                       <span class="material-icons">remove</span>
+                                   </button>                              
+                                   <input class='counter' roomcount>                            
+                                      
+                                   <button class='up_count btn btn-info' (click)="increaseRoom()">
+                                       <span class="material-icons">add</span>
+                                   </button>
+                                 </div>
+                            </div> 
+    
+                            <div  class="contents__row">
+                                <div class="acccesible-main">
+                                    <input type="checkbox" class="input-box">
+                                    <span class="material-icons icon-checkbox">accessible</span>
+                                    <span class="accessible">Accessible</span>
+                                </div>
+                            </div>
+                            
+                            <div  class="contents__row">
+                                <div>
+                                     <span>Adult</span>
+                                </div>
+                                <div class='main'>
+                                 <button class='down_count btn btn-info'  (click)="deductAdult()">
+                                     <span class="material-icons">remove</span>
+                                 </button>
+                                 <input class='counter' [value]="adult"/>    
+                                 <button class='up_count btn btn-info'>
+                                     <span class="material-icons" (click)="addAdult()">add</span>
+                                 </button>
+                               </div>                 
+                             </div>
+    
+                             <div  class="contents__row">
+                                <div>
+                                     <span>Child</span>
+                                </div>
+                                <div class='main'>
+                                 <button class='down_count btn btn-info' (click)="deductChild()">
+                                     <span class="material-icons">remove</span>
+                                 </button>
+                                 <input class='counter'  [value]='child'/>    
+                                 <button class='up_count btn btn-info'>
+                                     <span class="material-icons"  (click)="addChild()">add</span>
+                                 </button>
+                               </div>                 
+                             </div>
+                        </div>                     
+                       
+                    </div>                   
+                </div> 
+             </ng-template>
+             <ng-container *ngTemplateOutlet="isShow ? contents : null"></ng-container>
+              
+             <div class="row first-row bottom-margin category">
+                <div class="col-1-of-3 items-panel room--header2">
+                    <img src="https://www.hyatt.com/hds/bellhop/9.1.0/images/brands/world/logos/block.svg" alt="World of Hyatt" width="30" height="30">                            
+                    <label>Award Category 6</label>
+                </div>
+                
+                <div class="col-1-of-3 items-panel room--header2" (click)="changeChecked()">
+                    <span class="material-icons">account_balance</span>
+                    <input type="checkbox" [checked]="inputCheck" class="styled-checkbox">
+                    <label id="label"></label>
+                    <label>Use Points</label>
+                </div>
+            </div>  
+        </div>
+    
+    </section>

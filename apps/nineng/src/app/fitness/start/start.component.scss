@@ -1,0 +1,42 @@
+.ion-md-add {
+    margin-left: 10px;
+    width: 20px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(47, 190, 47);
+}
+
+.search {
+    width: 80px;
+    margin-left: 3px;
+}
+
+* {
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.exercises {
+    margin-left: 1rem;
+}
+
+.title__list {
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    width: 320px;
+    height: 50px;
+    color: white;
+    margin-bottom: 10px;
+    background: #61b9ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-sub {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+}

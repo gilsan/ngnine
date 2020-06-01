@@ -1,0 +1,35 @@
+<!--  
+<mat-sidenav-container>
+  
+   <mat-sidenav #sidenav>
+     <app-sidenav-list  (closeSideNavigation)="sidenav.close()"></app-sidenav-list>
+   </mat-sidenav>
+
+   <mat-sidenav-content>
+     <app-header (SideNavigationToggle)="sidenav.toggle()"></app-header>
+     <app-navbars></app-navbars>
+
+     <main>
+       <router-outlet></router-outlet>
+     </main>
+   </mat-sidenav-content>
+
+</mat-sidenav-container>
+-->
+<div class="app-container">
+   <app-header (SideNavigationToggle)="sidenav.toggle()"></app-header>
+   <!-- <app-navbars></app-navbars> -->
+   <mat-sidenav-container class="app-sidenav-container">
+       <mat-sidenav #sidenav  [(opened)]="opened">
+          <app-sidenav-list   (SideNavigationToggle)="sidenav.toggle()">
+          </app-sidenav-list>
+          
+       </mat-sidenav>
+       <mat-sidenav-content>
+          <router-outlet></router-outlet>
+       </mat-sidenav-content>
+   </mat-sidenav-container>
+   
+</div>
+
+
