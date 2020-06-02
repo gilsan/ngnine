@@ -1,30 +1,34 @@
 <div class="main">
   <h1>음악연주</h1>
-  <div class="music-container" id="music-container">
-    <div class="music-info">
-      <h4 class="title"></h4>
+
+  <div class="music-container" id="music-container" [ngStyle]="imageRotate()">
+    <div class="music-info" [ngStyle]="musicInfo()">
+      <h4 class="title">연주곡: {{musicTitle}}</h4>
       <div class="progress-container" id="progress-container">
-        <div class="progress" id="progress"></div>
+        <div class="progress" id="progress" [ngStyle]="setProgress()"></div>
       </div>
     </div>
 
-    <audio src="../../../assets/webproject/musicplayer/music/ukulele.mp3" class="audio"></audio>
+    <audio [src]="music" class="audio" #audio (timeupdate)="updateProgress()"></audio>
     <div class="img-container">
-      <img src="../../../assets/webproject/musicplayer/images/ukulele.jpg" alt="" id="cover">
+      <img [src]="cover" alt="" id="cover" [ngStyle]="imageRotate()">
     </div>
 
     <div class="navigation">
-      <button id="prev" class="action-btn">
+      <button id="prev" class="action-btn" (click)="prevSong()">
         <i class="fas fa-backward"></i>
       </button>
-      <button id="play" class="action-btn action-btn-big">
+      <button id="play" class="action-btn action-btn-big" (click)="playSong()" *ngIf="isPlay">
         <i class="fas fa-play"></i>
       </button>
-      <button id="next" class="action-btn">
+      <button id="play" class="action-btn action-btn-big" (click)="pauseSong()" *ngIf="!isPlay">
+        <i class="fas fa-pause"></i>
+      </button>
+      <button id="next" class="action-btn" (click)="nextSong()">
         <i class="fas fa-forward"></i>
       </button>
     </div>
 
   </div>
 </div>
-<p class="source"><a [href]="safeurl">소스보기</a></p>
+<p class="source"><a [href]="safeurl">소스코드</a></p>

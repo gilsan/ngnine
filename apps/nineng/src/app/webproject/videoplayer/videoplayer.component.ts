@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-videoplayer',
   templateUrl: './videoplayer.component.html',
   styleUrls: ['./videoplayer.component.scss']
@@ -11,7 +13,12 @@ export class VideoplayerComponent implements OnInit {
   isPlay = false;
   progress = 0;
   timestamp = '00:00';
-  constructor() { }
+  source = 'https://github.com/gilsan/ngnine/tree/master/apps/nineng/src/app/webproject/videoplayer';
+  safeurl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustUrl(this.source);
+
+  constructor(
+    private sanitizer: DomSanitizer,
+  ) { }
 
   ngOnInit(): void {
   }

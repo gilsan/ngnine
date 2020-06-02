@@ -6,7 +6,7 @@
         <li class="card--1" [routerLink]="['/home']">홈</li>
         <li class="card--1" [matMenuTriggerFor]="miniweb1">미니웹1</li>
         <li class="card--2" [matMenuTriggerFor]="miniweb2">미니웹2</li>
-        <li class="card--2">미니웹3</li>
+        <li class="card--2" [matMenuTriggerFor]="miniweb3">미니웹3</li>
         <li class="card--2">미니웹4</li>
       </ul>
       <mat-menu #miniweb1="matMenu">
@@ -25,12 +25,14 @@
         <button mat-menu-item [routerLink]="['/webproject', 'musicplayer']">음악듣기</button>
       </mat-menu>
 
+      <mat-menu #miniweb3="matMenu">
+        <button mat-menu-item [routerLink]="['/webproject', 'infinitescroll']">무한스크롤</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'typinggame']">타이핑게임</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'speechtext']">음성문자</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'memorycard']">기억카드</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'lyricssearch']">시검색</button>
+      </mat-menu>
 
-      <!-- <button mat-menu-item [routerLink]="['/webproject', '']"></button>
-        <button mat-menu-item [routerLink]="['/webproject', '']"></button>
-        <button mat-menu-item [routerLink]="['/webproject', '']"></button>
-        <button mat-menu-item [routerLink]="['/webproject', '']"></button>
-        <button mat-menu-item [routerLink]="['/webproject', '']"></button>         -->
 
 
     </div>
