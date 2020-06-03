@@ -1,1 +1,29 @@
-<p>infintescroll works!</p>
+<div class="main">
+  <div>
+    <p class="source"><a [href]="safeurl">소스코드</a></p>
+  </div>
+  <h1>무한 스크롤</h1>
+
+  <div class="filter-container">
+    <input type="text" class="filter" id="filter" placeholder="filter posts...." #search>
+  </div>
+
+
+  <cdk-virtual-scroll-viewport [itemSize]="18 * 7" id="posts-container">
+    <div *cdkVirtualFor="let list of (list$ | async) as lists;
+                         let index = index;" class="post">
+      <div class="number">{{list.id}}</div>
+      <div class="post-info">
+        <h2 class="post-title">{{list.title}}</h2>
+        <p class="post-body">{{list.body}}</p>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+
+  <div class="loader">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+</div>
+<p class="source"><a [href]="safeurl">소스코드</a></p>

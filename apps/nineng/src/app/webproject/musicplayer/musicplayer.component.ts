@@ -28,7 +28,6 @@ export class MusicplayerComponent implements OnInit {
   progress = 0;
   musicinfo = false;
   rotate = false;
-
   ngOnInit(): void {
     this.loadSong(this.songs[this.songIndex]);
   }
@@ -41,7 +40,6 @@ export class MusicplayerComponent implements OnInit {
   }
 
   playSong() {
-    console.log('[playSong]');
     this.audio.nativeElement.play();
     this.isPlay = !this.isPlay;
     this.musicinfo = !this.musicinfo;
@@ -50,30 +48,34 @@ export class MusicplayerComponent implements OnInit {
 
   pauseSong() {
     this.audio.nativeElement.pause();
-    this.isPlay = !this.isPlay;
-    this.rotate = !this.rotate;
+    this.isPlay = false;
+    this.rotate = false;
   }
 
   prevSong() {
-    this.audio.nativeElement.pause();
     this.songIndex--;
     if (this.songIndex < 0) {
       this.songIndex = 0;
     }
-    this.isPlay = !this.isPlay;
+    this.isPlay = true;
+    this.rotate = false;
+    this.musicinfo = false;
     this.loadSong(this.songs[this.songIndex]);
-    this.playSong();
+    // console.log('[prevSong]', this.songs[this.songIndex]);
+    // this.audio.nativeElement.play();
   }
 
   nextSong() {
-    this.audio.nativeElement.pause();
     this.songIndex++;
     if (this.songIndex > 2) {
       this.songIndex = 2;
     }
-    this.isPlay = !this.isPlay;
+    this.isPlay = true;
+    this.rotate = false;
+    this.musicinfo = false;
     this.loadSong(this.songs[this.songIndex]);
-    this.playSong();
+    // console.log('[nextSong]', this.songs[this.songIndex]);
+    // this.audio.nativeElement.play();
   }
 
   updateProgress() {
@@ -102,7 +104,5 @@ export class MusicplayerComponent implements OnInit {
     }
     return { 'animation-play-state': 'paused' };
   }
-
-
 
 }
