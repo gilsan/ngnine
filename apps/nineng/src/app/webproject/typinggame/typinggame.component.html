@@ -1,1 +1,37 @@
-<p>typinggame works!</p>
+<div class="main">
+  <button id="settings-btn" class="settings-btn" #settingsBtn (click)="toggle()">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <div class="settings" id="settings" #settings [ngClass]="setting()">
+    <form action="" class="settings-form">
+      <div>
+        <label for="" class="difficulty">난이도</label>
+        <select name="" id="" class="difficulty" #select (change)="selectDifficulty(select.value)">
+          <option value="easy">쉬움</option>
+          <option value="medium">중급</option>
+          <option value="hard">어려움</option>
+        </select>
+      </div>
+    </form>
+  </div>
+
+  <div class="container">
+    <h2>Speed Typer</h2>
+    <small>Type the following:</small>
+
+    <h1 class="word">{{word}}</h1>
+    <input type="text" id="text" autocomplete="off" placeholder="단어입력...." (keyup.enter)="inputData(input.value)"
+      #input>
+    <p class="time-container">잔여시간:<span>{{totalTime}}s</span></p>
+    <p class="score-container">점수:<span id="score">{{score}}</span></p>
+    <div class="end-game-container" id="end-game-container" [ngStyle]="gameOverStyle()">
+      <h1>시간 경과</h1>
+      <p>최종 점수는 : {{score}}</p>
+      <button (click)="reset()">다시시작</button>
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,1 +1,24 @@
-<p>speechtext works!</p>
+<div class="main">
+  <div class="container">
+    <h1>문자를 음성으로 변환</h1>
+    <button class="toggle" id="btn-btn-toggle" (click)="toggle()">
+      문자입력 상자
+    </button>
+
+    <div class="text-box" id="text-box" [ngClass]="showTextarea()">
+      <div class="close" id="close" (click)="toggle()">X</div>
+      <h3>Choose Voice</h3>
+      <select id="voices" #selected (change)="selectedLang(selected.value)">
+        <option [value]="i" *ngFor="let voice of voices;let i = index">{{voice.name}}</option>
+      </select>
+      <textarea id="text" placeholder="읽을 문자를 입력..." #textarea></textarea>
+      <button class="btn" id="read" (click)="readText()">문자 읽기</button>
+    </div>
+    <main>
+      <div class="box" *ngFor="let item of data;" (click)="readPicture(item)">
+        <img [src]="item.image" alt="item.text">
+        <p class="info">{{item.text}}</p>
+      </div>
+    </main>
+  </div>
+</div>

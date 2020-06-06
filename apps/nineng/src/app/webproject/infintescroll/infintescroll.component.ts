@@ -3,10 +3,10 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Observable, fromEvent } from 'rxjs';
-import { DATA, getAll, getList } from './infinitescroll';
-import { debounceTime, distinctUntilChanged, shareReplay, map } from 'rxjs/operators';
+import { fromEvent, Observable, of } from 'rxjs';
 import { combineLatest } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, shareReplay, tap } from 'rxjs/operators';
+import { DATA, getAll, getList, getSearchData } from './infinitescroll';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -20,8 +20,9 @@ export class InfintescrollComponent implements OnInit, AfterViewInit {
 
   private limit = 5;
   private page = 1;
-  items = Array.from({ length: 100000 }).map((_, i) => `Item #${i}`);
+  private term = '';
   list$: Observable<any>;
+  lists = [];
   @ViewChild('search') search: ElementRef;
 
   constructor(
@@ -29,19 +30,26 @@ export class InfintescrollComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    //  this.getData(this.page, this.limit);
+    // this.getData(this.page, this.limit);
     this.getAll();
   }
 
   getAll() {
     this.list$ = getAll();
+    // this.list$.subscribe((data) => this.lists = data);
   }
 
   getData(page: number, limit: number) {
     this.list$ = getList(page, limit);
     this.list$.subscribe((data) => {
-      console.log(data);
+      // console.log(data);
+      this.lists = data;
     });
+  }
+
+  getSearchData(data) {
+    this.list$ = getSearchData(data);
+    // this.list$.subscribe((list) => console.log(list));
   }
 
   ngAfterViewInit() {
@@ -57,11 +65,12 @@ export class InfintescrollComponent implements OnInit, AfterViewInit {
       map((e: any) => e.target.value),
     );
 
-    combineLatest([code$, value$]).subscribe(([code, value]) => {
+    combineLatest([code$, value$, this.list$]).subscribe(([code, value, lists]) => {
       if (code === 'Enter' && value !== undefined || null) {
-        console.log('[][] ', code, value);
+        this.getSearchData(value);
       }
     });
+
   }
 
 }

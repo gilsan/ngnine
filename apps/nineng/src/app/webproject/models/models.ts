@@ -14,3 +14,8 @@ export interface IExpense {
   text: string;
   amount: number;
 }
+
+export interface ICard {
+  question: string;
+  answer: string;
+}

@@ -1,1 +1,65 @@
-<p>memorycard works!</p>
+<div class="main">
+  <button class="clear-btn clear" (click)="deleteCard()">
+    <i class="fas fa-trash"></i> 카드삭제
+  </button>
+
+  <h1>
+    암기카드
+    <button id="show" class="btn btn-small btn-first" (click)="addCardShowToggle()">
+      <i class="fas fa-plus"></i> 카드만들기
+    </button>
+  </h1>
+
+  <div id="cards-container" class="cards">
+    <div class="card" (click)="flipToggle()" [ngClass]="getCardClass(i)" *ngFor="let card of cards;let i = index;">
+      <div class="inner-card">
+        <div class="inner-card-front">
+          <p>{{card.question}}</p>
+        </div>
+        <div class="inner-card-back">
+          <p>{{card.answer}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <button id="prev" class="nav-button" (click)="prev()">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <p class="current" *ngIf="getTotal(); else totalCards;">{{currentIndex+1}} / {{totalCard}}</p>
+    <ng-template #totalCards>
+      <p class="current"></p>
+    </ng-template>
+    <button id="next" class="nav-button" (click)="next()">
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+  <div id="add-container" class="add-container" [ngClass]="addCardShow()">
+    <h1>새 카드만들기
+      <button id="hide" class="btn btn-small btn-ghost" (click)="addCardShowToggle()">
+        <i class="fas fa-times"></i>
+      </button>
+    </h1>
+
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="question">질문</label>
+        <textarea name="" id="question" formControlName="question" placeholder="질문..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="answer">대답</label>
+        <textarea name="" id="question" formControlName="answer" placeholder="대답..."></textarea>
+      </div>
+
+      <button id="add-card" class="btn" (click)="saveCard()">
+        <i class="fas fa-plus"></i>카드추가
+      </button>
+    </form>
+
+
+  </div>
+
+</div>

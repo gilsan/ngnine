@@ -615,10 +615,19 @@ export const DATA: any = [
     body: 'cupiditate quo est a modi nesciunt soluta ipsa voluptas error itaque dicta in autem qui minus magnam et distinctio eum accusamus ratione error aut'
   }
 ];
-
+const temp = [];
 export function getList(page: number, limit: number) {
   return of(DATA.slice(page * limit, page * limit + limit));
 }
 export function getAll() {
   return of(DATA);
+}
+
+export function getSearchData(value) {
+  DATA.forEach((list) => {
+    if (list.title.indexOf(value) > -1 || list.body.indexOf(value) > -1) {
+      temp.push(list);
+    }
+  });
+  return of(temp);
 }
