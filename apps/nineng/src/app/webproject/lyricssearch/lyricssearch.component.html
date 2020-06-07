@@ -1,1 +1,42 @@
-<p>lyricssearch works!</p>
+<div class="main">
+  <header>
+    <h1>노래말 찿기</h1>
+
+    <form action="" id="form">
+      <input type="text" #songs placeholder=" one 입력해주세요....">
+      <button (click)="getSearch(songs.value)">찿기</button>
+    </form>
+
+  </header>
+
+  <div id="result" class="container" *ngIf="listDisplay === 'LIST'; then artistList else lyricsContents">
+
+  </div>
+  <ng-template #artistList>
+    <div id="result" class="container">
+      <p>검색 결과</p>
+      <ul class="songs" *ngFor="let album of albums ">
+        <li>
+          <span><strong>{{album.artist}}</strong> - {{album.title}}</span>
+          <button class="btn" (click)="getSongContent(album)">내용보기</button>
+        </li>
+      </ul>
+    </div>
+    <div id="more" class="centered">
+      <button class="btn" *ngIf="prev" (click)="prevSearch()">이전</button>
+      <button class="btn" *ngIf="next" (click)="nextSearch()">다음</button>
+    </div>
+  </ng-template>
+
+  <ng-template #lyricsContents>
+    <div id="result" class="container">
+      <h2><strong>{{artist}}</strong> - {{songTitle}}</h2>
+      <span>
+        <div [innerHTML]="lyrics"></div>
+      </span>
+    </div>
+  </ng-template>
+
+
+
+</div>

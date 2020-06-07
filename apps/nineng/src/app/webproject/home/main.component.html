@@ -7,7 +7,7 @@
         <li class="card--1" [matMenuTriggerFor]="miniweb1">미니웹1</li>
         <li class="card--2" [matMenuTriggerFor]="miniweb2">미니웹2</li>
         <li class="card--2" [matMenuTriggerFor]="miniweb3">미니웹3</li>
-        <li class="card--2">미니웹4</li>
+        <li class="card--2" [matMenuTriggerFor]="miniweb4">미니웹4</li>
       </ul>
       <mat-menu #miniweb1="matMenu">
         <button mat-menu-item [routerLink]="['/webproject', 'formvalidator']">양식검증</button>
@@ -29,8 +29,16 @@
         <button mat-menu-item [routerLink]="['/webproject', 'infinitescroll']">무한스크롤</button>
         <button mat-menu-item [routerLink]="['/webproject', 'typinggame']">타이핑게임</button>
         <button mat-menu-item [routerLink]="['/webproject', 'speechtext']">문자를 음성으로 듣기</button>
-        <button mat-menu-item [routerLink]="['/webproject', 'memorycard']">기억카드</button>
-        <button mat-menu-item [routerLink]="['/webproject', 'lyricssearch']">시검색</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'memorycard']">카드앞뒤 돌리기</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'lyricssearch']">노래검색</button>
+      </mat-menu>
+
+      <mat-menu #miniweb4="matMenu">
+        <button mat-menu-item [routerLink]="['/webproject', 'relaxer']">Relaxer</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'breakout']">벽돌꺠기</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'newyearcountdown']">새해맞이</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'sortablelist']">Drag&Drop</button>
+        <button mat-menu-item [routerLink]="['/webproject', 'speechreconition']">음성인식</button>
       </mat-menu>
 
 

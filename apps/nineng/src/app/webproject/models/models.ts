@@ -19,3 +19,8 @@ export interface ICard {
   question: string;
   answer: string;
 }
+
+export interface IAlbum {
+  artist: string;
+  title: string;
+}

@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SubSink } from 'subsink';
-import { RandomService } from '../services/random.service';
 import { IUser } from '../models/models';
+import { RandomService } from '../services/random.service';
 
 @Component({
   // tslint:disable-next-line:component-selector

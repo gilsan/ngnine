@@ -21,6 +21,11 @@ import { SpeechtextComponent } from './speechtext/speechtext.component';
 import { TypinggameComponent } from './typinggame/typinggame.component';
 import { VideoplayerComponent } from './videoplayer/videoplayer.component';
 import { WebprojectRouting } from './webproject.routing';
+import { RelaxerComponent } from './relaxer/relaxer.component';
+import { BreakoutComponent } from './breakout/breakout.component';
+import { NewyearcountdownComponent } from './newyearcountdown/newyearcountdown.component';
+import { SortablelistComponent } from './sortablelist/sortablelist.component';
+import { SpeechreconitionComponent } from './speechreconition/speechreconition.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,11 @@ import { WebprojectRouting } from './webproject.routing';
     SpeechtextComponent,
     MemorycardComponent,
     LyricssearchComponent,
+    RelaxerComponent,
+    BreakoutComponent,
+    NewyearcountdownComponent,
+    SortablelistComponent,
+    SpeechreconitionComponent,
   ],
   imports: [
     CommonModule,

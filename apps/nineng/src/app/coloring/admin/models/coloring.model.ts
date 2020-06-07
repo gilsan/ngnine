@@ -36,10 +36,12 @@ export interface ILib {
 }
 
 export interface IListColoring {
-  idx: string;
+  idx?: string;
   id: string;
-  regDate: string;
-  title: string;
+  regist_date: string;
+  dtitle: string;
+  ment_name: string;
+  ment_code: string;
 }
 
 export interface IDateTime {

@@ -1,91 +1,91 @@
- 
+ <div class="container">
+   <div class="row" style="margin-top:10px;">
+     <div class="col-md-4 pull-left">
+       <div class="form-group form-inline">
+         <input class="form-control ml-2" #searchMent type="text" placeholder="검색 제목입력.." />
+         <div class=" input-group-btn">
+           <button type="button" class="btn btn-outline-secondary" (click)="mentSearch(searchMent.value)"><i
+               class="fas fa-search"></i></button>
+         </div>
+       </div>
+     </div>
+     <div class="col-md-5">
+     </div>
+     <div class="col-md-3">
+       <div class="btn-group">
+         <button type="button" class="btn btn-primary" (click)="reset()">
+           <i class="fas fa-sync"></i>새로고침
+         </button>
+       </div>
+     </div>
+   </div>
+ </div>
 
-<div class="container">
-    <div class="row" style="margin-top:10px;">
-        <div class="col-md-4 pull-left">
-            <div class="form-group form-inline">
-                <input class="form-control ml-2" #searchMent type="text" placeholder="검색 제목입력.." />
-                <div class=" input-group-btn">
-                    <button type="button" class="btn btn-outline-secondary" (click)="mentSearch(searchMent.value)"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5">
-        </div>
-        <div class="col-md-3">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary" (click)="reset()">
-                  <i class="fas fa-sync"></i>새로고침
-              </button>
-            </div>
-        </div>
-    </div>
-</div>
+ <table class="table table-striped">
+   <thead>
+     <tr>
+       <th scope="col" class="index">#</th>
+       <th scope="col" calss="item">제목</th>
+       <th scope="col" class="mentDate">시작일</th>
+       <th scope="col" class="mentDate">종료일</th>
+       <th scope="col" class="mentDate">컬러링</th>
+       <th scope="col" class="item">듣기</th>
+     </tr>
+   </thead>
+   <tbody *ngIf="isShow">
+     <tr *ngFor="let ment of (mentLists$ | async) as mentLists;">
+       <th>{{ment.id}} </th>
+       <td>{{ment.title}}</td>
+       <td>{{ment.startDay}}</td>
+       <td>{{ment.endDay}}</td>
+       <td>{{ment.fileName}}</td>
+       <td>
+         <div class="listen" (click)="listenMusic(ment)">듣기<i class="fas fa-headset"></i></div>
+       </td>
+     </tr>
+   </tbody>
+   <tbody *ngIf="!isShow">
+     <tr>
+       <th colspan="6">찿는 항목이 없습니다. !!!</th>
+     </tr>
+   </tbody>
+ </table>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col" class="index">#</th>
-            <th scope="col" calss="item">제목</th>
-            <th scope="col" class="mentDate">시작일</th>
-            <th scope="col" class="mentDate">종료일</th>
-            <th scope="col" class="mentDate">컬러링</th>
-            <th scope="col" class="item">듣기</th>
-        </tr>
-    </thead>
-    <tbody *ngIf="isShow">
-        <tr *ngFor="let ment of (mentLists$ | async) as mentLists;">
-            <th>{{ment.id}} </th>
-            <td>{{ment.dtitle}}</td>
-            <td>{{ment.sdate}}</td>
-            <td>{{ment.edate}}</td>
-            <td>{{ment.ment_name}}</td>
-            <td>
-                <div class="listen" (click)="listenMusic(ment)">듣기<i class="fas fa-headset"></i></div>
-            </td>
-        </tr>
-    </tbody>
-    <tbody *ngIf="!isShow">
-         <tr>
-             <th colspan="6">찿는 항목이 없습니다. !!!</th>
-         </tr>
-    </tbody>
-</table>
+ <div>
+   <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" (pageChange)="getNext($event)"
+     [(page)]="page" [maxSize]="pageSize" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+   <!-- <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" (click)="getNext()" [(page)]="page" [maxSize]="pageSize" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination> -->
+ </div>
 
-<div>  
-    <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" 
-    (pageChange)="getNext($event)" [(page)]="page" [maxSize]="pageSize"
-    [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination> 
-    <!-- <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" (click)="getNext()" [(page)]="page" [maxSize]="pageSize" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination> -->
-</div>
+ <ng-template #modalListen let-close="close">
+   <div class="modal-header">
+     <h5 class="modal-title">음원듣기</h5>
+     <button type="button" class="close" (click)="close('none')">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
+     <div class="box box-primary">
+       <div class="box-body">
+         <div class="form-group reg-group">
+           <label for="inputText1 " class="col-sm-3 control-label">음원파일</label>
+           <div class="col-sm-9">
+             <input type="text" class="form-control input-sm" [value]="musicName">
+           </div>
+         </div>
+         <div class="form-group reg-group">
+           <label for="inputText1 " class="col-sm-3 control-label">듣기</label>
+           <div class="col-sm-9">
+             <mat-basic-audio-player [audioUrl]="msbapAudioUrl" [title]="msbapTitle" [displayTitle]="msbapDisplayTitle">
+             </mat-basic-audio-player>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="modal-footer" style="display:flex; justify-content: space-around;">
+     <button type="button" class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소
+     </button>
+   </div>
 
-<ng-template #modalListen let-close="close">
-    <div class="modal-header">
-        <h5 class="modal-title">음원듣기</h5>
-        <button type="button" class="close" (click)="close('none')">
-     <span aria-hidden="true">&times;</span>
-</button>
-    </div>
-    <div class="modal-body">
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="form-group reg-group">
-                    <label for="inputText1 " class="col-sm-3 control-label">음원파일</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control input-sm" [value]="musicName">
-                    </div>
-                </div>
-                <div class="form-group reg-group">
-                    <label for="inputText1 " class="col-sm-3 control-label">듣기</label>
-                    <div class="col-sm-9">
-                        <mat-basic-audio-player [audioUrl]="msbapAudioUrl" [title]="msbapTitle" [displayTitle]="msbapDisplayTitle"></mat-basic-audio-player>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer" style="display:flex; justify-content: space-around;">
-        <button type="button" class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소 </button>
-    </div>
-
-</ng-template>
+ </ng-template>
