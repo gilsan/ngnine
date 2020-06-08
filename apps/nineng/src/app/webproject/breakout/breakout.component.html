@@ -1,1 +1,16 @@
-<p>breakout works!</p>
+ <div class="main">
+   <h1>벽돌깨기</h1>
+   <button class="rules-btn btn" id="rules-btn" (click)="toggle()">규칙보기</button>
+   <div id="rules" class="rules" [ngClass]="showRules()">
+     <h2>사용방법</h2>
+     <p>
+       좌,우키를 움직여 볼에 대어 벽돌에 맞으면 벽돌이 깨진다.
+     </p>
+     <p>
+       볼을 맞추지 못하면, 점수와 벽돌은 초기화 한다.
+     </p>
+     <button id="close-btn" class="btn" (click)="toggle()">마감</button>
+   </div>
+
+   <canvas id="canvas" #board></canvas>
+ </div>
