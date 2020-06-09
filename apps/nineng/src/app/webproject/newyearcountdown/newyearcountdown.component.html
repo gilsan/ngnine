@@ -1,1 +1,23 @@
-<p>newyearcountdown works!</p>
+ <div class="main">
+   <div id="year" class="year" [innerText]="year"></div>
+   <h1>신년 계수기</h1>
+   <div class="countdown" id="countdown" [ngStyle]="showCount()">
+     <div class="time">
+       <h2 id="days">{{days}}</h2>
+       <small>날</small>
+     </div>
+     <div class="time">
+       <h2 id="hours">{{hours}}</h2>
+       <small>시</small>
+     </div>
+     <div class="time">
+       <h2 id="minutes">{{minutes}}</h2>
+       <small>분</small>
+     </div>
+     <div class="time">
+       <h2 id="seconds">{{seconds}}</h2>
+       <small>초</small>
+     </div>
+   </div>
+   <img src="../../../assets/webproject/spinner.gif" class="loading" alt="loading" #loading>
+ </div>

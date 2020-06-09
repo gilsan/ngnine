@@ -1,1 +1,37 @@
-<p>sortablelist works!</p>
+<div class="list-container">
+  <div class="todo-container column-container">
+    <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todos"
+      [cdkDropListConnectedTo]="[doneList]" (cdkDropListDropped)="onDrop($event)">
+      <h2>알아야 할 기술</h2>
+      <mat-card *ngFor="let todo of todos" cdkDrag>
+        <mat-card-header>
+          <mat-card-title>{{todo.name}}</mat-card-title>
+          <mat-card-subtitle>{{todo.category}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="done-container column-container">
+    <div class="list" cdkDropList #doneList="cdkDropList" [cdkDropListData]="completes"
+      [cdkDropListConnectedTo]="todoList" (cdkDropListDropped)="onDrop($event)">
+      <h2>배워야할 기술</h2>
+      <mat-card *ngFor="let complete of completes" cdkDrag>
+        <mat-card-header>{{complete.name}}</mat-card-header>
+        <mat-card-subtitle>{{complete.category}}</mat-card-subtitle>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<!-- <div class="main">
+  <h1>세계 10대 부자</h1>
+  <ul class="draggable-list" id="draggable-list">해당 항목으로 끌어 넣으세요..</ul>
+  <button class="check-btn" id="check">
+    순서확인<i class="fas fa-paper-plane"></i>
+  </button>
+</div> -->

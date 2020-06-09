@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -46,7 +46,6 @@ export class BreakoutComponent implements OnInit {
     visible: true,
   };
 
-
   constructor() { }
 
   ngOnInit(): void {
@@ -58,7 +57,6 @@ export class BreakoutComponent implements OnInit {
     this.ctx.canvas.width = this.canvasWidth;
     this.ctx.canvas.height = this.canvasHeight;
     this.makeBricks();
-    this.draw();
     this.update();
   }
 
@@ -135,7 +133,6 @@ export class BreakoutComponent implements OnInit {
     if (this.ball.y + this.ball.size > this.canvasHeight || this.ball.y - this.ball.size < 0) {
       this.ball.dy *= -1;
     }
-
     // 받침대 충돌
     if (
       this.ball.x - this.ball.size > this.paddle.x &&
@@ -150,13 +147,13 @@ export class BreakoutComponent implements OnInit {
       column.forEach((brick) => {
         if (brick.visible) {
           if (
-            this.ball.x - this.ball.size > brick.x &&
-            this.ball.x + this.ball.size < brick.x + brick.w &&
+            this.ball.x - this.ball.size > brick.x && // left brick side check
+            this.ball.x + this.ball.size < brick.x + brick.w &&  // right brick side check
             this.ball.y + this.ball.size > brick.y &&
             this.ball.y - this.ball.size < brick.y + brick.h
           ) {
-            this.ball.y *= -1;
-            brick.visible = true;
+            this.ball.dy *= -1;
+            brick.visible = false;
             this.increaseScore();
           }
         }
@@ -186,6 +183,7 @@ export class BreakoutComponent implements OnInit {
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+
     this.drawBall();
     this.drawPaddle();
     this.drawScore();
@@ -230,6 +228,10 @@ export class BreakoutComponent implements OnInit {
       return { show: true };
     }
     return { show: false };
+  }
+
+  testcordi() {
+    this.moveBall();
   }
 
 }
