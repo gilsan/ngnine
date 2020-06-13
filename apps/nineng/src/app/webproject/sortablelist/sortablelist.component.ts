@@ -21,7 +21,7 @@ export class SortablelistComponent implements OnInit {
   }
 
   onDrop(event: CdkDragDrop<string[]>) {
-    console.log(event);
+   // console.log(event);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data,
         event.previousIndex, event.currentIndex);
