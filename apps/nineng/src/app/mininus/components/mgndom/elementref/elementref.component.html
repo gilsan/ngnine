@@ -1,1 +1,20 @@
-<span #tref>Element Reference 예제</span>
+<!-- <span #tref>Element Reference 예제</span> -->
+
+<div class="viewchild main">
+  <p>ViewChild 사용시</p>
+  <hr />
+  <span #el>푸른색으로 변환 합니다.</span>
+</div>
+
+<div class="directive main">
+  <p>Directive 사용시</p>
+  <hr />
+  <span [addAttribute]="'light'">하얂색으로 변합니다.</span>
+</div>
+
+
+<div class="render main">
+  <p>Renderer2사용시</p>
+  <hr />
+  <span [renderAttribute]="'hong'">붉은색으로 변합니다.</span>
+</div>

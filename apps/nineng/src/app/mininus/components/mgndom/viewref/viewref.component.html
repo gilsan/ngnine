@@ -1,3 +1,17 @@
-<ng-template #tpl>
-    <span #tpl> ViewRef 예</span>
+<div>
+  <div class="main">
+    <button (click)="create()">View 생성</button>
+    <button (click)="remove()">View 삭제</button>
+  </div>
+
+
+  <div class="main">
+    <ng-container #vc></ng-container>
+  </div>
+
+</div>
+
+<ng-template #t>
+  <span #tpl> DOM ViewRef 예</span>
+  <img src="assets/hotel/rooms/suites1.jpg">
 </ng-template>

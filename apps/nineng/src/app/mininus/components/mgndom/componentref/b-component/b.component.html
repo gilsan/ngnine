@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="navi">
+    <nav>
+      <ul class="pagination">
+        <li class="page-item" [ngClass]="{ disabled : currentPage === 0}">
+          <a class="page-link" (click)="currentPage = currentPage - 1">이전</a>
+        </li>
+        <ng-container *ngFor="let image of images; let i = index;">
+          <li class="page-item" [appClass]="{active: i === currentPage}" *ngIf=" i < 2">
+            <a (click)="currentPage = i" class="page-link">{{ i+1 }}</a>
+          </li>
+        </ng-container>
+
+        <li class="page-item" [ngClass]="{ disabled: currentPage === images.length - 1}">
+          <a (click)="currentPage = currentPage + 1" class="page-link">다음</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+
+  <div>
+    <h4>{{ images[currentPage].title}}</h4>
+    <img [src]="images[currentPage].url">
+  </div>
+</div>
