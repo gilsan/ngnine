@@ -1,219 +1,232 @@
 <div class="container">
-    <div class="row" style="margin-top:10px;">
-        <div class="col-md-4 pull-left">
+  <div class="row" style="margin-top:10px;">
+    <div class="col-md-4 pull-left">
 
-            <div class="form-group form-inline">
-                <!-- <input class="form-control ml-2" #searchMent type="text" placeholder="검색 제목입력.." />
+      <div class="form-group form-inline">
+        <!-- <input class="form-control ml-2" #searchMent type="text" placeholder="검색 제목입력.." />
             <div class=" input-group-btn">
                 <button type="button" class="btn btn-outline-secondary" (click)="mentSearch(searchMent.value)"><i class="fas fa-search"></i></button>
             </div> -->
-            </div>
+      </div>
 
-        </div>
-        <div class="col-md-5">
-        </div>
-        <div class="col-md-3">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary" (click)="reset()">
-              <i class="fas fa-sync"></i>새로고침
-          </button>
-                <button type="button" class="btn btn-success" (click)="libReg()">
-              <i class="fas fa-plus-circle"></i>등록
-          </button>
-            </div>
-        </div>
     </div>
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-3">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" (click)="reset()">
+          <i class="fas fa-sync"></i>새로고침
+        </button>
+        <button type="button" class="btn btn-success" (click)="libReg()">
+          <i class="fas fa-plus-circle"></i>등록
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 <br>
 
 <hr>
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col" class="index">#</th>
-            <th scope="col" class="filename">도서관명</th>
-            <th scope="col" class="title">내선번호</th>
-            <th scope="col" class="title">휴관일</th>
-            <th scope="col" class="title">휴관안내제목</th>
-            <th scope="col" class="mentDate">화일명</th>
-            <th scope="col" class="item head_modi">수정</th>
-            <th scope="col" class="item head_delete">삭제</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let lib of ( libList$ | async) as libs">
-            <th scope="row" class="index">{{lib.id}}</th>
-            <td class="filename ">{{lib.gym_lib_name}}</td>
-            <td class="title">{{lib.extension}}</td>
-            <td class="title">{{lib.weekname}}</td>
-            <td class="mentDate">{{lib.dtitle}}</td>
-            <td class="mentDate">{{lib.ment_name}}</td>
-            <td>
-                <div class="modi" (click)="libUpdate(lib)">수정<i class="far fa-edit"></i></div>
-            </td>
-            <td>
-                <div class="delete" (click)="libDelete(lib)">삭제<i class="far fa-calendar-times"></i></div>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th scope="col" class="index">#</th>
+      <th scope="col" class="filename">도서관명</th>
+      <th scope="col" class="title1">내선번호</th>
+      <th scope="col" class="title1">휴관일</th>
+      <th scope="col" class="title1">휴관안내제목</th>
+      <th scope="col" class="mentDate">화일명</th>
+      <th scope="col" class="item head_modi">수정</th>
+      <th scope="col" class="item head_delete">삭제</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lib of ( libList$ | async) as libs">
+      <th scope="row" class="index">{{lib.id}}</th>
+      <td class="filename ">{{lib.gym_lib_name}}</td>
+      <td class="title1">{{lib.extension}}</td>
+      <td class="title1">{{lib.weekname}}</td>
+      <td class="mentDate">{{lib.dtitle}}</td>
+      <td class="mentDate">{{lib.ment_name}}</td>
+      <td>
+        <div class="modi" (click)="libUpdate(lib)">수정<i class="far fa-edit"></i></div>
+      </td>
+      <td>
+        <div class="delete" (click)="libDelete(lib)">삭제<i class="far fa-calendar-times"></i></div>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 <div>
-    <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" (click)="getNext()" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+  <ngb-pagination [collectionSize]="120" class="d-flex justify-content-center" (click)="getNext()" [(page)]="page"
+    [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
 </div>
 
 <!--   도서관 휴관 등록화면   --------------------------------------------------------  -->
 <ng-template #modalContent let-close="close">
-    <div class="modal-header">
-        <h6 class="modal-title">도서관 휴관일 등록</h6>
+  <div class="modal-header">
+    <h6 class="modal-title">도서관 휴관일 등록</h6>
 
-        <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="close('none')">
-         <span aria-hidden="true">&times;</span>
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+      (click)="close('none')">
+      <span aria-hidden="true">&times;</span>
     </button>
-    </div>
-    <div class="modal-body">
+  </div>
+  <div class="modal-body">
 
-        <div class="box box-primary">
-            <form [formGroup]="regForm">
-                <div class="box-body">
-                    <div class="form-group reg-group">
-                        <label for="inputText2" class="col-sm-3 control-label">도서관명</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control input-sm" formControlName="gym_lib_name" placeholder="도서관/체육관" name="regist_title">
-                        </div>
-                    </div>
+    <div class="box box-primary">
+      <form [formGroup]="regForm">
+        <div class="box-body">
+          <div class="form-group reg-group">
+            <label for="inputText2" class="col-sm-3 control-label">도서관명</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" formControlName="gym_lib_name" placeholder="도서관/체육관"
+                name="regist_title">
+            </div>
+          </div>
 
-                    <div class="form-group reg-group">
-                        <label for="inputText2" class="col-sm-3 control-label">내선번호</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control input-sm" formControlName="extension" placeholder="내선번호" name="regist_title">
-                        </div>
-                    </div>
+          <div class="form-group reg-group">
+            <label for="inputText2" class="col-sm-3 control-label">내선번호</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" formControlName="extension" placeholder="내선번호"
+                name="regist_title">
+            </div>
+          </div>
 
-                    <div class="form-group reg-group">
-                        <label for="inputText3" class="col-sm-3 control-label">요일</label>
-                        <div class="col-sm-9 col-left">
-                            <div class="form-group ml-4">
-                                <label class="ml-5">
-                             <input type="radio"  value="1" formControlName="offday" class="minimal" checked>월
-                           </label>
-                                <label class="ml-4">
-                                 <input type="radio"   value="2"  formControlName="offday" class="minimal">화
-                           </label>
-                                <label class="ml-4">
-                             <input type="radio"   value="3" formControlName="offday" class="minimal">수
-                           </label>
-                                <label class="ml-4">
-                             <input type="radio"   value="4"  formControlName="offday"  class="minimal">목
-                           </label>
-                                <label class="ml-4">
-                             <input type="radio"   value="5" formControlName="offday" class="minimal">금
-                           </label>
-                                <label class="ml-4">
-                             <input type="radio"  value="6" formControlName="offday" class="minimal">토
-                           </label>
-                                <label class="ml-4">
-                             <input type="radio"  value="7"  formControlName="offday" class="minimal">일
-                           </label>
-                            </div>
-                        </div>
-                    </div>
+          <div class="form-group reg-group">
+            <label for="inputText3" class="col-sm-3 control-label">요일</label>
+            <div class="col-sm-9 col-left">
+              <div class="form-group ml-4">
+                <label class="ml-5">
+                  <input type="radio" value="1" formControlName="offday" class="minimal" checked>월
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="2" formControlName="offday" class="minimal">화
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="3" formControlName="offday" class="minimal">수
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="4" formControlName="offday" class="minimal">목
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="5" formControlName="offday" class="minimal">금
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="6" formControlName="offday" class="minimal">토
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="7" formControlName="offday" class="minimal">일
+                </label>
+              </div>
+            </div>
+          </div>
 
-                    <div class="form-group reg-group">
-                        <label for="inputText1" class="col-sm-3 control-label">기본컬러링</label>
-                        <div class="col-sm-9">
-                            <select name="departPhone" class="form-control  selectpicker" formControlName="ment">
-                              <option value="">음원선택</option>
-                              <option  [ngValue]="coloring" *ngFor="let coloring of colorings" >[{{coloring.id}}]{{coloring.dtitle}} - {{coloring.ment_name}}</option>
-                          </select>
-                        </div>
-                    </div>
+          <div class="form-group reg-group">
+            <label for="inputText1" class="col-sm-3 control-label">기본컬러링</label>
+            <div class="col-sm-9">
+              <select name="departPhone" class="form-control  selectpicker" formControlName="ment">
+                <option value="">음원선택</option>
+                <option [ngValue]="coloring" *ngFor="let coloring of colorings">[{{coloring.id}}]{{coloring.dtitle}} -
+                  {{coloring.ment_name}}</option>
+              </select>
+            </div>
+          </div>
 
-                </div>
-            </form>
         </div>
+      </form>
     </div>
-    <div class="modal-footer " style="display:flex; justify-content: space-around;">
-        <button type="button " class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소 </button>
-        <button type="button " class="btn btn-success" [disabled]="regForm.invalid" (click)="close('REG')"><i class="fas fa-check" ></i>등록 </button>
-    </div>
+  </div>
+  <div class="modal-footer " style="display:flex; justify-content: space-around;">
+    <button type="button " class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소
+    </button>
+    <button type="button " class="btn btn-success" [disabled]="regForm.invalid" (click)="close('REG')"><i
+        class="fas fa-check"></i>등록 </button>
+  </div>
 </ng-template>
 <!--    도서관 휴관화면 끝  =======================================================================           -->
 
 <!--   도서관 휴관 수정화면   --------------------------------------------------------  -->
 <ng-template #modalModiContent let-close="close">
-    <div class="modal-header">
-        <h6 class="modal-title">도서관 휴관일 수정</h6>
+  <div class="modal-header">
+    <h6 class="modal-title">도서관 휴관일 수정</h6>
 
-        <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="close('none')">
-       <span aria-hidden="true">&times;</span>
-  </button>
-    </div>
-    <div class="modal-body">
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+      (click)="close('none')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
 
-        <div class="box box-primary">
-            <form [formGroup]="regForm">
-                <div class="box-body">
-                    <div class="form-group reg-group">
-                        <label for="inputText2" class="col-sm-3 control-label">도서관명</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control input-sm" formControlName="gym_lib_name" placeholder="도서관/체육관" name="regist_title">
-                        </div>
-                    </div>
+    <div class="box box-primary">
+      <form [formGroup]="regForm">
+        <div class="box-body">
+          <div class="form-group reg-group">
+            <label for="inputText2" class="col-sm-3 control-label">도서관명</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" formControlName="gym_lib_name" placeholder="도서관/체육관"
+                name="regist_title">
+            </div>
+          </div>
 
-                    <div class="form-group reg-group">
-                        <label for="inputText2" class="col-sm-3 control-label">내선번호</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control input-sm" formControlName="extension" placeholder="내선번호" name="regist_title">
-                        </div>
-                    </div>
+          <div class="form-group reg-group">
+            <label for="inputText2" class="col-sm-3 control-label">내선번호</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" formControlName="extension" placeholder="내선번호"
+                name="regist_title">
+            </div>
+          </div>
 
-                    <div class="form-group reg-group">
-                        <label for="inputText3" class="col-sm-3 control-label">요일</label>
-                        <div class="col-sm-9 col-left">
-                            <div class="form-group ml-4">
-                                <label class="ml-5">
-                           <input type="radio"  value="1" formControlName="offday" class="minimal" >월
-                         </label>
-                                <label class="ml-4">
-                               <input type="radio"   value="2"  formControlName="offday" class="minimal">화
-                         </label>
-                                <label class="ml-4">
-                           <input type="radio"   value="3" formControlName="offday" class="minimal">수
-                         </label>
-                                <label class="ml-4">
-                           <input type="radio"   value="4"  formControlName="offday"  class="minimal">목
-                         </label>
-                                <label class="ml-4">
-                           <input type="radio"   value="5" formControlName="offday" class="minimal">금
-                         </label>
-                                <label class="ml-4">
-                           <input type="radio"  value="6" formControlName="offday" class="minimal">토
-                         </label>
-                                <label class="ml-4">
-                           <input type="radio"  value="7"  formControlName="offday" class="minimal">일
-                         </label>
-                            </div>
-                        </div>
-                    </div>
+          <div class="form-group reg-group">
+            <label for="inputText3" class="col-sm-3 control-label">요일</label>
+            <div class="col-sm-9 col-left">
+              <div class="form-group ml-4">
+                <label class="ml-5">
+                  <input type="radio" value="1" formControlName="offday" class="minimal">월
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="2" formControlName="offday" class="minimal">화
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="3" formControlName="offday" class="minimal">수
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="4" formControlName="offday" class="minimal">목
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="5" formControlName="offday" class="minimal">금
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="6" formControlName="offday" class="minimal">토
+                </label>
+                <label class="ml-4">
+                  <input type="radio" value="7" formControlName="offday" class="minimal">일
+                </label>
+              </div>
+            </div>
+          </div>
 
-                    <div class="form-group reg-group">
-                        <label for="inputText1" class="col-sm-3 control-label">기본컬러링</label>
-                        <div class="col-sm-9">
-                            <select name="departPhone" class="form-control  selectpicker" formControlName="ment">
-                            <option value="">음원선택</option>
-                            <option  [ngValue]="coloring" *ngFor="let coloring of colorings" >[{{coloring.id}}]{{coloring.dtitle}} - {{coloring.ment_name}}</option>
-                        </select>
-                        </div>
-                    </div>
+          <div class="form-group reg-group">
+            <label for="inputText1" class="col-sm-3 control-label">기본컬러링</label>
+            <div class="col-sm-9">
+              <select name="departPhone" class="form-control  selectpicker" formControlName="ment">
+                <option value="">음원선택</option>
+                <option [ngValue]="coloring" *ngFor="let coloring of colorings">[{{coloring.id}}]{{coloring.dtitle}} -
+                  {{coloring.ment_name}}</option>
+              </select>
+            </div>
+          </div>
 
-                </div>
-            </form>
         </div>
+      </form>
     </div>
-    <div class="modal-footer " style="display:flex; justify-content: space-around;">
-        <button type="button " class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소 </button>
-        <button type="button " class="btn btn-success" [disabled]="regForm.invalid" (click)="close('MOD')"><i class="fas fa-check" ></i>수정 </button>
-    </div>
+  </div>
+  <div class="modal-footer " style="display:flex; justify-content: space-around;">
+    <button type="button " class="btn btn-secondary" (click)="close('CAN')"><i class="far fa-times-circle"></i>취소
+    </button>
+    <button type="button " class="btn btn-success" [disabled]="regForm.invalid" (click)="close('MOD')"><i
+        class="fas fa-check"></i>수정 </button>
+  </div>
 </ng-template>
 <!--    도서관 휴관화면 끝  =======================================================================           -->

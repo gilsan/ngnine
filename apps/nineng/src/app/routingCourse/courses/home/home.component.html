@@ -1,0 +1,37 @@
+<!-- <div class="courses-panel">
+
+  <h3 class="page-title">All Courses</h3>
+
+  <mat-tab-group>
+
+    <mat-tab label="기초과장">
+
+      <courses-card-list [courses]="beginnerCourses$ | async" (coursesChanged)="reloadCourses()">
+
+      </courses-card-list>
+
+    </mat-tab>
+
+    <mat-tab label="고급과정">
+
+      <courses-card-list [courses]="advancedCourses$ | async" (coursesChanged)="reloadCourses()">
+
+      </courses-card-list>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</div> -->
+
+<div class="courses-panel">
+  <h3 class="page-title">전 교육과목</h3>
+  <mat-tab-group>
+    <mat-tab label="기초과정">
+      <courses-card-list [courses]="beginnerCourses$ | async" (coursesChanged)="reloadCourses()">
+      </courses-card-list>
+    </mat-tab>
+    <mat-tab label="고급과정">
+      <courses-card-list [courses]="advancedCourses$ | async" (coursesChanged)="reloadCourses()"></courses-card-list>
+    </mat-tab>
+  </mat-tab-group>
+</div>

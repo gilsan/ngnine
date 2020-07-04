@@ -32,8 +32,8 @@
     <tr>
       <th scope="col" class="index">#</th>
       <th scope="col" class="filename">부서명</th>
-      <th scope="col" class="title">내선번호</th>
-      <th scope="col" class="title">음원제목</th>
+      <th scope="col" class="title1">내선번호</th>
+      <th scope="col" class="title1">음원제목</th>
       <th scope="col" class="mentDate">화일명</th>
       <th scope="col" class="item head_modi">수정</th>
       <th scope="col" class="item head_delete">삭제</th>
@@ -43,8 +43,8 @@
     <tr *ngFor="let depart of (departList$ | async) as departs">
       <th scope="row" class="index">{{depart.id}}</th>
       <td class="filename ">{{depart.department_name}}</td>
-      <td class="title">{{depart.tel}}</td>
-      <td class="title">{{depart.ment_title}}</td>
+      <td class="title1">{{depart.tel}}</td>
+      <td class="title1">{{depart.ment_title}}</td>
       <td class="mentDate">{{depart.ment_name}}</td>
 
       <td>

@@ -8,9 +8,9 @@ export class MessageService {
 
     subject$ = new BehaviorSubject<string[]>([]);
     errors$: Observable<string[]> = this.subject$.asObservable().pipe(
-         filter((message)=>  message && message.length > 0)
+        filter((message) => message && message.length > 0),
     );
-    showErrors(...errors:string[]) {
-       this.subject$.next(errors);
+    showErrors(...errors: string[]) {
+        this.subject$.next(errors);
     }
 }

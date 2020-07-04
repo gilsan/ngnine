@@ -91,7 +91,15 @@ import { TetrisComponent } from './rxjs/tetris/tetris.component';
 
       //  FirebaseCourseStore,
    ],
+   exports: [
+      NgrxComponent,
+   ],
 })
 export class ComponentsModule {
-
+   static forRoot() {
+      return {
+         ngModule: ComponentsModule,
+         providers: [CoursesStore],
+      };
+   }
 }

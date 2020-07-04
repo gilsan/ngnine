@@ -37,8 +37,8 @@
     <tr>
       <th scope="col" class="index">#</th>
       <th scope="col" class="filename">요일</th>
-      <th scope="col" class="title">제목</th>
-      <th scope="col" class="title">화일명</th>
+      <th scope="col" class="title1">제목</th>
+      <th scope="col" class="title1">화일명</th>
       <th scope="col" class="mentDate">등록일</th>
       <th scope="col" class="item head_modi">수정</th>
       <th scope="col" class="item head_delete">삭제</th>
@@ -48,8 +48,8 @@
     <tr *ngFor="let week of ( weekLists$ | async) as weeks">
       <th scope="row" class="index">{{week.id}}</th>
       <td class="filename ">{{week.weekday}}</td>
-      <td class="title">{{week.title}}</td>
-      <td class="title">{{week.fileName}}</td>
+      <td class="title1">{{week.title}}</td>
+      <td class="title1">{{week.fileName}}</td>
       <td class="mentDate">{{week.regDate}}</td>
 
       <td>
