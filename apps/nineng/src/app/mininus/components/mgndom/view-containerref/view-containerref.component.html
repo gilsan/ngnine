@@ -1,9 +1,15 @@
 <div class="container">
-    <span>I am first span</span>
-    <ng-container #vc></ng-container>
-<span>I am last span</span>
+  <span>첫번째</span>
+  <ng-container #vc></ng-container>
+  <span>두번째</span>
+
+  <div>
+    <p class="source"><a [href]="safeurl">소스코드</a></p>
+  </div>
 </div>
 
+
+
 <ng-template #tpl>
-    <span>I am span in template</span>
+  <span>삽입된 뷰</span>
 </ng-template>

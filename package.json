@@ -76,6 +76,7 @@
     "flatpickr": "^4.6.3",
     "font-awesome": "^4.7.0",
     "ngx-audio-player": "^9.0.6",
+    "ngx-color-picker": "^9.1.0",
     "ngx-echarts": "^4.2.2",
     "ngx-gauge": "^1.1.0",
     "ngx-owl-carousel-o": "^3.0.0",

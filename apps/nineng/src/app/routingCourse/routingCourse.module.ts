@@ -7,15 +7,19 @@ import { MainComponent } from './main/main.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
+import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './login/login.component';
 import { RoutingCourseRouting } from './routingCourse.routing';
-import { ComponentsModule } from '../mininus/components/components.module';
+import { CanLoadAuthGuard } from './services/can-load-auth.guard';
+import { CustomPreloadingStrategy } from './services/custom-preloading.strategy';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     MainComponent,
     LoginComponent,
     AboutComponent,
+    ChatComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,11 @@ import { ComponentsModule } from '../mininus/components/components.module';
     MaterialModule,
     ReactiveFormsModule,
     RoutingCourseRouting,
-    ComponentsModule,
+    SharedModule,
+  ],
+  providers: [
+    CanLoadAuthGuard,
+
   ],
   exports: [],
 })

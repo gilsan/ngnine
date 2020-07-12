@@ -3,6 +3,7 @@ import { Component, OnInit, } from '@angular/core';
 import { NavItem } from './models/nav-item';
 import { Router } from '@angular/router';
 import { homeMenu } from '../shared/models/menu-list';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -11,17 +12,17 @@ import { homeMenu } from '../shared/models/menu-list';
 })
 export class HomeComponent implements OnInit {
 
-  subMenu3Show= false;
-  menuShow:boolean;
+  subMenu3Show = false;
+  menuShow: boolean;
   showMenu = false;
   darkModeActive: boolean = true;
-  sub_menu10:string;
-  subcard4=false;
+  sub_menu10: string;
+  subcard4 = false;
   color = 'accent'; // slide
   checked = true;
   disabled = false;
   opened = false;
-  menu: NavItem [] = homeMenu;
+  menu: NavItem[] = homeMenu;
   imageDesc = '홈';
   info = false;
   /*
@@ -49,17 +50,19 @@ export class HomeComponent implements OnInit {
     },   
   ]
   */
- 
 
 
+  source = 'https://github.com/gilsan/ngnine/tree/master/apps/nineng/src/app';
+  safeurl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustUrl(this.source);
   constructor(
     private router: Router,
-   ) { }
+    private sanitizer: DomSanitizer,
+  ) { }
 
- 
+
 
   ngOnInit() {
-    
+
   }
 
   goMininus() {
@@ -74,27 +77,27 @@ export class HomeComponent implements OnInit {
     console.log('login');
     this.router.navigate(['/login']);
   }
- 
+
 
   onChange(evt) {
     //  console.log(evt);
-      if (evt) {
-       this.darkModeActive = true;
-      } else {
-       this.darkModeActive = false;
-      }
+    if (evt) {
+      this.darkModeActive = true;
+    } else {
+      this.darkModeActive = false;
+    }
   }
 
   goWeather(route) {
     this.toggle();
     this.router.navigate([route]);
-   // console.log('[home][goWeather]',route);
+    // console.log('[home][goWeather]',route);
   }
 
   goItem(item) {
     this.toggle();
     this.router.navigate([item.route]);
-   // console.log('[home][goItem]', item);
+    // console.log('[home][goItem]', item);
   }
 
   toggle() {
@@ -110,7 +113,7 @@ export class HomeComponent implements OnInit {
   }
 
   version() {
-    return {"version-show" : this.info};
+    return { "version-show": this.info };
   }
- 
+
 }

@@ -1,16 +1,15 @@
 <div class="chat-container mat-elevation-z7">
 
-  <h2>How can we help you?</h2>
+  <h2>무엇을 도와 드릴까요?</h2>
 
-  <textarea placeholder="Type Your Message Here"></textarea>
+  <textarea placeholder="전하실 말을 넣어주세요..."></textarea>
 
   <div class="buttons-container">
 
-    <button mat-raised-button color="primary">Send Message</button>
+    <button mat-raised-button color="primary">보내기</button>
 
-    <button mat-raised-button
-        [routerLink]="[ '../', {outlets: {chat: null}}]">
-        Close Chat
+    <button mat-raised-button [routerLink]="[ '../', {outlets: {chat: null}}]">
+      종료
     </button>
 
   </div>

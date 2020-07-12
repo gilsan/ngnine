@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ColorPickerModule } from 'ngx-color-picker';
 import { MaterialModule } from '../../material.module';
 import { ProgrssbarComponent } from '../rxjs-recipe/progrssbar/progrssbar.component';
 import { CourseCardComponent } from './directive/course-card/course-card.component';
@@ -25,12 +26,15 @@ import { RendererDirective } from './mgndom/elementref/renderer.directive';
 import { NgtemplateoutletComponent } from './mgndom/ngtemplateoutlet/ngtemplateoutlet.component';
 import { TemplaterefComponent } from './mgndom/templateref/templateref.component';
 import { ViewContainerrefComponent } from './mgndom/view-containerref/view-containerref.component';
+import { ColorSampleComponent } from './mgndom/viewchild/color-sample/color-sample.component';
+import { ViewChildComponent } from './mgndom/viewchild/viewchild.component';
 import { ViewrefComponent } from './mgndom/viewref/viewref.component';
 import { CourseCardListComponent } from './ngrx/course-card-list/course-card-list.component';
 import { CourseDialogComponent } from './ngrx/course-dialog/course-dialog.component';
 // import { FirebaseCourseStore } from './ngrx/services/firebase-course.store';
 import { CourseComponent } from './ngrx/course/course.component';
 import { LoadingComponent } from './ngrx/loading/loading.component';
+import { LoginComponent } from './ngrx/login/login.component';
 import { MessageComponent } from './ngrx/message/message.component';
 import { NgrxComponent } from './ngrx/ngrx.component';
 import { CoursesStore } from './ngrx/services/courses.store';
@@ -75,12 +79,17 @@ import { TetrisComponent } from './rxjs/tetris/tetris.component';
       ProgrssbarComponent,
       AddAttributeDirective,
       RendererDirective,
+      LoginComponent,
+      ViewChildComponent,
+      ColorSampleComponent,
    ],
    imports: [
       CommonModule,
       HttpClientModule,
       MaterialModule,
       ReactiveFormsModule,
+      ColorPickerModule,
+      FormsModule,
    ],
    providers: [
       GameService,

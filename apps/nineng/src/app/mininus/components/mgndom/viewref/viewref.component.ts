@@ -3,6 +3,7 @@ import {
   ComponentRef, ElementRef, OnInit,
   QueryList, TemplateRef, ViewChild, ViewChildren, ViewContainerRef,
 } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -16,7 +17,11 @@ export class ViewrefComponent implements OnInit, AfterViewInit, AfterViewChecked
   @ViewChild('vc', { read: ViewContainerRef }) viewContainer: ViewContainerRef;
   @ViewChild('t') template: TemplateRef<null>;
 
-  constructor() { }
+  source = 'https://github.com/gilsan/ngnine/tree/master/apps/nineng/src/app/mininus/components/mgndom/viewref';
+  safeurl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustUrl(this.source);
+  constructor(
+    private sanitizer: DomSanitizer,
+  ) { }
 
   ngOnInit(): void {
   }

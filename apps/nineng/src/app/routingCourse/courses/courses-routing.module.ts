@@ -17,6 +17,20 @@ const routes: Routes = [
     {
         path: ':courseUrl', component: CourseComponent,
         resolve: { course: CourseResolver },
+        canActivate: [AuthGuard],
+        canDeactivate: [ConfirmExitGuard],
+        canActivateChild: [AuthGuard],
+        children: [
+            {
+                path: '', component: LessonsListComponent,
+                resolve: { lessons: LessonsResolver },
+            },
+            {
+                path: 'lessons/:lessonSeqNo',
+                component: LessonDetailComponent,
+                resolve: { lesson: LessonDetailResolver },
+            },
+        ],
     },
 ];
 

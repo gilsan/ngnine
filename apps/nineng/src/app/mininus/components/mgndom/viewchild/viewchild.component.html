@@ -1,0 +1,15 @@
+<div>
+  <p class="source"><a [href]="safeurl">소스코드</a></p>
+</div>
+
+<div class="container">
+  <h2>색선택</h2>
+  <div class="form-field">
+    <app-colorsample [color]="primary" #primaryColorSample (click)="openColorPicker()"></app-colorsample>
+  </div>
+
+  <mat-form-field>
+    <mat-label>색상표</mat-label>
+    <input #primaryInput name="primary" [(colorPicker)]="primary" matInput cpPosition="bottom" [(ngModel)]="primary">
+  </mat-form-field>
+</div>

@@ -34,7 +34,9 @@ export class AuthStore {
     }
 
     login(email: string, password: string): Observable<User> {
-        return this.http.post<User>('/api/login', { email, password })
+        return this.http.post<User>(
+            'https://cors-anywhere.herokuapp.com/http://221.141.251.58/opensys/login.php',
+            { email, password })
             .pipe(
                 tap((user) => {
                     this.subject.next(user);

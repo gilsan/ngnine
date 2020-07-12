@@ -28,16 +28,15 @@ export class CoursesService {
     }
 
     loadAllCourseLessonsSummary(courseUrl: string): Observable<LessonSummary[]> {
-        return this.http.get<LessonSummary[]>('/api/lessons', {
+        return this.http.get<LessonSummary[]>(
+            'https://cors-anywhere.herokuapp.com/http://221.141.251.58/opensys/lessons.php', {
             params: {
                 pageSize: '10000',
                 courseUrl,
             },
-        })
-            .pipe(
-                map((res) => res['payload']),
-                shareReplay(),
-            );
+        }).pipe(
+            shareReplay(),
+        );
     }
 
     loadAllCourses(): Observable<Course[]> {
@@ -49,15 +48,7 @@ export class CoursesService {
                 }),
                 shareReplay(),
             );
-        // .pipe(
-        //     catchError((err) => {
-        //         const message = 'Could not load courses';
-        //         this.message.showErrors(message);
-        //         return throwError(err);
-        //     }),
-        //     tap( (courses) => this.subject$.next(courses)),
-        //     shareReplay(),
-        // );
+
 
     }
 
@@ -81,11 +72,12 @@ export class CoursesService {
             );
     }
 
-    loadLessonDetail(courseUrl: string, lessonSeqNo: string): Observable<LessonDetail> {
-        return this.http.get<LessonDetail>(`/api/lesson-details`, {
+    loadLessonDetail(courseUrl1: string, id: string): Observable<LessonDetail> {
+        return this.http.get<LessonDetail>(
+            `https://cors-anywhere.herokuapp.com/http://221.141.251.58/opensys/lessons.php`, {
             params: {
-                courseUrl,
-                lessonSeqNo,
+                id,
+                courseUrl1,
             },
         })
             .pipe(

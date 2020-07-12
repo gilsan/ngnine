@@ -1,0 +1,26 @@
+.source {
+  color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  padding-top: 100px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 5px;
+}
+
+.form-field app-colorsample {
+  margin-right: 20px;
+}

@@ -18,9 +18,11 @@ import { ElementrefComponent } from './components/mgndom/elementref/elementref.c
 import { NgtemplateoutletComponent } from './components/mgndom/ngtemplateoutlet/ngtemplateoutlet.component';
 import { TemplaterefComponent } from './components/mgndom/templateref/templateref.component';
 import { ViewContainerrefComponent } from './components/mgndom/view-containerref/view-containerref.component';
+import { ViewChildComponent } from './components/mgndom/viewchild/viewchild.component';
 import { ViewrefComponent } from './components/mgndom/viewref/viewref.component';
 import { CourseComponent } from './components/ngrx/course/course.component';
 import { CourseResolver } from './components/ngrx/course/course.resolver';
+import { LoginComponent } from './components/ngrx/login/login.component';
 import { NgrxComponent } from './components/ngrx/ngrx.component';
 import { CanvasComponent } from './components/rxjs/canvas/canvas.component';
 import { GameComponent } from './components/rxjs/game/game.component';
@@ -62,14 +64,14 @@ const routes: Routes = [
           { path: 'line', component: LineComponent },
           { path: 'bar', component: BarComponent },
           { path: 'pie', component: PieComponent },
-          { path: 'gauge', component: GaugeComponent }
-        ]
+          { path: 'gauge', component: GaugeComponent },
+        ],
       },
       {
         path: 'monitor', children: [
           { path: 'topology', component: TopologyComponent },
-          { path: 'hw', component: RackComponent }
-        ]
+          { path: 'hw', component: RackComponent },
+        ],
       },
       {
         path: 'components', children: [
@@ -94,6 +96,7 @@ const routes: Routes = [
           { path: 'viewref', component: ViewrefComponent },
           { path: 'componentref', component: ComponentrefComponent },
           { path: 'viewcomponentref', component: ViewContainerrefComponent },
+          { path: 'viewchildcomponent', component: ViewChildComponent },
           { path: 'ngtemplateoutlet', component: NgtemplateoutletComponent },
           { path: 'valuepro', component: ValueproComponent },
           { path: 'factorypro', component: FactoryproComponent },
@@ -103,13 +106,14 @@ const routes: Routes = [
           { path: 'directive', component: DirectiveComponent },
           { path: 'ngrx', component: NgrxComponent },
           { path: 'formarray', component: FormsComponent },
-          { path: 'ngrx/:courseUrl', component: CourseComponent, }, //resolve: { course: CourseResolver}
-        ]
+          { path: 'ngrx/:courseUrl', component: CourseComponent }, //resolve: { course: CourseResolver}
+          { path: 'login', component: LoginComponent },
+        ],
       },
       {
         path: 'ngrx', children: [
           { path: 'progressbar', component: ProgrssbarComponent },
-        ]
+        ],
       },
 
       {
@@ -117,21 +121,20 @@ const routes: Routes = [
           { path: 'auinput', component: AuInputComponent },
           { path: 'taps', component: NgTapComponent },
           { path: 'modal', component: NgModalComponent },
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
   /* { path: 'test', component: TestComponent}, */
-  { path: 'test', component: TestComponent }
+  { path: 'test', component: TestComponent },
 
 ];
 
 @NgModule({
   imports: [
-
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class MininusRoutingModule {
 
