@@ -1,0 +1,11 @@
+<a routerLinkActive="currentSelection" routerLink="welcome">
+  Wgat? Who?
+</a>
+
+<a *ngFor="let list of lists" routerLinkActive="currentSelection" [routerLink]="[list.path]">
+  {{ list.component.label  }}
+</a>
+
+<a routerLinkActive="currentSelection" routerLink="resources">
+  And Furthermore
+</a>

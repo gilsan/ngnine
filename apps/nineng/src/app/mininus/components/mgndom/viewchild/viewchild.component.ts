@@ -13,7 +13,7 @@ export class ViewChildComponent implements AfterViewInit {
 
   primary = '#1976d2';
   // tslint:disable-next-line: max-line-length
-  source = 'https://github.com/gilsan/ngnine/tree/master/apps/nineng/src/app/mininus/components/mgndom/view-containerref';
+  source = 'https://github.com/gilsan/ngnine/tree/master/apps/nineng/src/app/mininus/components/mgndom/viewchild';
   safeurl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustUrl(this.source);
   constructor(
     private sanitizer: DomSanitizer,

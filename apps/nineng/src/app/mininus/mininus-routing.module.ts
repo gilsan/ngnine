@@ -115,7 +115,14 @@ const routes: Routes = [
           { path: 'progressbar', component: ProgrssbarComponent },
         ],
       },
-
+      {
+        path: 'grid', children: [
+          {
+            path: '',
+            loadChildren: () => import('./space-walk/spacewalk.module').then((m) => m.SpaceWalkModule),
+          },
+        ],
+      },
       {
         path: 'advanced', children: [
           { path: 'auinput', component: AuInputComponent },

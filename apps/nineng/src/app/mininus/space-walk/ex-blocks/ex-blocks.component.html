@@ -1,0 +1,14 @@
+<p>ex-blocks works!</p>
+
+<section class="portfolio-container containers">
+  <h2>My Portfolio</h2>
+  <div id="portfolio" class="portfolio">
+    <div class="item" *ngFor="let portfolio of folios; index as i">
+      <img [src]="'../../../../../assets/minimus/freelancer/'+portfolio.id+'.jpg'">
+      <div class="content">
+        <h3>{{portfolio.projectname}}</h3>
+        <p>{{portfolio.desc}}</p>
+      </div>
+    </div>
+  </div>
+</section>
