@@ -12,6 +12,18 @@
   text-align: center;
 }
 
+.home {
+  z-index: 3;
+  cursor: pointer;
+  position: absolute;
+  top: 65px;
+  left: 5px;
+}
+
+h3 {
+  color: white;
+}
+
 .info {
   z-index: 2;
   grid-row: 1 / -1;

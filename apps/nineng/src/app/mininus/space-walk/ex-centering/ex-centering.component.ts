@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ex-centering.component.scss']
 })
 export class ExCenteringComponent implements OnInit {
-  static label = 'Best Feature Ever!!!';
+  static label = 'Grid  위치: 중앙';
   constructor() { }
 
   ngOnInit(): void {

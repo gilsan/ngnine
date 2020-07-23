@@ -1,1 +1,6 @@
-<p>ex-media-objects works!</p>
+<div class="home" routerLink="/mininus/grid">
+  <h3>메뉴로 이동</h3>
+</div>
+
+<media-object *ngFor="let imageItem of imageItems | async" [header]="imageItem.label" [image]="imageItem.imageUrl"
+  [description]="imageItem.description"></media-object>

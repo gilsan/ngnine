@@ -1,1 +1,33 @@
-<p>ex-full-viewport works!</p>
+<!-- <div class="home" routerLink="/mininus/grid">
+  <h3>메뉴로 이동</h3>
+</div> -->
+
+<header>
+  <button (click)="showNav = !showNav" class="material-icons">
+    {{ showNav ? 'close' : 'menu'}}
+  </button>
+
+  <!--
+    The unusual handling of showNav ensures that the nav animations are only
+    triggered at the appropriate points.
+  -->
+  <a routerLink="/" (click)="showNav = showNav ? false : showNav">
+    <h1>{{title}}</h1>
+  </a>
+</header>
+
+<nav (click)="showNav = false" [class.showNav]="showNav" [class.hideNav]="showNav === false">
+  <a routerLink="/mininus/grid">Home</a>
+  <a routerLink="/mininus/grid">식당</a>
+  <a routerLink="/mininus/grid">안내</a>
+</nav>
+
+<main>
+  <img *ngFor="let imageItem of imageItems | async" [src]="imageItem.imageUrl">
+</main>
+
+<footer>
+  <a target="_blank" href="http://www.billodom.com/">Bill</a>
+  <a target="_blank" href="http://twitter.com/wnodom">Twitter</a>
+  <a target="_blank" href="http://github.com/wnodom">Github</a>
+</footer>

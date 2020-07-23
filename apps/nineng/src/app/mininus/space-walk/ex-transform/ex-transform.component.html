@@ -1,1 +1,6 @@
-<p>ex-transform works!</p>
+<div class="home" routerLink="/mininus/grid">
+  <h3>메뉴로 이동</h3>
+</div>
+
+<captioned-image *ngFor="let imageItem of imageItems | async" [src]="imageItem.imageUrl" [caption]="imageItem.lable">
+</captioned-image>

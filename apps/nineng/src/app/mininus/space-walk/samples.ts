@@ -1,4 +1,5 @@
 import { ExBlocksComponent } from './ex-blocks/ex-blocks.component';
+import { ExCenteringComponent } from './ex-centering/ex-centering.component';
 import { ExChessboardComponent } from './ex-chessboard/ex-chessboard.component';
 import { ExDebuggingComponent } from './ex-debugging/ex-debugging.component';
 import { ExFormsComponent } from './ex-forms/ex-forms.component';
@@ -12,7 +13,7 @@ import { ExTransformComponent } from './ex-transform/ex-transform.component';
 import { ExVideoViewerComponent } from './ex-video-viewer/ex-video-viewer.component';
 
 export const exams = [
-  { path: 'ex-centering', component: ExBlocksComponent },
+  { path: 'ex-centering', component: ExCenteringComponent },
   { path: 'ex-blocks', component: ExBlocksComponent },
   { path: 'ex-debugging', component: ExDebuggingComponent },
   { path: 'ex-image-gallery', component: ExImageGalleryComponent },

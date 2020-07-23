@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ex-debugging.component.scss']
 })
 export class ExDebuggingComponent implements OnInit {
-  static label = 'Good Grids Gone Bad';
+  static label = '자유형Grid';
   constructor() { }
-
+  labels: string[] = [];
   ngOnInit(): void {
+    for (let i = 1; i < 30; i++) {
+      this.labels.push('' + i);
+    }
   }
 
 }

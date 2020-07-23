@@ -1,1 +1,6 @@
-<p>ex-debugging works!</p>
+<div class="home" routerLink="/mininus/grid">
+  <h3>메뉴로 이동</h3>
+</div>
+<div class="block" *ngFor="let label of labels" [title]="label">
+  {{ label }}
+</div>

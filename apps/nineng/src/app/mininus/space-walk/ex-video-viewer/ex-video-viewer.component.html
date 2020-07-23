@@ -1,1 +1,6 @@
-<p>ex-video-viewer works!</p>
+<div class="home" routerLink="/mininus/grid">
+  <h3>메뉴로 이동</h3>
+</div>
+
+<video-list [videoData]="videosObservable | async" (selectVideo)="setCurrentVideo($event)"></video-list>
+<video-player [video]="currentVideo"></video-player>

@@ -1,1 +1,14 @@
-<p>ex-chessboard works!</p>
+<div class="home" routerLink="/mininus/grid">
+  <h3>메뉴로 이동</h3>
+
+</div>
+<div class="chessboard" [style.transform]="transformations" [ngClass]="extras">
+  <ng-container *ngFor="let row of board">
+    <ng-container *ngFor="let square of row">
+      <b>{{square}}</b>
+    </ng-container>
+  </ng-container>
+</div>
+<div>
+  <span>이동키 상하좌우키</span>
+</div>

@@ -27,6 +27,8 @@ import { NgrxComponent } from './components/ngrx/ngrx.component';
 import { CanvasComponent } from './components/rxjs/canvas/canvas.component';
 import { GameComponent } from './components/rxjs/game/game.component';
 import { TetrisComponent } from './components/rxjs/tetris/tetris.component';
+import { InlineBlockComponent } from './css-example/inline-block/inline-block.component';
+import { SelectComponent } from './css-example/select/select.component';
 import { AdminComponent } from './css/admin/admin.component';
 import { CodemasterComponent } from './css/codemaster/codemaster.component';
 import { CoffeeComponent } from './css/coffee/coffee.component';
@@ -108,6 +110,12 @@ const routes: Routes = [
           { path: 'formarray', component: FormsComponent },
           { path: 'ngrx/:courseUrl', component: CourseComponent }, //resolve: { course: CourseResolver}
           { path: 'login', component: LoginComponent },
+        ],
+      },
+      {
+        path: 'cssex', children: [
+          { path: 'inline', component: InlineBlockComponent },
+          { path: 'select', component: SelectComponent },
         ],
       },
       {

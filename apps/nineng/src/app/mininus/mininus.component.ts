@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class MininusComponent implements OnInit {
 
   subMenu3Show = false;
+  subCssShow = false;
+  cssMenuShow: boolean;
   menuShow: boolean;
   showMenu = false;
   darkModeActive: boolean = true;
@@ -98,8 +100,30 @@ export class MininusComponent implements OnInit {
     }
   }
 
+  submenuthreeToggle2(mousestatus: string = '') {
+    if (mousestatus.trim() === 'mouseover') {
+      this.subCssShow = true;
+    } else {
+      this.subCssShow = !this.subCssShow;
+    }
+    // console.log('[85][][mouseStatus]', mousestatus, this.subMenu3Show);
+    if (this.subCssShow) {
+      this.cssMenuShow = true;
+    } else {
+      this.cssMenuShow = false;
+    }
+  }
+
+
   showMenus() {
     if (this.menuShow) {
+      return 'card--3__submenu--show';
+    }
+    return 'card--3__submenu';
+  }
+
+  showCssMenus() {
+    if (this.cssMenuShow) {
       return 'card--3__submenu--show';
     }
     return 'card--3__submenu';
@@ -125,6 +149,16 @@ export class MininusComponent implements OnInit {
   goTetris() {
     this.menuShow = false;
     this.router.navigate(['/mininus', 'components', 'tetris']);
+  }
+
+  goSelect() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'select']);
+  }
+
+  goInline() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'inline']);
   }
 
   goCanvas() {

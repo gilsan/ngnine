@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ex-forms.component.scss']
 })
 export class ExFormsComponent implements OnInit {
-  static label = 'Plato Would be Proud';
+  static label = '형식Grid';
   constructor() { }
 
   ngOnInit(): void {

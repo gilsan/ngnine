@@ -9,13 +9,17 @@ import { Portfolios } from './model';
   styleUrls: ['./ex-blocks.component.scss']
 })
 export class ExBlocksComponent implements OnInit {
-  static label = 'Playing With Blocks';
+  static label = '블럭형 Grid';
+
+  labels: string[] = [];
 
   folios: Portfolios[];
   constructor() { }
 
   ngOnInit(): void {
-    this.folios = portfolios;
+    for (let i = 1; i < 30; i++) {
+      this.labels.push('' + i);
+    }
   }
 
 }

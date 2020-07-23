@@ -29,6 +29,7 @@ import { ComponentsModule } from './components/components.module';
 import { AComponent } from './components/mgndom/componentref/a-component/a.component';
 import { BComponent } from './components/mgndom/componentref/b-component/b.component';
 import { CourseResolver } from './components/ngrx/course/course.resolver';
+import { CssExampleModule } from './css-example/cssExample.module';
 import { AdminComponent } from './css/admin/admin.component';
 import { CssModule } from './css/css.module';
 import { MenuHoverDirective } from './css/directives/menu-hover.directive';
@@ -117,8 +118,10 @@ import { WeatherCardComponent } from './ui/weather-card/weather-card.component';
     CssModule,
     // FontAwesomeModule ,
     // BrowserAnimationsModule,
+    // tslint:disable-next-line: max-line-length
     SvgCircleModule, SvgLineModule, SvgPolygonModule, SvgrectModule, SvgPolylineModule, SvgTextModule, SvgPathModule, SvgEllipseModule,
     WidgetModule,
+    CssExampleModule,
   ],
   providers: [
     WeatherService,

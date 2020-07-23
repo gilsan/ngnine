@@ -1,0 +1,58 @@
+:host {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+select {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  padding: 1em 4em 1em 1.5em;
+  background: #4d5061;
+  color: white;
+  border: 0;
+
+}
+
+.select-custom {
+  position: relative;
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background: #3b3c47;
+  height: 100%;
+  width: 4em;
+  pointer-events: none;
+}
+
+.custom-arrow::before,
+.custom-arrow::after {
+  --size: 1em;
+
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-arrow::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid rgba(255, 255, 255, 0.7);
+
+  top: 60%;
+}
+
+.custom-arrow::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid rgba(255, 255, 255, 0.7);
+  top: 40%;
+}

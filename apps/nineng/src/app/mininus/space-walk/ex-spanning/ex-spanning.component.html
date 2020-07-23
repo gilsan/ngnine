@@ -1,1 +1,5 @@
-<p>ex-spanning works!</p>
+<div class="home" routerLink="/mininus/grid">
+  <h3>메뉴로 이동</h3>
+</div>
+
+<img *ngFor="let imageItem of imageItems | async" [src]="imageItem.imageUrl" [title]="imageItem.label">

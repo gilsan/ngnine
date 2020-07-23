@@ -1,1 +1,9 @@
-<p>ex-play-cards works!</p>
+<div class="home" routerLink="/mininus/grid">
+  <h3>메뉴로 이동</h3>
+</div>
+
+<ng-container *ngFor="let suit of suits">
+  <ng-container *ngFor="let rank of ranks">
+    <playing-card [rank]="rank" [suit]="suit"></playing-card>
+  </ng-container>
+</ng-container>

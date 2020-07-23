@@ -1,11 +1,33 @@
 :host {
   display: grid;
+  padding: 20px;
+
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  grid-gap: 20px;
 }
 
-.portfolio {
+div.block {
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  border: 3px solid darkgreen;
+  border-radius: 10px;
+  background-color: rgba(0, 100, 0, 0.25);
+  margin-top: 20px;
+}
 
+.home {
+  z-index: 3;
+  cursor: pointer;
+  position: absolute;
+  top: 65px;
+  left: 5px;
+
+}
+
+h3 {
+  color: white;
 }

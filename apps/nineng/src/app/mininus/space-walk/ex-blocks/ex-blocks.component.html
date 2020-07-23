@@ -1,6 +1,4 @@
-<p>ex-blocks works!</p>
-
-<section class="portfolio-container containers">
+ <!-- <section class="portfolio-container containers">
   <h2>My Portfolio</h2>
   <div id="portfolio" class="portfolio">
     <div class="item" *ngFor="let portfolio of folios; index as i">
@@ -11,4 +9,10 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+ <div class="home" routerLink="/mininus/grid">
+   <h3>메뉴로 이동</h3>
+ </div>
+ <div class="block" *ngFor="let label of labels" [title]="label">
+   {{ label }}
+ </div>

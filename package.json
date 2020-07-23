@@ -61,6 +61,7 @@
     "@ngrx/effects": "^8.6.0",
     "@ngui/auto-complete": "^2.0.0",
     "@nrwl/angular": "9.0.1",
+    "@nrwl/cli": "^9.5.1",
     "angular-calendar": "^0.28.13",
     "angular-flatpickr": "^3.6.6",
     "angular-gauge-chart": "^0.7.2",
