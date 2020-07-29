@@ -106,7 +106,7 @@ export class MininusComponent implements OnInit {
     } else {
       this.subCssShow = !this.subCssShow;
     }
-    // console.log('[85][][mouseStatus]', mousestatus, this.subMenu3Show);
+    //  console.log('[109][][mouseStatus]', mousestatus, this.subMenu3Show, this.subCssShow);
     if (this.subCssShow) {
       this.cssMenuShow = true;
     } else {
@@ -155,6 +155,36 @@ export class MininusComponent implements OnInit {
     this.cssMenuShow = false;
     this.router.navigate(['/mininus', 'cssex', 'select']);
   }
+
+  goGallery() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'gallery3d']);
+  }
+
+  goRotate() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'rotate']);
+  }
+
+  goCube() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'cube']);
+  }
+
+  goScroll() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'screenscroll']);
+  }
+
+  goTest() {
+    this.menuShow = false;
+    this.router.navigate(['/mininus', 'advanced', 'test']);
+  }
+
+
+
+
+
 
   goInline() {
     this.cssMenuShow = false;

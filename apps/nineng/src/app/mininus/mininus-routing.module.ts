@@ -27,7 +27,11 @@ import { NgrxComponent } from './components/ngrx/ngrx.component';
 import { CanvasComponent } from './components/rxjs/canvas/canvas.component';
 import { GameComponent } from './components/rxjs/game/game.component';
 import { TetrisComponent } from './components/rxjs/tetris/tetris.component';
+import { CubeComponent } from './css-example/cube/cube.component';
+import { Gallery3dComponent } from './css-example/gallery3d/gallery3d.component';
 import { InlineBlockComponent } from './css-example/inline-block/inline-block.component';
+import { RotateComponent } from './css-example/rotate/rotate.component';
+import { ScreenscrollComponent } from './css-example/screenscroll/screenscroll.component';
 import { SelectComponent } from './css-example/select/select.component';
 import { AdminComponent } from './css/admin/admin.component';
 import { CodemasterComponent } from './css/codemaster/codemaster.component';
@@ -67,6 +71,7 @@ const routes: Routes = [
           { path: 'bar', component: BarComponent },
           { path: 'pie', component: PieComponent },
           { path: 'gauge', component: GaugeComponent },
+
         ],
       },
       {
@@ -116,6 +121,10 @@ const routes: Routes = [
         path: 'cssex', children: [
           { path: 'inline', component: InlineBlockComponent },
           { path: 'select', component: SelectComponent },
+          { path: 'rotate', component: RotateComponent },
+          { path: 'gallery3d', component: Gallery3dComponent },
+          { path: 'cube', component: CubeComponent },
+          { path: 'screenscroll', component: ScreenscrollComponent },
         ],
       },
       {
@@ -136,12 +145,13 @@ const routes: Routes = [
           { path: 'auinput', component: AuInputComponent },
           { path: 'taps', component: NgTapComponent },
           { path: 'modal', component: NgModalComponent },
+          { path: 'test', component: TestComponent },
         ],
       },
     ],
   },
   /* { path: 'test', component: TestComponent}, */
-  { path: 'test', component: TestComponent },
+
 
 ];
 

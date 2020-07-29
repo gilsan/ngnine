@@ -22,9 +22,9 @@
       <ul class="cards">
         <li class="card--1" [matMenuTriggerFor]="graphType" (click)="hideMenu()">그래프</li>
         <li class="card--2" [matMenuTriggerFor]="montoringType" (click)="hideMenu()">관제</li>
-        <li class="card--3" (click)="submenuthreeToggle()">컴포넌트</li>
+        <li class="card--3" (click)="submenuthreeToggle()">예제</li>
 
-        <li class="card--4" [matMenuTriggerFor]="cssCollection" (click)="hideMenu()">초기화면</li>
+        <li class="card--4" [matMenuTriggerFor]="cssCollection" (click)="hideMenu()">화면예제</li>
         <li class="card--3" (click)="submenuthreeToggle2()">CSS예</li>
         <li class="card--4" [matMenuTriggerFor]="angularCollection" (click)="hideMenu()">Angular</li>
       </ul>
@@ -49,7 +49,7 @@
           <ul>
             <li class="submenu__item" (click)="goProgressbar()">RxJS:ProgressiveBar</li>
             <li class="submenu__item" (click)="goGridEx()">Grid사용예제</li>
-            <li class="submenu__item">공사중</li>
+            <li class="submenu__item" (click)="goTest()">시험용</li>
           </ul>
         </div>
       </div>
@@ -58,14 +58,16 @@
         <div class="card--3__submenu-1">
           <ul>
             <li class="submenu__item" (click)="goSelect()">select예</li>
-            <li class="submenu__item" (click)="goInline()">inline-block</li>
-            <!-- <li class="submenu__item" (click)="goTetris()">테트리스</li> -->
+            <li class="submenu__item" (click)="goInline()">after-before</li>
+            <li class="submenu__item" (click)="goRotate()">카드회전</li>
+            <li class="submenu__item" (click)="goGallery()">3D Carousel</li>
+            <li class="submenu__item" (click)="goCube()">3D Cube</li>
           </ul>
         </div>
         <div class="card--3__submenu-2">
           <ul>
-            <!-- <li class="submenu__item" (click)="goAuinput()">입력양식</li>
-            <li class="submenu__item" (click)="goTaps()">탭</li>
+            <li class="submenu__item" (click)="goScroll()">스크린 Scroll</li>
+            <!--   <li class="submenu__item" (click)="goTaps()">탭</li>
             <li class="submenu__item" (click)="goModal()">모달</li> -->
           </ul>
         </div>
