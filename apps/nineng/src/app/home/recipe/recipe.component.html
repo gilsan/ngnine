@@ -1,8 +1,8 @@
  <div class="container">
    <header class="header">
      <img src="assets/recipe/logo.png" alt="Logo" class="header__logo">
-     <form class="search">
-       <input type="text" class="search__field" placeholder="pizza 입력 ...">
+     <form class="search" [formGroup]="form">
+       <input type="text" class="search__field" placeholder="pizza 입력 ..." formControlName="search">
        <button class="btn search__btn" (click)="searchRecipe()">
          <svg class="search__icon">
            <use href="assets/recipe/icons.svg#icon-magnifying-glass"></use>
@@ -35,8 +35,8 @@
    </header>
 
    <div class="results">
-     <ul class="results__list" *ngIf="count">
-       <li *ngFor="let recipe of recipes" (click)="getRecipe(recipe)">
+     <ul class="results__list" *ngIf="totalPage">
+       <li *ngFor="let recipe of subRecipes" (click)="getRecipe(recipe)">
          <div class="results__link results__link--active">
            <figure class="results__fig">
              <img [src]="recipe.image_url" alt="Test">
@@ -49,15 +49,16 @@
        </li>
      </ul>
 
-     <div class="results__pages" *ngIf="count">
-       <button class="btn-inline results__btn--prev">
+     <div class="results__pages">
+       <button class="btn-inline results__btn--prev" *ngIf="prev" (click)="goPrev()">
+         <span>Page {{ currentPage ?  currentPage - 1 : null}}</span>
          <svg class="search__icon">
            <use href="assets/recipe/icons.svg#icon-triangle-left"></use>
          </svg>
        </button>
 
-       <button class="btn-inline results__btn--next">
-         <span>Page 3</span>
+       <button class="btn-inline results__btn--next" *ngIf="next" (click)="goNext()">
+         <span>Page {{ currentPage ?  currentPage + 1 : null}}</span>
          <svg class="search__icon">
            <use href="assets/recipe/icons.svg#icon-triangle-right"></use>
          </svg>
@@ -66,14 +67,14 @@
    </div>
 
    <div class="recipe">
-     <figure class="recipe__fig">
-       <img src="assets/recipe/test-1.jpg" alt="Tomato" class="recipe__img">
+     <figure class="recipe__fig" *ngIf="ingredient">
+       <img [src]="ingredient.image_url" alt="Tomato" class="recipe__img">
        <h1 class="recipe__title">
-         <span>Pasta with tomato cream sauce</span>
+         <span>{{ingredient.title}}</span>
        </h1>
      </figure>
 
-     <div class="recipe__details">
+     <div class="recipe__details" *ngIf="ingredient">
        <div class="recipe__info">
          <svg class="recipe__info-icon">
            <use href="assets/recipe/icons.svg#icon-stopwatch"></use>
@@ -108,77 +109,21 @@
        </button>
      </div>
 
-     <div class="recipe__ingredients">
+     <div class="recipe__ingredients" *ngIf="ingredient">
        <ul class="recipe__ingredient-list">
-         <li class="recipe__item">
+         <li class="recipe__item" *ngFor="let ingre of ingredient.ingredients">
            <svg class="recipe__icon">
              <use href="assets/recipe/icons.svg#icon-check"></use>
            </svg>
-           <div class="recipe__count">1000</div>
+           <div class="recipe__count">{{ingre.count}}</div>
            <div class="recipe__ingredient">
-             <span class="recipe__unit">g</span>
-             pasta
-           </div>
-         </li>
-
-         <li class="recipe__item">
-           <svg class="recipe__icon">
-             <use href="assets/recipe/icons.svg#icon-check"></use>
-           </svg>
-           <div class="recipe__count">1/2</div>
-           <div class="recipe__ingredient">
-             <span class="recipe__unit">cup</span>
-             ricotta cheese
-           </div>
-         </li>
-
-         <li class="recipe__item">
-           <svg class="recipe__icon">
-             <use href="assets/recipe/icons.svg#icon-check"></use>
-           </svg>
-           <div class="recipe__count">1</div>
-           <div class="recipe__ingredient">
-             <span class="recipe__unit"></span>
-             can of tomatoes, whole or crushed
-           </div>
-         </li>
-
-
-         <li class="recipe__item">
-           <svg class="recipe__icon">
-             <use href="assets/recipe/icons.svg#icon-check"></use>
-           </svg>
-           <div class="recipe__count">1</div>
-           <div class="recipe__ingredient">
-             <span class="recipe__unit"></span>
-             can tuna packed in olive oil
-           </div>
-         </li>
-
-         <li class="recipe__item">
-           <svg class="recipe__icon">
-             <use href="assets/recipe/icons.svg#icon-check"></use>
-           </svg>
-           <div class="recipe__count">1/2</div>
-           <div class="recipe__ingredient">
-             <span class="recipe__unit">cup</span>
-             grated parmesan cheese
-           </div>
-         </li>
-
-         <li class="recipe__item">
-           <svg class="recipe__icon">
-             <use href="assets/recipe/icons.svg#icon-check"></use>
-           </svg>
-           <div class="recipe__count">1/4</div>
-           <div class="recipe__ingredient">
-             <span class="recipe__unit">cup</span>
-             fresh basil, chopped or torn
+             <span class="recipe__unit">{{ingre.unit}}</span>
+             {{ingre.ingredient}}
            </div>
          </li>
        </ul>
 
-       <button class="btn-small recipe__btn">
+       <button class="btn-small recipe__btn" (click)="addRecipe()">
          <svg class="search__icon">
            <use href="assets/recipe/icons.svg#icon-shopping-cart"></use>
          </svg>
@@ -186,11 +131,11 @@
        </button>
      </div>
 
-     <div class="recipe__directions">
+     <div class="recipe__directions" *ngIf="ingredient">
        <h2 class="heading-2">조리방법</h2>
        <p class="recipe__directions-text">
-         This recipe was carefully designed and tested by
-         <span class="recipe__by">The Pioneer Woman</span>. Please check out directions at their website.
+         <span class="recipe__by">{{ingredient.publisher}}</span>이 만들고, 검증된 레시피 입니다.
+         <a href="home/recipe">이곳에서</a> 확인해 보시기 바랍니다.
        </p>
        <a class="btn-small recipe__btn" href="http://thepioneerwoman.com/cooking/    pasta-with-tomato-cream-sauce/"
          target="_blank">
@@ -206,16 +151,16 @@
    <!-- End of recipe   -->
 
    <div class="shopping">
-     <h2 class="heading-2">쇼핑목록</h2>
+     <h2 class="heading-2">목록</h2>
 
-     <ul class="shopping__list">
+     <ul class="shopping__list" *ngIf="ingredient">
 
-       <li class="shopping__item">
+       <li class="shopping__item" *ngFor="let ingre of ingredient.ingredients">
          <div class="shopping__count">
-           <input type="number" value="500" step="100">
-           <p>g</p>
+           <input type="number" [value]="ingre.count" step="1">
+           <p>{{ingre.unit}}</p>
          </div>
-         <p class="shopping__description">Pasta</p>
+         <p class="shopping__description">{{ingre.ingredient}}</p>
          <button class="shopping__delete btn-tiny">
            <svg>
              <use href="assets/recipe/icons.svg#icon-circle-with-cross"></use>
@@ -223,6 +168,7 @@
          </button>
        </li>
 
+       <!--
        <li class="shopping__item">
          <div class="shopping__count">
            <input type="number" value="0.5" step="0.1">
@@ -236,7 +182,7 @@
          </button>
        </li>
 
-       <!-- <li class="shopping__item">
+        <li class="shopping__item">
          <div class="shopping__count">
            <input type="number" value="3.5" step="0.1">
            <p>tbsp</p>

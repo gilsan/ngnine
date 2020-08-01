@@ -6,6 +6,7 @@
   background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
   background-size: cover;
   background-repeat: no-repeat;
+  margin: 0;
 }
 
 @media only screen and (max-width: 68.75em) {
@@ -27,6 +28,10 @@
   grid-gap: 5px;
 }
 
+.search__icon {
+  width: 50px;
+  height: 50px;
+}
 
 @media only screen and (max-width: 68.75em) {
   .contaner {
@@ -333,8 +338,9 @@
 
 .results__link:hover,
 .likes__link:hover {
+  cursor: pointer;
   background-color: #F9F5F3;
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 .results__link--active,
@@ -630,7 +636,7 @@
   &__count input {
     color: inherit;
     font-family: inherit;
-    font-size: 1.2rem;
+    font-size: .8rem;
     text-align: center;
     border: none;
     width: 3.7rem;
@@ -643,12 +649,12 @@
   }
 
   &__count p {
-    font-size: 1.2rem;
+    font-size: .8rem;
   }
 
   &__description {
     flex: 1;
-    font-size: 1.3rem;
+    font-size: .8rem;
     margin-top: 1rem;
     margin-right: 1rem;
   }

@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ExpenseModule } from '../expense/expense.module';
 import { MaterialModule } from '../material.module';
 // import { QuizService } from './lazyload/quiz.service';
@@ -11,7 +13,6 @@ import { HomeRoutingModule } from './home.routing.module';
 import { LemonmartModule } from './lemon-mart/lemonmart.module';
 import { PianoComponent } from './piano/piano.component';
 import { RecipeComponent } from './recipe/recipe.component';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     MaterialModule,
     HomeRoutingModule,
+    ReactiveFormsModule,
     LemonmartModule,
     ExpenseModule,
     SharedModule,
