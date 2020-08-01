@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  SpeechRecognitionModule,
-} from '@kamiazya/ngx-speech-recognition';
+// import {
+//   SpeechRecognitionModule,
+// } from '@kamiazya/ngx-speech-recognition';
 import { MaterialModule } from '../material.module';
 import { BreakoutComponent } from './breakout/breakout.component';
 import { DomarrayComponent } from './domarray/domarray.component';
@@ -25,7 +25,7 @@ import { MusicplayerComponent } from './musicplayer/musicplayer.component';
 import { NewyearcountdownComponent } from './newyearcountdown/newyearcountdown.component';
 import { RelaxerComponent } from './relaxer/relaxer.component';
 import { SortablelistComponent } from './sortablelist/sortablelist.component';
-import { SpeechreconitionComponent } from './speechreconition/speechreconition.component';
+// import { SpeechreconitionComponent } from './speechreconition/speechreconition.component';
 import { SpeechtextComponent } from './speechtext/speechtext.component';
 import { TypinggameComponent } from './typinggame/typinggame.component';
 import { VideoplayerComponent } from './videoplayer/videoplayer.component';
@@ -52,7 +52,7 @@ import { WebprojectRouting } from './webproject.routing';
     BreakoutComponent,
     NewyearcountdownComponent,
     SortablelistComponent,
-    SpeechreconitionComponent,
+    //   SpeechreconitionComponent,
   ],
   imports: [
     CommonModule,
@@ -63,11 +63,11 @@ import { WebprojectRouting } from './webproject.routing';
     MaterialModule,
     ScrollingModule,
     DragDropModule,
-    SpeechRecognitionModule.withConfig({
-      lang: 'ko',
-      interimResults: true,
-      maxAlternatives: 10,
-    }),
+    // SpeechRecognitionModule.withConfig({
+    //   lang: 'ko',
+    //   interimResults: true,
+    //   maxAlternatives: 10,
+    // }),
   ],
   providers: [
 

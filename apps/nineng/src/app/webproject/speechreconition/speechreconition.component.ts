@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
-import { resultList, RxSpeechRecognitionService, SpeechRecognitionService } from '@kamiazya/ngx-speech-recognition';
+// import { resultList, RxSpeechRecognitionService, SpeechRecognitionService } from '@kamiazya/ngx-speech-recognition';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
   templateUrl: './speechreconition.component.html',
   styleUrls: ['./speechreconition.component.scss'],
   providers: [
-    RxSpeechRecognitionService,
-    SpeechRecognitionService,
+    // RxSpeechRecognitionService,
+    // SpeechRecognitionService,
 
   ],
 })
@@ -23,7 +23,7 @@ export class SpeechreconitionComponent implements OnInit {
   speechRecognition$: Observable<SpeechRecognitionResultList>;
 
   constructor(
-    public service: RxSpeechRecognitionService,
+    // public service: RxSpeechRecognitionService,
     // private service: SpeechRecognitionService,
   ) {
     // console.log('MainComponent', this.service);
@@ -42,13 +42,13 @@ export class SpeechreconitionComponent implements OnInit {
   }
 
   init() {
-    this.service
-      .listen()
-      .pipe(resultList)
-      .subscribe((list: SpeechRecognitionResultList) => {
-        this.message = list.item(0).item(0).transcript;
-        console.log('RxComponent:onresult', this.message);
-      });
+    // this.service
+    //   .listen()
+    //   .pipe(resultList)
+    //   .subscribe((list: SpeechRecognitionResultList) => {
+    //     this.message = list.item(0).item(0).transcript;
+    //     console.log('RxComponent:onresult', this.message);
+    //   });
   }
 
 
