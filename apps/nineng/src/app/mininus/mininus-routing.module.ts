@@ -58,6 +58,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProgrssbarComponent } from './rxjs-recipe/progrssbar/progrssbar.component';
 import { TestComponent } from './test/test.component';
 import { AddCardComponent } from './ui/add-card/add-card.component';
+import { WavyComponent } from './css-example/wavy/wavy.component';
 
 const routes: Routes = [
   {
@@ -125,6 +126,7 @@ const routes: Routes = [
           { path: 'gallery3d', component: Gallery3dComponent },
           { path: 'cube', component: CubeComponent },
           { path: 'screenscroll', component: ScreenscrollComponent },
+          { path: 'wavycircle', component: WavyComponent }
         ],
       },
       {

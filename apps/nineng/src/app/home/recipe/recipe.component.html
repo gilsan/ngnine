@@ -18,16 +18,16 @@
        </div>
        <div class="likes__pannel">
          <ul class="likes__list">
-           <li>
-             <a href="#" class="likes__link">
+           <li *ngFor="let likeList  of likesLists" (click)="likeItem(likeList)">
+             <div class="likes__link">
                <figure class="likes__fig">
-                 <img src="assets/recipe/test-1.jpg" alt="test">
+                 <img [src]="likeList.image_url" alt="test">
                </figure>
                <div class="likes__data">
-                 <h4 class="likes__name">Pasta with Tomato...</h4>
-                 <p class="likes__author">Pioneer Woman</p>
+                 <h4 class="likes__name">{{likeList.title}}</h4>
+                 <p class="likes__author">{{likeList.publisher}}</p>
                </div>
-             </a>
+             </div>
            </li>
          </ul>
        </div>
@@ -67,14 +67,14 @@
    </div>
 
    <div class="recipe">
-     <figure class="recipe__fig" *ngIf="ingredient">
-       <img [src]="ingredient.image_url" alt="Tomato" class="recipe__img">
+     <figure class="recipe__fig" *ngIf="ingredientList">
+       <img [src]="ingredientList.image_url" alt="Tomato" class="recipe__img">
        <h1 class="recipe__title">
-         <span>{{ingredient.title}}</span>
+         <span>{{ingredientList.title}}</span>
        </h1>
      </figure>
 
-     <div class="recipe__details" *ngIf="ingredient">
+     <div class="recipe__details" *ngIf="ingredientList">
        <div class="recipe__info">
          <svg class="recipe__info-icon">
            <use href="assets/recipe/icons.svg#icon-stopwatch"></use>
@@ -102,16 +102,20 @@
            </button>
          </div>
        </div>
-       <button class="recipe__love">
+       <button class="recipe__love" (click)="addLike(ingredientList)">
          <svg class="header__likes">
-           <use href="assets/recipe/icons.svg#icon-heart-outlined"></use>
+           <use href="assets/recipe/icons.svg#icon-heart-outlined"
+             *ngIf="isLinked(ingredientList.recipe_id); else nooutlined"></use>
+           <ng-template #nooutlined>
+             <use href="assets/recipe/icons.svg#icon-heart"></use>
+           </ng-template>
          </svg>
        </button>
      </div>
 
-     <div class="recipe__ingredients" *ngIf="ingredient">
+     <div class="recipe__ingredients" *ngIf="ingredientList">
        <ul class="recipe__ingredient-list">
-         <li class="recipe__item" *ngFor="let ingre of ingredient.ingredients">
+         <li class="recipe__item" *ngFor="let ingre of ingredientList.ingredients">
            <svg class="recipe__icon">
              <use href="assets/recipe/icons.svg#icon-check"></use>
            </svg>
@@ -123,7 +127,7 @@
          </li>
        </ul>
 
-       <button class="btn-small recipe__btn" (click)="addRecipe()">
+       <button class="btn-small recipe__btn">
          <svg class="search__icon">
            <use href="assets/recipe/icons.svg#icon-shopping-cart"></use>
          </svg>
@@ -131,10 +135,10 @@
        </button>
      </div>
 
-     <div class="recipe__directions" *ngIf="ingredient">
+     <div class="recipe__directions" *ngIf="ingredientList">
        <h2 class="heading-2">조리방법</h2>
        <p class="recipe__directions-text">
-         <span class="recipe__by">{{ingredient.publisher}}</span>이 만들고, 검증된 레시피 입니다.
+         <span class="recipe__by">{{ingredientList.publisher}}</span>이 만들고, 검증된 레시피 입니다.
          <a href="home/recipe">이곳에서</a> 확인해 보시기 바랍니다.
        </p>
        <a class="btn-small recipe__btn" href="http://thepioneerwoman.com/cooking/    pasta-with-tomato-cream-sauce/"
@@ -153,9 +157,9 @@
    <div class="shopping">
      <h2 class="heading-2">목록</h2>
 
-     <ul class="shopping__list" *ngIf="ingredient">
+     <ul class="shopping__list" *ngIf="ingredientList">
 
-       <li class="shopping__item" *ngFor="let ingre of ingredient.ingredients">
+       <li class="shopping__item" *ngFor="let ingre of ingredientList.ingredients">
          <div class="shopping__count">
            <input type="number" [value]="ingre.count" step="1">
            <p>{{ingre.unit}}</p>
@@ -167,73 +171,6 @@
            </svg>
          </button>
        </li>
-
-       <!--
-       <li class="shopping__item">
-         <div class="shopping__count">
-           <input type="number" value="0.5" step="0.1">
-           <p>cup</p>
-         </div>
-         <p class="shopping__description">Ricotta cheese</p>
-         <button class="shopping__delete btn-tiny">
-           <svg>
-             <use href="assets/recipe/icons.svg#icon-circle-with-cross"></use>
-           </svg>
-         </button>
-       </li>
-
-        <li class="shopping__item">
-         <div class="shopping__count">
-           <input type="number" value="3.5" step="0.1">
-           <p>tbsp</p>
-         </div>
-         <p class="shopping__description">Toasted almond slices</p>
-         <button class="shopping__delete btn-tiny">
-           <svg>
-             <use href="assets/recipe/icons.svg#icon-circle-with-cross"></use>
-           </svg>
-         </button>
-       </li> -->
-
-       <!-- <li class="shopping__item">
-         <div class="shopping__count">
-           <input type="number" value="0.5" step="0.1">
-           <p>tbsp</p>
-         </div>
-         <p class="shopping__description">Sea salt</p>
-         <button class="shopping__delete btn-tiny">
-           <svg>
-             <use href="assets/recipe/icons.svg#icon-circle-with-cross"></use>
-           </svg>
-         </button>
-       </li> -->
-
-       <!-- <li class="shopping__item">
-         <div class="shopping__count">
-           <input type="number" value="0.25" step="0.1">
-           <p>cup</p>
-         </div>
-
-         <p class="shopping__description">Minced green onions</p>
-         <button class="shopping__delete btn-tiny">
-           <svg>
-             <use href="assets/recipe/icons.svg#icon-circle-with-cross"></use>
-           </svg>
-         </button>
-       </li> -->
-
-       <!-- <li class="shopping__item">
-         <div class="shopping__count">
-           <input type="number" value="45" step="10">
-           <p>g</p>
-         </div>
-         <p class="shopping__description">Sesame seeds</p>
-         <button class="shopping__delete btn-tiny">
-           <svg>
-             <use href="assets/recipe/icons.svg#icon-circle-with-cross"></use>
-           </svg>
-         </button>
-       </li> -->
 
      </ul>
 

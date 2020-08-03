@@ -5,7 +5,7 @@ import { Observable, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SubSink } from 'subsink';
 import { HomeService } from '../home.service';
-import { IRecipe, IRecipes, Ingredient } from '../models/recipe';
+import { IRecipe, IRecipes, Ingredient, ILikeRecipes, IngredientList, IObjIng } from '../models/recipe';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -15,7 +15,8 @@ import { IRecipe, IRecipes, Ingredient } from '../models/recipe';
 })
 export class RecipeComponent implements OnInit, OnDestroy {
 
-  likesList = [];
+  likesLists: ILikeRecipes[] = [];
+  ingredientList: IngredientList;
   recipes: IRecipe[];
   subRecipes: IRecipe[];
   recipes$: Observable<IRecipes>;
@@ -85,10 +86,12 @@ export class RecipeComponent implements OnInit, OnDestroy {
 
     this.service.getRecipes(parseInt(recipe.recipe_id, 0))
       .subscribe((data) => {
+
         const ingre = this.modifyIngredients(data.ingredients);
-        data.ingredients = [...ingre];
-        this.ingredient = data;
-        //  console.log('[][getRecipe]', this.ingredient);
+        // data.ingredients = [...ingre];
+        // this.ingredient = data;
+        this.ingredientList = { ...data, ingredients: ingre };
+        //  console.log('[93][getRecipe][ingredient]', this.ingredient, this.ingredientList);
       });
   }
 
@@ -149,7 +152,6 @@ export class RecipeComponent implements OnInit, OnDestroy {
   }
 
 
-
   renderResults() {
     const start = (this.currentPage - 1) * this.resPerPage;
     const end = this.currentPage * this.resPerPage;
@@ -191,8 +193,36 @@ export class RecipeComponent implements OnInit, OnDestroy {
     this.buttonShow();
   }
 
-  addRecipe() {
-    console.log('[addList] ', this.ingredient.ingredients);
+  addLike(ingredient: ILikeRecipes) {
+    const recipe_id = parseInt(ingredient.recipe_id, 10);
+
+    const index = this.recipes.findIndex(recipe => recipe.recipe_id === ingredient.recipe_id);
+    const subIndex = this.subRecipes.findIndex(recipe => recipe.recipe_id === ingredient.recipe_id);
+    const val = this.likesLists.find(item => item === ingredient);
+    if (!val) {
+      ingredient.isLinked = true;
+      this.likesLists.push(ingredient);
+
+      this.recipes.splice(index, 1);
+      this.subRecipes.splice(subIndex, 1);
+    }
+  }
+
+  isLinked(id: string) {
+
+    if (this.likesLists.length) {
+      const result = this.likesLists.findIndex(item => item.recipe_id === id);
+      if (result !== -1) {
+        return false;
+      }
+      return true;
+    }
+    return true;
+  }
+
+  likeItem(likeList: ILikeRecipes) {
+    this.ingredientList = likeList;
+    console.log('[225][][likeItem] ', this.ingredientList)
   }
 
 }

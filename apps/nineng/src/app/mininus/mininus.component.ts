@@ -176,6 +176,11 @@ export class MininusComponent implements OnInit {
     this.router.navigate(['/mininus', 'cssex', 'screenscroll']);
   }
 
+  go3Wavy() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'wavycircle']);
+  }
+
   goTest() {
     this.menuShow = false;
     this.router.navigate(['/mininus', 'advanced', 'test']);
