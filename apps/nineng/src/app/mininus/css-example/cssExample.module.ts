@@ -7,6 +7,15 @@ import { RotateComponent } from './rotate/rotate.component';
 import { ScreenscrollComponent } from './screenscroll/screenscroll.component';
 import { CubeComponent } from './cube/cube.component';
 import { WavyComponent } from './wavy/wavy.component';
+import { DrivebusComponent } from './drivebus/drivebus.component';
+import { BubblesComponent } from './bubbles/bubbles.component';
+import { BubbleDirective } from './bubbles/bubble.directive';
+import { SolarComponent } from './solar/solar.component';
+import { SolarSystemComponent } from './solar-system/solar-system.component';
+import { ClockComponent } from './clock/clock.component';
+import { PokeballComponent } from './pokeball/pokeball.component';
+import { LightWaveComponent } from './light-wave/light-wave.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +26,30 @@ import { WavyComponent } from './wavy/wavy.component';
     ScreenscrollComponent,
     CubeComponent,
     WavyComponent,
+    DrivebusComponent,
+    BubblesComponent,
+
+    BubbleDirective,
+
+    SolarComponent,
+
+    SolarSystemComponent,
+
+    ClockComponent,
+
+    PokeballComponent,
+
+    LightWaveComponent,
+
   ],
   imports: [
+
     CommonModule,
+    HttpClientModule,
   ],
   exports: [
     ScreenscrollComponent,
   ]
+
 })
 export class CssExampleModule { }

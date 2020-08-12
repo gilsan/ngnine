@@ -24,8 +24,8 @@
         <li class="card--2" [matMenuTriggerFor]="montoringType" (click)="hideMenu()">관제</li>
         <li class="card--3" (click)="submenuthreeToggle()">예제</li>
 
-        <li class="card--4" [matMenuTriggerFor]="cssCollection" (click)="hideMenu()">화면예제</li>
-        <li class="card--3" (click)="submenuthreeToggle2()">CSS예</li>
+        <li class="card--4" [matMenuTriggerFor]="cssCollection" (click)="hideMenu()">초기화면예제</li>
+        <li class="card--3" (click)="submenuthreeToggle2()">CSS예제</li>
         <li class="card--4" [matMenuTriggerFor]="angularCollection" (click)="hideMenu()">Angular</li>
       </ul>
 
@@ -68,14 +68,16 @@
           <ul>
             <li class="submenu__item" (click)="goScroll()">태양계</li>
             <li class="submenu__item" (click)="go3Wavy()">3D Wavy</li>
-            <!-- <li class="submenu__item" (click)="goModal()">모달</li> -->
+            <li class="submenu__item" (click)="goBus()">달리는버스</li>
+            <li class="submenu__item" (click)="goBubble()">비누방울</li>
+            <li class="submenu__item" (click)="goSolar()">태양계II</li>
           </ul>
         </div>
         <div class="card--3__submenu-3">
           <ul>
-            <!-- <li class="submenu__item" (click)="goProgressbar()">RxJS:ProgressiveBar</li>
-            <li class="submenu__item" (click)="goGridEx()">Grid사용예제</li>
-            <li class="submenu__item">공사중</li> -->
+            <li class="submenu__item" (click)="goClock()">시계</li>
+            <li class="submenu__item" (click)="goPokeball()">Pokeball</li>
+            <li class="submenu__item" (click)="goLightWave()">Loading</li>
           </ul>
         </div>
       </div>

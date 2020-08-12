@@ -1,7 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 
 import { NavItem } from './models/nav-item';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { homeMenu } from '../shared/models/menu-list';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
@@ -12,6 +12,7 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
 
+  rainShow = true;
   subMenu3Show = false;
   menuShow: boolean;
   showMenu = false;
@@ -57,12 +58,25 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private sanitizer: DomSanitizer,
+    private route: ActivatedRoute
   ) { }
 
 
 
   ngOnInit() {
+    const path = this.route.snapshot.routeConfig.path;
+    if (path !== 'home') {
+      this.rainShow = false;
+    }
+  }
 
+  main() {
+    this.router.navigate(['/home']);
+    this.rainShow = true;
+  }
+
+  seoul() {
+    this.rainShow = false;
   }
 
   goMininus() {
@@ -77,7 +91,6 @@ export class HomeComponent implements OnInit {
     console.log('login');
     this.router.navigate(['/login']);
   }
-
 
   onChange(evt) {
     //  console.log(evt);

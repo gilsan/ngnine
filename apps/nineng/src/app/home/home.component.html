@@ -10,7 +10,7 @@
     </button>
     <div class="bar-menu">
 
-      <svg class="logo__icon" viewBox="150.3 22.2 213.7 42.8">
+      <svg class="logo__icon" viewBox="150.3 22.2 213.7 42.8" (click)="main()">
         <path fill="#00ff9b" d="M150.3 65V22.2L193 65z" data-name="Path 1"></path>
         <path fill="#003eff" d="M193.1 65h-42.8L193 22.2z" data-name="Path 2"></path>
         <text [ngClass]="{'logo__text-dark': darkModeActive}" class="logo__text" fill="#432c85"
@@ -28,6 +28,7 @@
         <li class="card--2" (click)="goTeahotel()">아차산호텔</li>
         <li class="card--2" [routerLink]="['/expenses']">지출내역</li>
         <li class="card--3" [matMenuTriggerFor]="graphType">예제</li>
+        <li class="card--3" [routerLink]="['/home','contact']" (click)="seoul()">영상통화</li>
         <!-- <li class="card--4" [matMenuTriggerFor]="card4menu">메뉴4  </li> -->
       </ul>
 
@@ -67,9 +68,10 @@
 
     <mat-menu #graphType="matMenu">
       <!-- <button mat-menu-item  [routerLink]="['/home', 'expense']" >지출내역</button>          -->
-      <button mat-menu-item [routerLink]="['/home', 'recipe']">식자재</button>
-      <button mat-menu-item [routerLink]="['/home', 'piano']">피아노</button>
-      <button mat-menu-item [routerLink]="['/home', 'lemon']">레몬가게</button>
+      <button mat-menu-item [routerLink]="['/home', 'recipe']" (click)="seoul()">식자재</button>
+      <button mat-menu-item [routerLink]="['/home', 'cropper']" (click)="seoul()">그림잘라내기</button>
+      <button mat-menu-item [routerLink]="['/home', 'piano']" (click)="seoul()">피아노</button>
+      <button mat-menu-item [routerLink]="['/home', 'lemon']" (click)="seoul()">레몬가게</button>
       <!-- <button mat-menu-item [matMenuTriggerFor]="lazyloadType">LazyLoading</button> -->
 
       <!--   <button mat-menu-item  >서브메뉴3</button>
@@ -98,7 +100,7 @@
     <p class="source"><a [href]="safeurl">소스코드</a></p>
 
     <router-outlet></router-outlet>
-    <div class="wrapper">
+    <div class="wrapper" *ngIf="rainShow">
 
     </div>
   </div>

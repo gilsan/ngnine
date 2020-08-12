@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { PianoComponent } from './piano/piano.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { ZoomCloneComponent } from './zoom-clone/zoom-clone.component';
+import { CropperComponent } from './cropper/cropper.component';
 
 // import { LazyMainComponent } from './lazyload/lazymain.component';
 // import { LazymoduleComponent } from './lazymodule/lazymodule.component';
@@ -19,6 +21,8 @@ const routes: Routes = [
             ]
          },
          { path: 'recipe', component: RecipeComponent },
+         { path: 'contact', component: ZoomCloneComponent },
+         { path: 'cropper', component: CropperComponent },
       ],
    },
 

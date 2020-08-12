@@ -60,6 +60,7 @@ import { TestService } from './test/test.service';
 import { AddCardComponent } from './ui/add-card/add-card.component';
 import { ErrorComponent } from './ui/error/error.component';
 import { WeatherCardComponent } from './ui/weather-card/weather-card.component';
+
 // import { AngularFireModule } from '@angular/fire';
 // import { AngularFireAuthModule } from '@angular/fire/auth';
 // import { environment } from '../../environments/environment';
@@ -94,6 +95,7 @@ import { WeatherCardComponent } from './ui/weather-card/weather-card.component';
     NgModalComponent,
     AComponent,
     BComponent,
+
 
 
   ],

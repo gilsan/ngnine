@@ -1,0 +1,66 @@
+:host {
+
+  background-image: linear-gradient(to top, 135deg, #667eea 0%, #764ba2 100%);
+}
+
+.night {
+  height: 80vh;
+  width: 70vw;
+  border: 1px solid black;
+  margin: 5rem auto;
+  background: url(../../../../assets/drivecar/Img_1.png);
+  background-size: cover;
+  position: relative;
+  box-shadow: 1px 2px 60px gba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.surface {
+  height: 140px;
+  width: 500%;
+  background: url(../../../../assets/drivecar/Img_02.png);
+  display: block;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  background-repeat: repeat-x;
+
+}
+
+.car {
+  position: absolute;
+  bottom: 6%;
+  left: 24%;
+
+}
+
+.moveRight {
+  animation: moveRight 6s linear infinite;
+}
+
+.moveCar {
+  animation: suspension 1s linear infinite;
+}
+
+@keyframes moveRight {
+
+  100% {
+    transform: translateX(-2950px);
+  }
+}
+
+@keyframes suspension {
+  100% {
+    transform: translateY(-1px);
+  }
+
+  50% {
+    transform: translateY(2px);
+  }
+
+  0% {
+    transform: translateY(-1px);
+  }
+
+
+}

@@ -181,10 +181,49 @@ export class MininusComponent implements OnInit {
     this.router.navigate(['/mininus', 'cssex', 'wavycircle']);
   }
 
+  goBus() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'drivebus']);
+  }
+
+  goBubble() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'bubbles']);
+  }
+
+  goSolar() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'solarsys']);
+  }
+
+  goClock() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'clock']);
+  }
+
+  goPokeball() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'pokeball']);
+  }
+
+  goLightWave() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'lightwave']);
+
+  }
+
+
+
+
+
+
+
   goTest() {
     this.menuShow = false;
     this.router.navigate(['/mininus', 'advanced', 'test']);
   }
+
+
 
 
 

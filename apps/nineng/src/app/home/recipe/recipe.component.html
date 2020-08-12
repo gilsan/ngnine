@@ -159,7 +159,8 @@
 
      <ul class="shopping__list" *ngIf="ingredientList">
 
-       <li class="shopping__item" *ngFor="let ingre of ingredientList.ingredients">
+       <li class="shopping__item" *ngFor="let ingre of ingredientList.ingredients; let i = index"
+         (click)="removeItem(ingre, i)">
          <div class="shopping__count">
            <input type="number" [value]="ingre.count" step="1">
            <p>{{ingre.unit}}</p>

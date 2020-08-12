@@ -1,0 +1,99 @@
+@function rem($value) {
+  @return unquote(($value/1px)/16+'rem');
+}
+
+$divCount: 21;
+$start: 7;
+$end: 15;
+$white: #fff;
+$speed: 2s;
+
+.containers {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  height: rem(350px);
+  width: rem(400px);
+  background-color: black;
+  border: 1px solid;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  div {
+    display: flex;
+    justify-content: space-evenly;
+    //  border: 1px solid green;
+
+    @for $i from 1 through 6 {
+
+      &:nth-child(#{$i}),
+      &:nth-last-child(#{$i}) {
+        width: #{$i * 66px};
+      }
+    }
+
+    @for $j from $start through $end {
+      &:nth-child(#{$j}) {
+        @if $j % 2==1 {
+          width: 330px;
+        }
+
+        @else {
+          width: 396px;
+        }
+      }
+    }
+
+    @for $k from 1 through $divCount {
+      &:nth-child(#{$k}) {
+        span {
+          animation-delay: #{$k * $speed / $divCount}
+        }
+      }
+    }
+
+    span {
+      display: inline-flex;
+      height: rem(10px);
+      width: rem(10px);
+      border: 1px solid red;
+      border-radius: rem(100px);
+      background-color: rgba($white, 0.5);
+      transform: scale(0.2);
+      animation: dotAnimate $speed ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes dotAnimate {
+
+  0%,
+  60%,
+  100% {
+    background-color: rgb($white, 0.5);
+    transform: scale(0.1);
+  }
+
+  20% {
+    background-color: $white;
+    transform: scale(1);
+    box-shadow: 0px 0px 1px $white, 0px 0px 10px $white, 0px 0px 12px $white;
+  }
+}

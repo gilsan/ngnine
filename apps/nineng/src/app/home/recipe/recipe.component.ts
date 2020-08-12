@@ -225,4 +225,9 @@ export class RecipeComponent implements OnInit, OnDestroy {
     console.log('[225][][likeItem] ', this.ingredientList)
   }
 
+  removeItem(ingredient: IObjIng, i: number) {
+    // console.log('[][][] ', i, ingredient);
+    this.ingredientList.ingredients.splice(i, 1);
+  }
+
 }

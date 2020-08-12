@@ -13,12 +13,16 @@ import { HomeRoutingModule } from './home.routing.module';
 import { LemonmartModule } from './lemon-mart/lemonmart.module';
 import { PianoComponent } from './piano/piano.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { ZoomCloneComponent } from './zoom-clone/zoom-clone.component';
+import { CropperComponent } from './cropper/cropper.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     PianoComponent,
     RecipeComponent,
+    ZoomCloneComponent,
+    CropperComponent,
     // LazyMainComponent,
     // LazymoduleComponent,
 
