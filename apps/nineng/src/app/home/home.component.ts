@@ -66,8 +66,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const path = this.route.snapshot.routeConfig.path;
     if (path !== 'home') {
-      this.rainShow = false;
+      this.rainShow = true;
     }
+
   }
 
   main() {

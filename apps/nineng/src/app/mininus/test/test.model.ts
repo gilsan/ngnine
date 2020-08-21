@@ -5,3 +5,9 @@ export interface LineCordi {
     x2: number;
     y2: number;
 }
+
+export interface IUser {
+    age: number;
+    height: number;
+    income: number;
+}

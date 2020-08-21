@@ -1,0 +1,34 @@
+<div class="wrapper">
+
+  <div class="content-area">
+    <div class="grid-container">
+      <div class="grid-1">
+        <div class="sidebar">
+          <h2>Base Layers</h2>
+          <input type="radio" name='baseLayerRadioButton' value='OSMStandard' checked
+            (change)="onChange('OSMStandard')">OSM Standard<br>
+          <input type="radio" name='baseLayerRadioButton' value='OSMHumanitarian'
+            (change)="onChange('OSMHumanitarian')">OSM Humanitarian<br>
+          <input type="radio" name='baseLayerRadioButton' value='StamenTerrain'
+            (change)="onChange('StamenTerrain')">Stamen Terrain<br>
+
+          <h2>Layers</h2>
+          <input type="checkbox" name='rasterTileLayerCheckbox' (change)="onChangebox('TileArcGISLayer')"
+            value='TileArcGISLayer' checked>Tile ArcGIS Layer<br>
+          <input type="checkbox" name='rasterTileLayerCheckbox' (change)="onChangebox('NOAAWMSLayer')"
+            value='NOAAWMSLayer' checked>NOAA WMS Layer<br>
+          <input type="checkbox" name='rasterTileLayerCheckbox' (change)="onChangebox('TileDebugLayer')"
+            value='TileDebugLayer' checked>Tile Debug Layer<br>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div id="basemap" class="basemap demo-area"></div>
+        <div id="popup" class="ol-popup">
+          <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+          <div id="popup-content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

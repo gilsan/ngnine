@@ -1,0 +1,51 @@
+// :host {
+//   display: flex;
+//   justify-content: left;
+//   align-items: center;
+//   background-color: white;
+//   height: 100vh;
+// }
+
+.main {
+  width: 100vw;
+  position: relative;
+}
+
+// #road {
+//   border-bottom: 7px dashed black;
+//   width: 100%;
+// }
+
+#runner {
+  background: url(../../../../assets//sprite/walking_1.png) no-repeat;
+  width: 170px;
+  height: 330px;
+  margin: auto;
+
+  position: absolute;
+  left: 0;
+  top: 200px;
+  animation: walk 1s steps(8) infinite,
+    forward 5s linear infinite;
+}
+
+@keyframes walk {
+  0% {
+    background-position: 0px;
+  }
+
+  100% {
+    background-position: -1455px;
+  }
+}
+
+@keyframes forward {
+  0% {
+    transform: translateX(-100px);
+  }
+
+  100% {
+    transform: translateX(1200px);
+  }
+
+}

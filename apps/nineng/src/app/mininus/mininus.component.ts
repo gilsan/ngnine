@@ -212,6 +212,16 @@ export class MininusComponent implements OnInit {
 
   }
 
+  goEclipse() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'eclipse']);
+  }
+
+  goWalking() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'walking']); 
+  }
+
 
 
 

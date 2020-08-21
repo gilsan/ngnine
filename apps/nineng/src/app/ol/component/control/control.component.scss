@@ -1,0 +1,32 @@
+.map5 {
+  height: 100vh;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.content-area {
+  height: 100%;
+}
+
+.demo-area {
+  height: 100vh;
+}
+
+.rotate-north {
+  top: 65px;
+  left: .5em;
+}
+
+.ol-touch .rotate-north {
+  top: 280px;
+}
+
+.btn-sty {
+  width: 150px;
+}

@@ -17,6 +17,14 @@ const routes: Routes = [
       ],
    },
    {
+      path: 'map', children: [
+         {
+            path: '',
+            loadChildren: () => import('./ol/map.module').then((m) => m.MapModule),
+         }
+      ],
+   },
+   {
       path: 'mininus', children: [
          {
             path: '',

@@ -2,9 +2,11 @@ import { Observable, Subject, of } from 'rxjs';
 import { first, map } from 'rxjs/operators';
 
 import { AngularFirestore } from '@angular/fire/firestore';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Item } from '../models/nav-item';
+import { IUser } from './test.model';
+
 
 @Injectable()
 export class TestService {
@@ -45,6 +47,34 @@ export class TestService {
         const url = 'https://vwzu5tm6ha.execute-api.ap-northeast-2.amazonaws.com/dev/data-post';
         return this.http.delete(`${url}/all`);
 
+    }
+
+    postAws(user: IUser) {
+        const url = 'https://5w5qzxqoci.execute-api.ap-northeast-2.amazonaws.com/dev/post-data';
+        return this.http.post(`${url}`, { user });
+    }
+
+    postUser() {
+        const url = 'https://3fax4x59j1.execute-api.ap-northeast-2.amazonaws.com/dev/products';
+        return this.http.post(`${url}`, { id: "esde56", productName: "Angular 강좌" });
+    }
+
+    getProducts() {
+        const url = 'https://3fax4x59j1.execute-api.ap-northeast-2.amazonaws.com/dev/products';
+        return this.http.get(`${url}`);
+    }
+
+    getProduct() {
+        const url = 'https://3fax4x59j1.execute-api.ap-northeast-2.amazonaws.com/dev/products/test123';
+        return this.http.get(`${url}`);
+    }
+
+    updateProduct() {
+        const headers = new HttpHeaders()
+            .set("Content-Type", "application/json");
+
+        const url = ' https://3fax4x59j1.execute-api.ap-northeast-2.amazonaws.com/dev/products/test123';
+        return this.http.put(`${url}`, { id: 'test123', productName: 'angular' }, { headers });
     }
 
     /*****

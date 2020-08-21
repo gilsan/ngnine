@@ -16,6 +16,8 @@ import { ClockComponent } from './clock/clock.component';
 import { PokeballComponent } from './pokeball/pokeball.component';
 import { LightWaveComponent } from './light-wave/light-wave.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EclipseComponent } from './eclipse/eclipse.component';
+import { SpritesheetComponent } from './spritesheet/spritesheet.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,10 @@ import { HttpClientModule } from '@angular/common/http';
     PokeballComponent,
 
     LightWaveComponent,
+
+    EclipseComponent,
+
+    SpritesheetComponent,
 
   ],
   imports: [

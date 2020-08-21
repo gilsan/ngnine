@@ -65,6 +65,8 @@ import { SolarSystemComponent } from './css-example/solar-system/solar-system.co
 import { ClockComponent } from './css-example/clock/clock.component';
 import { PokeballComponent } from './css-example/pokeball/pokeball.component';
 import { LightWaveComponent } from './css-example/light-wave/light-wave.component';
+import { EclipseComponent } from './css-example/eclipse/eclipse.component';
+import { SpritesheetComponent } from './css-example/spritesheet/spritesheet.component';
 
 const routes: Routes = [
   {
@@ -139,6 +141,8 @@ const routes: Routes = [
           { path: 'clock', component: ClockComponent },
           { path: 'pokeball', component: PokeballComponent },
           { path: 'lightwave', component: LightWaveComponent },
+          { path: 'eclipse', component: EclipseComponent },
+          { path: 'walking', component: SpritesheetComponent },
         ],
       },
       {
