@@ -144,9 +144,6 @@ export class TrainingComponent implements OnInit {
     this.map.addLayer(rasterTileLayerGroup);
 
 
-
-
-
     this.map.on('singleclick', function (evt: any) {
       console.log(evt.coordinate);
       const coordinate = evt.coordinate;
@@ -188,30 +185,28 @@ export class TrainingComponent implements OnInit {
   }
 
   onChange(val: string) {
-    // this.tileArcGISLayer, this.NOAAWMSLayer, this.tileDebugLayer
+    //  this.openstreetMapStandard, this.openstreetMapHumanitarian, this.cartoDBBaseLayer
     console.log('selected', val);
-    this.tileArcGISLayer.setVisible(true);
-    this.NOAAWMSLayer.setVisible(true);
-    this.tileDebugLayer.setVisible(true);
-    if (val === 'OSMStandard') {
-      this.tileArcGISLayer.setVisible(false);
-    } else if (val === 'OSMHumanitarian') {
-      this.NOAAWMSLayer.setVisible(false);
-    } else if (val == 'StamenTerrain') {
-      this.tileDebugLayer.setVisible(false);
-    }
-  }
-
-  onChangebox(val: string) {
     this.openstreetMapStandard.setVisible(false);
     this.openstreetMapHumanitarian.setVisible(false);
     this.cartoDBBaseLayer.setVisible(false);
-    if (val === 'TileArcGISLayer') {
+    if (val === 'OSMStandard') {
       this.openstreetMapStandard.setVisible(true);
-    } else if (val === 'NOAAWMSLayer') {
+    } else if (val === 'OSMHumanitarian') {
       this.openstreetMapHumanitarian.setVisible(true);
-    } else if (val == 'TileDebugLayer') {
+    } else if (val == 'StamenTerrain') {
       this.cartoDBBaseLayer.setVisible(true);
+    }
+  }
+
+  onChangebox(values: string) {
+
+    if (values === 'TileArcGISLayer') {
+      this.tileArcGISLayer.setVisible(!this.tileArcGISLayer.getVisible());
+    } else if (values === 'NOAAWMSLayer') {
+      this.NOAAWMSLayer.setVisible(!this.NOAAWMSLayer.getVisible());
+    } else if (values === 'TileDebugLayer') {
+      this.tileDebugLayer.setVisible(!this.tileDebugLayer.getVisible());
     }
   }
 
