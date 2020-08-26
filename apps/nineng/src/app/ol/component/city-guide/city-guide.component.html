@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="city-list">
+    <clr-radio-container>
+      <label>호주도시</label>
+      <clr-radio-wrapper *ngFor="let city of cities; let i = index;">
+        <input type="radio" clrRadio name="options" (change)=" onInputChange(city)" [checked]="(i + 1) === currentIndex"
+          required />
+        <label>{{city}}</label>
+      </clr-radio-wrapper>
+    </clr-radio-container>
+  </div>
+  <div class="content-area">
+    <div class="column-map" id='openlayers-map'></div>
+  </div>
+  <div class="content-area2">
+    <h2 id='cityname' *ngIf="cityName; else city">도시명: {{cityName}}</h2>
+    <ng-template #city>
+      <p id='cityname'>호주 방문을 환영 합니다.</p>
+    </ng-template>
+
+    <img id='cityimage' *ngIf="cityImage; else cityImg" [src]="cityImage" alt="Australian_CityImage">
+    <ng-template #cityImg>
+      <img id='cityimage' src="../../../../assets/aus/Australian_Flag.jpg" alt="Australian_Flag">
+    </ng-template>
+  </div>
+
+  <div id="popup" class="ol-popup">
+    <div id="popup-content"></div>
+  </div>
+</div>

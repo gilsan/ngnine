@@ -13,6 +13,7 @@ import { PopupComponent } from './component/popup/popup.component';
 import { ControlComponent } from './component/control/control.component';
 import { FeaturesComponent } from './component/features/features.component';
 import { TrainingComponent } from './component/training/training.component';
+import { CityGuideComponent } from './component/city-guide/city-guide.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { TrainingComponent } from './component/training/training.component';
     ControlComponent,
     FeaturesComponent,
     TrainingComponent,
+    CityGuideComponent,
   ],
   imports: [
     CommonModule,

@@ -11,6 +11,10 @@
             (change)="onChange('OSMHumanitarian')">OSM Humanitarian<br>
           <input type="radio" name='baseLayerRadioButton' value='StamenTerrain'
             (change)="onChange('StamenTerrain')">Stamen Terrain<br>
+          <!-- <input type="radio" name='baseLayerRadioButton' value='VectorTileLayerOpenstreetMap'>VectorTile Layer
+          OpenstreetMap<br> -->
+
+
 
           <h2>Layers</h2>
           <input type="checkbox" name='rasterTileLayerCheckbox' (change)="onChangebox('TileArcGISLayer')"
@@ -19,6 +23,19 @@
             value='NOAAWMSLayer' checked>NOAA WMS Layer<br>
           <input type="checkbox" name='rasterTileLayerCheckbox' (change)="onChangebox('TileDebugLayer')"
             value='TileDebugLayer' checked>Tile Debug Layer<br>
+          <input type="checkbox" name='rasterLayerCheckbox' (change)="onChangebox('AchasanKML')" value='AchasanKML'
+            checked>
+          Achasan GeoJSON<br>
+          <input type="checkbox" name='rasterLayerCheckbox' (change)="onChangebox('AchasanHeatmap')"
+            value='AchasanHeatmap'>
+          히트맵<br>
+        </div>
+        <div>
+          <div>
+            <p>위도: {{long}}</p>
+            <p>경도: {{lat}}</p>
+          </div>
+
         </div>
       </div>
       <div class="grid-2">
@@ -26,6 +43,7 @@
         <div id="popup" class="ol-popup">
           <a href="#" id="popup-closer" class="ol-popup-closer"></a>
           <div id="popup-content"></div>
+          <div id="description"></div>
         </div>
       </div>
     </div>

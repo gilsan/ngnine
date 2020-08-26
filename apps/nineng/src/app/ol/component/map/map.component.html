@@ -7,11 +7,16 @@
       <!-- <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">  -->
       <a clrVerticalNavLink routerLink="basemap" routerLinkActive="active">
         <clr-icon clrVerticalNavIcon shape="user"></clr-icon>
-        지도연습
+        Layer보기
+      </a>
+
+      <a clrVerticalNavLink routerLink="city-guide" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="map-marker" class="has-badge is-solid"></clr-icon>
+        호주도시안내
       </a>
       <a clrVerticalNavLink routerLink="basic-setup" routerLinkActive="active">
         <clr-icon clrVerticalNavIcon shape="user"></clr-icon>
-        기본설정
+        기본
       </a>
       <a clrVerticalNavLink routerLink="ol-proj-setup" routerLinkActive="active">
         <clr-icon clrVerticalNavIcon shape="shield"></clr-icon>
@@ -33,6 +38,9 @@
         <clr-icon clrVerticalNavIcon shape="shield"></clr-icon>
         Clustered Features
       </a>
+
+
+
     </clr-vertical-nav>
 
 

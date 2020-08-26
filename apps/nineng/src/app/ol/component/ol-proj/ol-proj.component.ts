@@ -19,6 +19,7 @@ export class OlProjComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeMap();
+    this.getCoodinate();
   }
 
   initializeMap() {
@@ -30,11 +31,20 @@ export class OlProjComponent implements OnInit {
         })
       ],
       view: new View({
-        center: fromLonLat([127.024612, 37.532600]),
-        zoom: 4
+        //  center: fromLonLat([127.024612, 37.532600]),
+        center: [14221908.512961352, 4383249.254145688],
+        zoom: 4,
+        extent: [13803222.07858921, 3881859.326564235, 14731051.89303118, 4778675.331052711]
       })
     });
 
+  }
+
+  getCoodinate() {
+    this.map.on('click', (evt: any) => {
+      // console.log(evt.coordinate);
+
+    });
   }
 
 }

@@ -8,6 +8,7 @@ import { PopupComponent } from './component/popup/popup.component';
 import { ControlComponent } from './component/control/control.component';
 import { FeaturesComponent } from './component/features/features.component';
 import { TrainingComponent } from './component/training/training.component';
+import { CityGuideComponent } from './component/city-guide/city-guide.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
       { path: 'custom-markers', component: MarkersComponent },
       { path: 'simple-popup', component: PopupComponent },
       { path: 'custom-control', component: ControlComponent },
-      { path: 'clustered-features', component: FeaturesComponent }
+      { path: 'clustered-features', component: FeaturesComponent },
+      { path: 'city-guide', component: CityGuideComponent }
     ]
   },
 
