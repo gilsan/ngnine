@@ -11,27 +11,30 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { AuthModule } from './auth/auth.module';
+import { BackboneComponent } from './backbone/backbone.component';
 //
- // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+    BackboneComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AuthModule  ,
+    AuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
     NgbModule,
-   // CarouselModule
+    // CarouselModule
   ],
   providers: [
-    
+
   ],
- 
+
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

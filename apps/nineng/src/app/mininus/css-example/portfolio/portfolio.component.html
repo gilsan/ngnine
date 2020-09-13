@@ -1,0 +1,193 @@
+<header header>
+  <a href="mininus/cssex/portfolio#" class="logo">Portfolio</a>
+  <div class="toggle" (click)="toggle('')" [ngClass]="active ? 'active': ''"></div>
+  <ul class="menu" [ngClass]="active ? 'active': ''">
+    <li><a href="home">홈</a></li>
+    <li><a routerLinkActive="active" (click)="toggle('about')">About</a></li>
+    <li><a routerLinkActive="active" (click)="toggle('services')">Services</a></li>
+    <li><a routerLinkActive="active" (click)="toggle('work')">Work</a></li>
+    <li><a routerLinkActive="active" (click)="toggle('testimonial')">Testimonial</a></li>
+    <li><a routerLinkActive="active" (click)="toggle('contact')">Contact</a></li>
+  </ul>
+</header>
+
+<section class="banner" (window:scroll)="scroll($event)">
+  <div class="textBx">
+    <h2>안녕하세요, 저는<br /><span> 앵귤러 엔지니어 입니다.</span></h2>
+    <a (click)="toggle('about')" class="btn">About Me</a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="heading">
+    <h2>About Me</h2>
+  </div>
+  <div class="content">
+    <div class="contentBx w50">
+      <h2> 앵귤러 엔지니어 입니다.</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, nesciunt facere laboriosam quam perspiciatis
+        vero laborum consectetur blanditiis explicabo itaque culpa quaerat maxime, odio ex molestiae iure dolore optio
+        aut?<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptate neque, molestiae dolorem
+        beatae quas unde, in a sapiente est dicta debitis officia omnis inventore iusto natus minus harum excepturi!</p>
+    </div>
+    <div class="w50">
+      <img src="assets/portfolio/img1.jpg" class="img">
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="heading white">
+    <h2>Our services</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, sed facere provident est quia et itaque
+      debitis assumenda voluptatibus nesciunt repudiandae soluta consequatur, porro vitae suscipit sapiente labore
+      velit? Ipsa.</p>
+  </div>
+  <div class="content">
+    <div class="servicesBx">
+      <img src="assets/portfolio/icon1.png">
+      <h2>Web Design</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia doloribus corrupti, laboriosam sunt assumenda
+        libero accusamus rerum officia, pariatur quo sequi! Earum aut iste dignissimos quod deleniti incidunt sequi
+        aspernatur!</p>
+    </div>
+    <div class="servicesBx">
+      <img src="assets/portfolio/icon2.png">
+      <h2>Web 개발</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia doloribus corrupti, laboriosam sunt assumenda
+        libero accusamus rerum officia, pariatur quo sequi! Earum aut iste dignissimos quod deleniti incidunt sequi
+        aspernatur!</p>
+    </div>
+    <div class="servicesBx">
+      <img src="assets/portfolio/icon3.png">
+      <h2>안드로이드</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia doloribus corrupti, laboriosam sunt assumenda
+        libero accusamus rerum officia, pariatur quo sequi! Earum aut iste dignissimos quod deleniti incidunt sequi
+        aspernatur!</p>
+    </div>
+    <div class="servicesBx">
+      <img src="assets/portfolio/icon4.png">
+      <h2>사진</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia doloribus corrupti, laboriosam sunt assumenda
+        libero accusamus rerum officia, pariatur quo sequi! Earum aut iste dignissimos quod deleniti incidunt sequi
+        aspernatur!</p>
+    </div>
+    <div class="servicesBx">
+      <img src="assets/portfolio/icon5.png">
+      <h2>Content Writing</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia doloribus corrupti, laboriosam sunt assumenda
+        libero accusamus rerum officia, pariatur quo sequi! Earum aut iste dignissimos quod deleniti incidunt sequi
+        aspernatur!</p>
+    </div>
+    <div class="servicesBx">
+      <img src="assets/portfolio/icon6.png">
+      <h2>Video Editiong</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia doloribus corrupti, laboriosam sunt assumenda
+        libero accusamus rerum officia, pariatur quo sequi! Earum aut iste dignissimos quod deleniti incidunt sequi
+        aspernatur!</p>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="heading">
+    <h2>Our Latest Work</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quidem odit consectetur inventore natus sed
+      nisi molestias aliquid sapiente culpa ex nostrum, aliquam cumque a itaque repudiandae dolorem temporibus facere.
+    </p>
+  </div>
+  <div class="content">
+    <div class="workBx">
+      <img src="assets/portfolio/product1.jpg" alt="">
+    </div>
+    <div class="workBx">
+      <img src="assets/portfolio/product2.jpg" alt="">
+    </div>
+    <div class="workBx">
+      <img src="assets/portfolio/product3.jpg" alt="">
+    </div>
+    <div class="workBx">
+      <img src="assets/portfolio/product4.jpg" alt="">
+    </div>
+  </div>
+  <div class="heading">
+    <a href="mininus/cssex/portfolio" class="btn">View More</a>
+  </div>
+</section>
+
+<section class="testimonial" id="testimonial">
+  <div class="heading">
+    <h2>Testimonial</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora corrupti similique veniam aperiam dicta nesciunt
+      impedit earum minima magni possimus fugiat repudiandae, eius eum, facilis incidunt beatae quibusdam esse quia?</p>
+  </div>
+  <div class="content">
+    <div class="testimonialBx">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptatum, magnam perferendis esse quas, dicta
+        quae totam maiores eligendi sit aliquid unde rerum perspiciatis! Eligendi eveniet maxime beatae distinctio
+        molestiae!</p>
+      <h3>Someone Famous<br><span>Creative Designer</span></h3>
+    </div>
+    <div class="testimonialBx">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptatum, magnam perferendis esse quas, dicta
+        quae totam maiores eligendi sit aliquid unde rerum perspiciatis! Eligendi eveniet maxime beatae distinctio
+        molestiae!</p>
+      <h3>Someone Famous<br><span>Creative Designer</span></h3>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="heading">
+    <h2>Contact US</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta iste unde beatae molestias perferendis
+      magni sunt obcaecati, id cupiditate blanditiis illo iure commodi sequi at dolorem placeat culpa similique.</p>
+  </div>
+  <div class="content">
+    <div class="contactInfo">
+      <h3>Contact Info</h3>
+      <div class="contactInfoBx">
+        <div class="box">
+          <div class="icon">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <div class="text">
+            <h3>Address</h3>
+            <p>4562 Sugar Camp Road,<br>Owatonna, Minnesota</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="icon">
+            <i class="fa fa-phone"></i>
+          </div>
+          <div class="text">
+            <h3>Phone</h3>
+            <p>111-1234-5678</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="icon">
+            <i class="far fa-envelope"></i>
+          </div>
+          <div class="text">
+            <h3>E-mail</h3>
+            <p>angular@master.com</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="formBx">
+      <form action="">
+        <h3>Message Me</h3>
+        <input type="text" placeholder="이름">
+        <input type="email" placeholder="이메일">
+        <textarea name="" id="" cols="30" rows="5" palceholder="message"></textarea>
+        <input type="submit" value="Send">
+      </form>
+    </div>
+  </div>
+</section>

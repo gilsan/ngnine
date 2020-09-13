@@ -14,23 +14,28 @@ import { LemonmartRoutingModule } from './lemonmart.routing';
 // import { MaterialModule } from '../../material.module';
 
 import { LemonmartComponent } from './lemonmart.component';
-import { ProfileComponent } from './user/profile/profile.component';
-import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
+// import { ProfileComponent } from './user/profile/profile.component';
+// import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SharedModule } from '../../shared/shared.module';
+import { AccessibleComponent } from './maps/accessible/accessible.component';
+
+// import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 
 @NgModule({
   declarations: [
     LemonmartComponent,
-    ProfileComponent,   
-    NavigationMenuComponent,
+    // ProfileComponent,
+    // NavigationMenuComponent,
     HomeComponent,
-    PageNotFoundComponent
+    AccessibleComponent,
+    //  PageNotFoundComponent,
+
   ],
   imports: [
     CommonModule,
-  //  MaterialModule,
+    // MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     LemonmartRoutingModule,

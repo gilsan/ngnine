@@ -1,0 +1,81 @@
+.container {
+  margin-top: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .mac {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 606px;
+    height: 489px;
+
+    .imgBx {
+      position: absolute;
+      top: 24px;
+      left: 25px;
+      width: 555px;
+      height: 337px;
+      background: url('../../../../assets/apple/desktopWebsite.jpg');
+      background-position: top;
+      background-size: 100%;
+      transition: 5s;
+    }
+
+    &:hover .imgBx {
+      background-position: bottom;
+    }
+  }
+
+  .macBook {
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    z-index: 1;
+    width: 609px;
+    height: 362px;
+
+    .imgBx {
+      position: absolute;
+      top: 19px;
+      left: 72px;
+      width: 465px;
+      height: 292px;
+      background: url('../../../../assets/apple/desktopWebsite.jpg');
+      background-position: top;
+      background-size: 100%;
+      transition: 5s;
+    }
+
+    &:hover .imgBx {
+      background-position: bottom;
+    }
+  }
+
+  .iphone {
+    position: absolute;
+    top: 40%;
+    left: 12%;
+    width: 245px;
+    height: 383px;
+    z-index: 2;
+
+    .imgBx {
+      position: absolute;
+      top: 44px;
+      left: 42px;
+      width: 161px;
+      height: 286px;
+      background: url('../../../../assets/apple/mobileWebsite.jpg');
+      background-position: top;
+      background-size: 100%;
+      transition: 10s;
+    }
+
+    &:hover .imgBx {
+      background-position: bottom;
+    }
+  }
+}

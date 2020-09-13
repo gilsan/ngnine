@@ -1,5 +1,52 @@
-<p>
-    <img
-      src="https://user-images.githubusercontent.com/822159/36186559-c2ee9c4a-110d-11e8-80a6-933943a1336f.png"
-    />
-  </p>
+<div class="wrapper">
+
+  <div class="content-area">
+    <div class="grid-container">
+      <div class="grid-1">
+        <div class="sidebar">
+          <h2>Base Layers</h2>
+          <input type="radio" name='baseLayerRadioButton' value='OSMStandard' checked
+            (change)="onChange('OSMStandard')">OSM Standard<br>
+          <input type="radio" name='baseLayerRadioButton' value='OSMHumanitarian'
+            (change)="onChange('OSMHumanitarian')">OSM Humanitarian<br>
+          <input type="radio" name='baseLayerRadioButton' value='StamenTerrain'
+            (change)="onChange('StamenTerrain')">Stamen Terrain<br>
+          <!-- <input type="radio" name='baseLayerRadioButton' value='VectorTileLayerOpenstreetMap'>VectorTile Layer
+          OpenstreetMap<br> -->
+
+
+
+          <h2>Layers</h2>
+          <input type="checkbox" name='rasterTileLayerCheckbox' (change)="onChangebox('TileArcGISLayer')"
+            value='TileArcGISLayer' checked>Tile ArcGIS Layer<br>
+          <input type="checkbox" name='rasterTileLayerCheckbox' (change)="onChangebox('NOAAWMSLayer')"
+            value='NOAAWMSLayer' checked>NOAA WMS Layer<br>
+          <input type="checkbox" name='rasterTileLayerCheckbox' (change)="onChangebox('TileDebugLayer')"
+            value='TileDebugLayer' checked>Tile Debug Layer<br>
+          <input type="checkbox" name='rasterLayerCheckbox' (change)="onChangebox('AchasanKML')" value='AchasanKML'
+            checked>
+          Achasan GeoJSON<br>
+          <input type="checkbox" name='rasterLayerCheckbox' (change)="onChangebox('AchasanHeatmap')"
+            value='AchasanHeatmap'>
+          히트맵<br>
+        </div>
+        <div>
+          <div>
+            <p>위도: {{long}}</p>
+            <p>경도: {{lat}}</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="grid-2">
+        <div id="basemap" class="basemap demo-area"></div>
+        <div id="popup" class="ol-popup">
+          <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+          <div id="popup-content"></div>
+          <div id="description"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

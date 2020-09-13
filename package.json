@@ -26,7 +26,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "init-db": "ts-node ./init-db.ts"
+    "init-db": "ts-node ./init-db.ts",
+    "aws-deploy": "aws s3 sync dist/apps/nineng/ s3://com.thiinkfree.han"
   },
   "private": true,
   "dependencies": {
@@ -83,14 +84,23 @@
     "firebase": "^7.8.0",
     "flatpickr": "^4.6.3",
     "font-awesome": "^4.7.0",
+    "next-ui": "^0.9.0",
+    "ng2-select2": "^1.0.0-beta.16",
     "ngx-audio-player": "^9.0.6",
     "ngx-color-picker": "^9.1.0",
     "ngx-echarts": "^4.2.2",
     "ngx-gauge": "^1.1.0",
     "ngx-owl-carousel-o": "^3.0.0",
+    "ngx-typed-js": "^2.0.2",
     "ol": "^6.4.3",
+    "olgm": "^1.6.0",
+    "p5": "^1.1.9",
+    "particle.js": "^1.0.7",
+    "particles.js": "^2.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.0",
+    "select2": "^4.0.13",
+    "splitting": "^1.0.6",
     "subsink": "^1.0.1",
     "zone.js": "^0.10.2"
   },

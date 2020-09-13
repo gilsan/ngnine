@@ -67,6 +67,10 @@ import { PokeballComponent } from './css-example/pokeball/pokeball.component';
 import { LightWaveComponent } from './css-example/light-wave/light-wave.component';
 import { EclipseComponent } from './css-example/eclipse/eclipse.component';
 import { SpritesheetComponent } from './css-example/spritesheet/spritesheet.component';
+import { ImgScrollComponent } from './css-example/img-scroll/img-scroll.component';
+import { PortfolioComponent } from './css-example/portfolio/portfolio.component';
+import { ParticleComponent } from './css-example/particle/particle.component';
+
 
 const routes: Routes = [
   {
@@ -142,7 +146,11 @@ const routes: Routes = [
           { path: 'pokeball', component: PokeballComponent },
           { path: 'lightwave', component: LightWaveComponent },
           { path: 'eclipse', component: EclipseComponent },
+          { path: 'imgscroll', component: ImgScrollComponent },
+          { path: 'portfolio', component: PortfolioComponent },
           { path: 'walking', component: SpritesheetComponent },
+          { path: 'particle', component: ParticleComponent },
+
         ],
       },
       {

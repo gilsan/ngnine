@@ -1,0 +1,42 @@
+.example-container {
+  width: 50%;
+  height: 100vh;
+  margin: 10px;
+  border: 1px solid #555;
+}
+
+mat-sidenav {
+  width: 400px;
+}
+
+.content {
+  padding: 5px;
+  height: 90vh;
+}
+
+.bar-menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+
+  cursor: pointer;
+
+  .cards {
+    flex: 1 0 auto;
+    display: flex;
+    list-style: none;
+
+    li {
+      margin: 0 5px;
+    }
+
+    li:hover {
+      background-color: lightgreen;
+      border-radius: 5px;
+      color: black;
+      transform: translateY(-0.3rem);
+    }
+  }
+}

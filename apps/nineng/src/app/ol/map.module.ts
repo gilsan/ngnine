@@ -14,7 +14,8 @@ import { ControlComponent } from './component/control/control.component';
 import { FeaturesComponent } from './component/features/features.component';
 import { TrainingComponent } from './component/training/training.component';
 import { CityGuideComponent } from './component/city-guide/city-guide.component';
-
+import { Layer1Module } from './component/layer1/layer1.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,13 @@ import { CityGuideComponent } from './component/city-guide/city-guide.component'
     CityGuideComponent,
   ],
   imports: [
+
     CommonModule,
+    HttpClientModule,
     MapRoutingModule,
     MaterialModule,
     ClarityModule,
+    Layer1Module,
   ]
 })
 export class MapModule { }

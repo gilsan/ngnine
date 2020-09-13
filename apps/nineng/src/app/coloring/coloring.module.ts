@@ -23,6 +23,8 @@ import { ColoringmgnModule } from './coloringmgn/coloringmgn.module';
 import { RecordingModule } from './recording/recording.module';
 import { StaticsModule } from './statics/statics.module';
 
+import { ClarityModule } from "@clr/angular";
+
 @NgModule({
     declarations: [
         AdminComponent,
@@ -54,9 +56,10 @@ import { StaticsModule } from './statics/statics.module';
         ColoringmgnModule,
         RecordingModule,
         StaticsModule,
+        ClarityModule,
     ],
     providers: [
-      //  { provide: LOCALE_ID, useValue: 'ko'},
+        //  { provide: LOCALE_ID, useValue: 'ko'},
     ],
 })
-export class ColoringModule {}
+export class ColoringModule { }

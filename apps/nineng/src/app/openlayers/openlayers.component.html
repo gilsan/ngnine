@@ -1,0 +1,23 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #start [(opened)]="opened" class="mat-elevation-z10">
+    <app-sidebar-menu [menu]="menu" [imageDesc]="imageDesc" (selected)="toggle()">
+    </app-sidebar-menu>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="bar-menu">
+
+      <ul class="cards">
+        <li class="card--1">컬러링</li>
+      </ul>
+    </div>
+  </mat-toolbar>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

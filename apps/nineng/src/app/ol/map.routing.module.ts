@@ -10,6 +10,11 @@ import { FeaturesComponent } from './component/features/features.component';
 import { TrainingComponent } from './component/training/training.component';
 import { CityGuideComponent } from './component/city-guide/city-guide.component';
 
+import { AccessibleComponent } from './component/layer1/accessible/accessible.component';
+import { MapboxComponent } from './component/layer1/mapbox/mapbox.component';
+import { CenterComponent } from './component/layer1/center/center.component';
+import { AttributionComponent } from './component/layer1/attribution/attribution.component';
+import { BoxSelectionComponent } from './component/layer1/box-selection/box-selection.component';
 
 const routes: Routes = [
   {
@@ -22,7 +27,12 @@ const routes: Routes = [
       { path: 'simple-popup', component: PopupComponent },
       { path: 'custom-control', component: ControlComponent },
       { path: 'clustered-features', component: FeaturesComponent },
-      { path: 'city-guide', component: CityGuideComponent }
+      { path: 'city-guide', component: CityGuideComponent },
+      { path: 'accessible', component: AccessibleComponent },
+      { path: 'attributions', component: AttributionComponent },
+      { path: 'mapbox', component: MapboxComponent },
+      { path: 'center', component: CenterComponent },
+      { path: 'box-selection', component: BoxSelectionComponent },
     ]
   },
 
@@ -31,6 +41,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+
     RouterModule.forChild(routes),
   ],
   exports: [RouterModule],

@@ -4,6 +4,9 @@ import { NavItem } from './models/nav-item';
 import { Router, ActivatedRoute } from '@angular/router';
 import { homeMenu } from '../shared/models/menu-list';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { ParticlesConfig } from './particles-config';
+
+declare let particlesJS: any;
 
 @Component({
   selector: 'app-home',
@@ -26,6 +29,24 @@ export class HomeComponent implements OnInit {
   menu: NavItem[] = homeMenu;
   imageDesc = '홈';
   info = false;
+
+
+
+  contents = ['환영합니다.',
+    '페이지 개발환경 입니다.', 'Angular 9 RxJS, 웹서버: Node.js 12.0, 디비: MySQL, Firebase',
+    'Web Hosting Server: Firebase'];
+
+  completed() {
+    console.log('completed ......');
+    this.contents = [];
+
+
+  };
+
+  init() {
+    particlesJS('snow_fall', ParticlesConfig, function () { });
+  }
+
   /*
    [
     { 
@@ -68,6 +89,8 @@ export class HomeComponent implements OnInit {
     if (path !== 'home') {
       this.rainShow = true;
     }
+
+
 
   }
 

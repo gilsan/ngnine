@@ -5,20 +5,22 @@ import { ScrollComponent } from './scroll/scroll.component';
 import { SubscrollComponent } from './subscroll.component';
 import { SubscrollRouting } from './subscroll.routing';
 import { WINDOW_PROVIDERS } from '../window.service';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
-   declarations:[
-    ScrollComponent,
-    SubscrollComponent,
-    NavbarsComponent
-   ],
-   imports: [
-       CommonModule,
-       SubscrollRouting
-   ],
-   exports:[],
-   providers:[
-    WINDOW_PROVIDERS
-   ]
+    declarations: [
+        ScrollComponent,
+        SubscrollComponent,
+        NavbarsComponent
+    ],
+    imports: [
+        CommonModule,
+        SubscrollRouting,
+        MaterialModule
+    ],
+    exports: [],
+    providers: [
+        WINDOW_PROVIDERS
+    ]
 })
-export class SubscrollModule {}
+export class SubscrollModule { }

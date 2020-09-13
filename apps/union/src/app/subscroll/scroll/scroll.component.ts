@@ -21,7 +21,7 @@ export class ScrollComponent implements OnInit {
   @HostListener("window:scroll", [])
   onWindowScroll() {
     const offset = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    console.log(offset);
+    console.log('scroll', offset);
   }
 
 }

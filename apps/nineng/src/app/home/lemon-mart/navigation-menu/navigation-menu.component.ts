@@ -1,7 +1,7 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NavItem } from '../../models/nav-item';
 import { Router } from '@angular/router';
- 
+
 
 @Component({
   selector: 'app-navigation-menu',
@@ -12,21 +12,21 @@ export class NavigationMenuComponent implements OnInit {
 
   @Output() selected: EventEmitter<any> = new EventEmitter();
 
-  menu: NavItem [] = [
-    { 
-      displayName: 'Manager',
+  menu: NavItem[] = [
+    {
+      displayName: 'openlayer예제',
       iconName: 'supervisor_account',
       children: [
-         {
-            displayName:'사용자',
-            iconName: 'face',
-            route:'/home/lemon/users'
-         },
-         {
-          displayName:'레시피',
+        {
+          displayName: '사용자12',
+          iconName: 'face',
+          route: '/home/lemon/users'
+        },
+        {
+          displayName: '레시피',
           iconName: 'restaurant_menu',
-          route:'/home/lemon/receipts'           
-         }
+          route: '/home/lemon/receipts'
+        }
       ]
     },
     {
@@ -34,34 +34,34 @@ export class NavigationMenuComponent implements OnInit {
       iconName: 'edit',
       children: [
         {
-          displayName:'Stock Entry',
+          displayName: 'Stock Entry',
           iconName: 'layers',
-          route:'/home/lemon/inventory/stockEntry'          
+          route: '/home/lemon/inventory/stockEntry'
         },
         {
-          displayName:'Products',
+          displayName: 'Products',
           iconName: 'library_books',
-          route:'/home/lemon/inventory/products'    
+          route: '/home/lemon/inventory/products'
         },
         {
-          displayName:'Categories',
+          displayName: 'Categories',
           iconName: 'category',
-          route:'/home/lemon/inventory/categories'    
+          route: '/home/lemon/inventory/categories'
         },
-      ]     
+      ]
     },
     {
       displayName: 'POS',
       iconName: 'person_add',
       children: [
-         { 
-           displayName:'POS' ,
-           iconName: 'rate_review',
-           route: '/home/lemon/pos'
+        {
+          displayName: 'POS',
+          iconName: 'rate_review',
+          route: '/home/lemon/pos'
         }
       ]
-           
-    },   
+
+    },
   ];
 
   constructor(
@@ -72,12 +72,12 @@ export class NavigationMenuComponent implements OnInit {
   }
 
   goSubMenu(submenu: string) {
-     this.selected.emit(null);
-     this.router.navigateByUrl(submenu);
+    this.selected.emit(null);
+    this.router.navigateByUrl(submenu);
   }
 
   goItem(item: NavItem) {
-     
+
     this.router.navigateByUrl(item.route);
   }
 

@@ -18,6 +18,11 @@ import { LightWaveComponent } from './light-wave/light-wave.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EclipseComponent } from './eclipse/eclipse.component';
 import { SpritesheetComponent } from './spritesheet/spritesheet.component';
+import { ImgScrollComponent } from './img-scroll/img-scroll.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { HeaderDrective } from './portfolio/header.directive';
+import { ParticleComponent } from './particle/particle.component';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +51,12 @@ import { SpritesheetComponent } from './spritesheet/spritesheet.component';
     EclipseComponent,
 
     SpritesheetComponent,
+
+    ImgScrollComponent,
+
+    PortfolioComponent,
+    HeaderDrective,
+    ParticleComponent,
 
   ],
   imports: [

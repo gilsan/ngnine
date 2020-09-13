@@ -3,7 +3,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { NavItem } from '../models/nav-item';
-import { lemonMenu } from '../../shared/models/menu-list';
+import { openLayerMenu } from '../../shared/models/menu-list';
 
 @Component({
   selector: 'app-lemonmart',
@@ -13,10 +13,11 @@ import { lemonMenu } from '../../shared/models/menu-list';
 export class LemonmartComponent implements OnInit {
 
   opened = false;
-  menu: NavItem[] = lemonMenu;
-  imageDesc = '레몬';
-  
-  @ViewChild('sidenav', {static: true}) sidenav: Observable<any>;
+  menu: NavItem[] = openLayerMenu;
+
+  imageDesc = '진도견';
+
+  @ViewChild('sidenav', { static: true }) sidenav: Observable<any>;
   constructor(
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer
@@ -25,11 +26,12 @@ export class LemonmartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   closebar() {
     console.log('[][][lemon]');
-        
+
   }
   // sidebarToggle() {
   //   this.opened = !this.opened;

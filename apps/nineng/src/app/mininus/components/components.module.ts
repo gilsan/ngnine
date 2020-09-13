@@ -45,6 +45,7 @@ import { GameComponent } from './rxjs/game/game.component';
 import { BoardComponent } from './rxjs/tetris/board/board.component';
 import { GameService } from './rxjs/tetris/services/game.service';
 import { TetrisComponent } from './rxjs/tetris/tetris.component';
+import { MapComponent } from './ngrx/maps/map.component';
 
 @NgModule({
    declarations: [
@@ -82,6 +83,7 @@ import { TetrisComponent } from './rxjs/tetris/tetris.component';
       LoginComponent,
       ViewChildComponent,
       ColorSampleComponent,
+      MapComponent,
    ],
    imports: [
       CommonModule,

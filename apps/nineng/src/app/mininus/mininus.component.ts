@@ -217,9 +217,24 @@ export class MininusComponent implements OnInit {
     this.router.navigate(['/mininus', 'cssex', 'eclipse']);
   }
 
+  goImageScroll() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'imgscroll']);
+  }
+
+  goPortfolio() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'portfolio']);
+  }
+
   goWalking() {
     this.cssMenuShow = false;
-    this.router.navigate(['/mininus', 'cssex', 'walking']); 
+    this.router.navigate(['/mininus', 'cssex', 'walking']);
+  }
+
+  goSnow() {
+    this.cssMenuShow = false;
+    this.router.navigate(['/mininus', 'cssex', 'particle']);
   }
 
 

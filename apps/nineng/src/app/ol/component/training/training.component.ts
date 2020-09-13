@@ -189,7 +189,7 @@ export class TrainingComponent implements OnInit, OnDestroy {
 
 
     const achaSanStyle = function (feature: Feature) {
-      //  console.log(feature.getGeometry().getType());
+      //  console.log('[192 Training]:', feature);
       let geometryType = feature.getGeometry().getType();
       // Text Styles
       let nameType = feature.get('name');
@@ -282,7 +282,7 @@ export class TrainingComponent implements OnInit, OnDestroy {
   mapPopup() {
     this.map.on('click', (e: any) => {
       this.map.forEachFeatureAtPixel(e.pixel, (feature, layer) => {
-        // console.log(evt.coordinate);
+        console.log('[285][mapPopup]', feature);
         const coordinate = e.coordinate;
         const name = feature.get('name');
         const contact = feature.get('contact');
@@ -337,7 +337,7 @@ export class TrainingComponent implements OnInit, OnDestroy {
       let LongLatGeolocation = toLonLat(geolocation, viewProjection);
 
       this.map.getView().setCenter(geolocation);
-      console.log('위치: ', LongLatGeolocation);
+      // console.log('위치: ', LongLatGeolocation);
       this.long = LongLatGeolocation[0].toString();
       this.lat = LongLatGeolocation[1].toString();
     })

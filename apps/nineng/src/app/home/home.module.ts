@@ -15,6 +15,7 @@ import { PianoComponent } from './piano/piano.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { ZoomCloneComponent } from './zoom-clone/zoom-clone.component';
 import { CropperComponent } from './cropper/cropper.component';
+import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CropperComponent } from './cropper/cropper.component';
     LemonmartModule,
     ExpenseModule,
     SharedModule,
+    NgxTypedJsModule
 
   ],
   providers: [

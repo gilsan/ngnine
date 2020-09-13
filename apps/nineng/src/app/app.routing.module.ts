@@ -3,6 +3,7 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { BackboneComponent } from './backbone/backbone.component';
 
 const routes: Routes = [
    { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +22,22 @@ const routes: Routes = [
          {
             path: '',
             loadChildren: () => import('./ol/map.module').then((m) => m.MapModule),
+         }
+      ],
+   },
+   {
+      path: 'gis', children: [
+         {
+            path: '',
+            loadChildren: () => import('./gis/gis.module').then((m) => m.GisModule)
+         }
+      ]
+   },
+   {
+      path: 'maps', children: [
+         {
+            path: '',
+            loadChildren: () => import('./openlayers/openlayers.module').then((m) => m.OpenlayersModule),
          }
       ],
    },
@@ -65,6 +82,9 @@ const routes: Routes = [
          // tslint:disable-next-line: max-line-length
          { path: '', loadChildren: () => import('./routingcourse/routingCourse.module').then((m) => m.RoutingCourseModule) },
       ],
+   },
+   {
+      path: 'topology', component: BackboneComponent
    },
    { path: '**', redirectTo: '/home' },
 ];
