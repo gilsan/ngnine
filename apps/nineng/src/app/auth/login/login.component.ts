@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
-      email: ['test@test.com'],
+      email: ['test@test.com',],
       passwd: ['123456'],
     });
 
