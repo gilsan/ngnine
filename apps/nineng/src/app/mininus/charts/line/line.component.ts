@@ -5,7 +5,7 @@ import { TestService } from '../../test/test.service';
 import { SubSink } from 'subsink';
 import { ChartService } from '../chart.service';
 import { interval } from 'rxjs';
- 
+
 
 @Component({
   selector: 'app-line',
@@ -13,7 +13,7 @@ import { interval } from 'rxjs';
   styleUrls: ['./line.component.scss']
 })
 export class LineComponent implements OnInit, OnDestroy {
-  
+
   options = {
     xAxis: {
       type: 'category',
@@ -42,30 +42,30 @@ export class LineComponent implements OnInit, OnDestroy {
    value :number;
    timer: any;
    oneDay = 24 * 3600 * 1000;
-   
+
   private subs = new SubSink();
   constructor(
     private api: MockServerService,
     private http: HttpClient,
     private service: ChartService
   ) { }
- 
+
   ngOnInit() {
-     
+
     this.data = [];
     this.now = new Date(2020, 1, 1);
     this.value = Math.random() * 1000;
-    
+
     for (let i = 0; i < 1000; i++) {
       this.data.push(this.randomData());
     }
- 
+
     this.option = {
       tooltip: {
         trigger: 'axis',
-        formatter: (params) => {     
+        formatter: (params) => {
           params = params[0];
-          const date = new Date(params.name);     
+          const date = new Date(params.name);
           return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
         },
         axisPointer: {
@@ -77,7 +77,7 @@ export class LineComponent implements OnInit, OnDestroy {
         splitLine: {
           show: true
         },
-         
+
       },
       yAxis: {
         type: 'value',
@@ -92,9 +92,9 @@ export class LineComponent implements OnInit, OnDestroy {
         showSymbol: false,
         hoverAnimation: false,
         data: this.data,
-        label: {        
+        label: {
             show: true,
-            position: 'top'         
+            position: 'top'
         }
       }]
     };
@@ -117,9 +117,10 @@ export class LineComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
         this.subs.unsubscribe();
+
   }
 
-  
+
   getData() {
     this.loading = true;
     this.api.getData()
@@ -129,7 +130,7 @@ export class LineComponent implements OnInit, OnDestroy {
       .catch(e => {   })
       .then(() => { this.loading = false; });
   }
-  
+
   getDate() {
     for( let i =0; i < 1000; i++){
       this.data.push(this.randomData());
@@ -143,10 +144,10 @@ export class LineComponent implements OnInit, OnDestroy {
     return {
        name: this.now.toString(),
        value: [
-        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'), 
+        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'),
         Math.round(value)
        ]
-    }   
+    }
   }
 
 }
