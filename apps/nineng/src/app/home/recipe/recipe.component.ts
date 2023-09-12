@@ -58,7 +58,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
     this.subs.sink = this.recipes$.subscribe((data) => {
       this.recipes = data.recipes;
       this.renderResults();
-       console.log('[count]-[recipes] ...,..',  this.recipes);
+       console.log('[count]-[recipes] ...,.......',  this.recipes);
     });
   }
 
