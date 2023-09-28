@@ -34,7 +34,7 @@ export class PieComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
       this.service.testHttps().subscribe(data => {
-          console.log('[mininus/charts/pie/pie component]Https Test.....', data);
+          console.log('[mininus/charts/pie/pie component]Https Test..........', data);
       });
       this.subs.sink =  interval(3000).pipe(
           switchMap( result => this.service.getSystem()),
