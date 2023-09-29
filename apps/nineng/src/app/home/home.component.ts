@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     'Web Hosting Server: Firebase'];
 
   completed() {
-    console.log('completed ......');
+    console.log('completed ...............');
     this.contents = [];
 
 
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
 
   /*
    [
-    { 
+    {
       displayName: 'Home',
       iconName: 'library_books',
       children: [
@@ -61,15 +61,15 @@ export class HomeComponent implements OnInit {
          {
           displayName:'운동',
           iconName: 'question_answer',
-          route:'/fitness'           
+          route:'/fitness'
          }
       ]
     },
     {
       displayName: '로그아웃',
       iconName: 'person_add',
-      route: '/login'     
-    },   
+      route: '/login'
+    },
   ]
   */
 
