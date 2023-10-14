@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     'Web Hosting Server: Firebase'];
 
   completed() {
-    console.log('completed ===== xxxxxxx xxxx ===== ^^ ^^  ^^ ^^ ========== >,,,,,,,,');
+    console.log('completed ===== xxxxx xxxx ===== ^^ ^^  ^^ ^^ ========== >,,,,,,,,');
     this.contents = [];
 
 
