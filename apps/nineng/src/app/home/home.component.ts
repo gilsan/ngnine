@@ -33,11 +33,11 @@ export class HomeComponent implements OnInit {
 
 
   contents = ['환영합니다.',
-    '페이지 개발환경 입니다.', 'Angular 9 RxJS, 웹서버: Node.js 12.0, 디비: MySQL, Firebase',
+    '페이지 개발환경 입니다.', 'Angular 9 RxJS, 웹서버: Node.js 12.0, 디비: MySQL, Firebase.........',
     'Web Hosting Server: Firebase'];
 
   completed() {
-    console.log('completed ===========================-----==========-------======================================---=======------=======----=========--================= xxxXXXXX  ==== ===== --->> xx xxxx ===== ^^ ^^  ^^ ^^  ^^  ============ >>>>');
+    console.log('============================ 완료 ==========================================');
     this.contents = [];
 
 
